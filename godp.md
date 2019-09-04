@@ -5,9 +5,8 @@
 > informações, considerando que projetamos algo (produto), para alguém (usuário)
 > em algum lugar (contexto).
 
-ref 1: http://ngd.ufsc.br/wp-content/uploads/2018/03/e-book-godp.pdf
-ref 2:
-https://repositorio.ufsc.br/xmlui/bitstream/handle/123456789/128821/331968.pdf
+ref 1: http://ngd.ufsc.br/wp-content/uploads/2018/03/e-book-godp.pdf  
+ref 2: https://repositorio.ufsc.br/xmlui/bitstream/handle/123456789/128821/331968.pdf  
 
 Este documento pretende documentar o processo de desenvolvimento deste produto
 tendo como principal referência a metodologia contida no GODP, de Giselle Schmidt Alves Díaz Merino.
@@ -49,6 +48,7 @@ A partir disso, a ideia de transpor os controles principais do painel para o vol
 Este tema de projeto foi então proposto como projeto do autor na unidade de Projeto Integrador 3 do curso de Engenharia Eletrônica, possuindo todos os requisitos da disciplina, podendo ser realizado no tempo viável para levar para a próxima competição (dezembro de 2019) e para o prazo de finalização da disciplina.
 
 Este projeto, por ser de interesse da equipe, conta com o orçamento financeiro da equipe, e também pode necessitar de apoio técnico da mesma. Por se tratar de um projeto realizado dentro da equipe, deve cumprir os seguintes requisitos:
+
 * ser desenvolvido de forma open-source.
 * ser desenvolvido com o menor custo possível.
 * Ter um protótipo estável antes da data da competição (dezembro de 2019).
@@ -57,12 +57,57 @@ Este projeto, por ser de interesse da equipe, conta com o orçamento financeiro 
 
 Deste modo, o autor considera um projeto tecnicamente viável, porém, desafiador.
 
+Considerando que na competição esta seria o primeiro volante com controles integrados, se trata de um projeto de inovação dentro da competição, contribuindo para o objetivo da equipe de ganhar novamente o prêmio de inovação tecnológica.
 
 ### [0] PROSPECÇÃO
 
-Se tratando de um equipamento a ser utilizado fora de fins comerciais, não há qualquer limitação quanto à viabilidade legal de qualquer técnica, protegida ou não por patente.
+A demanda levantada na entrevista foi a melhoria da interface de controle e feedback do piloto por meio da implementação de um volante com controles e feedback visual, principalmente no que se diz respeito ao controle da velocidade da embarcação, que é o ajuste com a maior frequência de uso depois do próprio controle da direção da embarcação. 
+
+Outro ponto levantado foi a melhoria da performance implementando um cronômetro no volante, que facilitaria muito em relação à operação de um relógio de pulso.
+
+Se tratando de um equipamento a ser utilizado fora de fins comerciais, não há qualquer limitação quanto à viabilidade legal de qualquer técnica empregada.
+
+Entre a equipe, foi acordado que o próprio piloto terá atuação no projeto mecânico da direção, buscando otimizar a localização, ergonomia, vedação e montagem da direção.
 
 ### [1] LEVANTAMENTO DE DADOS
+
+A partir da identificação da oportunidade, uma etapa de investigação e mapeamento das possíveis interfaces de controle e feedback foi realizado, pegando referências nos volantes se formula 1 e controles de videogame, sumarizado em forma de um mapa mental, pensando em como estas tecbologias poderiam ser explorados para realizar as interfaces identificadas como potenciais soluções, ainda não selecionadas, explorando suas viabilidades técnicas e econômicas, tempo e dificuldade de implementação, de acordo com a experiência do autor.
+
+Que elementos de interface são utilizadas num volante de Fórmula 1 e o no que elas atuam? Onde ficam localizadas?
+
+* Visual
+    * Displays LCD
+        * proposta: multi-funções, centralizando informações: mostrar menus, configurações, mensagens de erro, gráficos de mudança de marcha, kers, velocidade, tempo de volta, rpm do motor, etc.
+            * posicionamento: central
+    * Displays de 7 segmentos
+        * proposta: tempo de volta, códigos de erro, kers disponíveis, velocidade
+            * posicionamento vertical: superior
+    * Leds
+        * fila / barras colorida
+            * proposta: ponto de mudança de marcha (limites de RPM) e sinalizam diversos erros no sistema
+                * posicionamento: superior
+* Controle
+    * Chaves
+        * rotacionais de multi-posições
+            * proposta: seleção de diferentes contextos para os botões da direção
+                * posicionamento: central
+            * proposta: seleção do mapeamento da mistura de combustível
+                * posicionamento: inferior
+            * proposta: seleção do mapeamento da dinâmica da suspensão
+                * posicionamento: inferior
+        * rotacionais tipo thumb-wheel
+            * proposta: configuração do diferencial
+            * proposta: configuração do freio
+    * Potenciômetros
+        * rotacionais
+            * proposta: mapeamento da suspensão, diferencial, ou pedal de aceleração.
+                * posicionamento: lateral, acessível sem retirar a mão da posição de controle da direção do veículo 
+    * Botões
+        * proposta: modificar parâmetros em geral
+            * posicionamento: lateral, perto dos dedos
+    * Alavancas / borboletas
+        * proposta: embreagem
+            * posicionamento: lateral, traseira
 
 Após racionalizar sobre os itens levantados na entrevista com os pilotos, foi investigado, em um segundo momento, se um controle que permitisse uma mudança fácil para o máximo seria interessante e ambos concordaram com entusiasmo, seguido de uma série de projeções quanto ao seu uso durante as provas, indicando uma melhoria que agregaria valor.
 
@@ -72,7 +117,7 @@ Já em 2018, a fim de garantir o bom funcionamento do controle de velocidade, os
 
 ---
 
-A partir da identificação da oportunidade, uma etapa de investigação e mapeamento das possíveis interfaces de controle e feedback foi realizado, pegando referências nos volantes se formula 1 e controles de videogame, sumarizado em forma de um mapa mental, pensando em como estas tecbologias poderiam ser explorados para realizar as interfaces identificadas como potenciais soluções, ainda não selecionadas, explorando suas viabilidades técnicas e econômicas, tempo e dificuldade de implementação, de acordo com a experiência do autor.
+
 
 ## MOMENTO DE IDEAÇÃO
 
