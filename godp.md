@@ -57,21 +57,19 @@ Este projeto, por ser de interesse da equipe, conta com o orçamento financeiro 
 
 Deste modo, o autor considera um projeto tecnicamente viável, porém, desafiador.
 
-Considerando que na competição esta seria o primeiro volante com controles integrados, se trata de um projeto de inovação dentro da competição, contribuindo para o objetivo da equipe de ganhar novamente o prêmio de inovação tecnológica.
+Considerando que na competição esta seria o primeiro volante com controles integrados, se trata de um projeto de inovação dentro do contexto da competição, contribuindo para um dos objetivos da equipe, que é ganhar o prêmio de inovação tecnológica Fernando Amorim.
 
 ### [0] PROSPECÇÃO
 
 A demanda levantada na entrevista foi a melhoria da interface de controle e feedback do piloto por meio da implementação de um volante com controles e feedback visual, principalmente no que se diz respeito ao controle da velocidade da embarcação, que é o ajuste com a maior frequência de uso depois do próprio controle da direção da embarcação. 
 
-Outro ponto levantado foi a melhoria da performance implementando um cronômetro no volante, que facilitaria muito em relação à operação de um relógio de pulso.
+Se tratando de um equipamento a ser utilizado fora de quaisquer fins comerciais, não há qualquer limitação quanto à viabilidade legal de qualquer técnica empregada.
 
-Se tratando de um equipamento a ser utilizado fora de fins comerciais, não há qualquer limitação quanto à viabilidade legal de qualquer técnica empregada.
-
-Entre a equipe, foi acordado que o próprio piloto terá atuação no projeto mecânico da direção, buscando otimizar a localização, ergonomia, vedação e montagem da direção.
+Entre a equipe, foi acordado que o próprio piloto Marcos terá atuação no projeto mecânico da direção, buscando otimizar a localização, ergonomia, vedação e montagem da direção.
 
 ### [1] LEVANTAMENTO DE DADOS
 
-A partir da identificação da oportunidade, uma etapa de investigação e mapeamento das possíveis interfaces de controle e feedback foi realizado, pegando referências nos volantes se formula 1 e controles de videogame, sumarizado em forma de um mapa mental, pensando em como estas tecbologias poderiam ser explorados para realizar as interfaces identificadas como potenciais soluções, ainda não selecionadas, explorando suas viabilidades técnicas e econômicas, tempo e dificuldade de implementação, de acordo com a experiência do autor.
+A partir da identificação da oportunidade, uma etapa de investigação e mapeamento das possíveis interfaces de controle e feedback foi realizado, pegando referências nos volantes se formula 1 e controles de videogame, sumarizado em forma de um mapa mental, pensando em como estas tecnologias poderiam ser explorados para realizar as interfaces identificadas como potenciais soluções, ainda não selecionadas.
 
 Que elementos de interface são utilizadas num volante de Fórmula 1 e o no que elas atuam? Onde ficam localizadas?
 
@@ -114,6 +112,8 @@ Após racionalizar sobre os itens levantados na entrevista com os pilotos, foi i
 Contextualizando e já res​​gatando um histórico, de 2014 para 2015 um controle que permitia uma mudança fácil para o nível máximo tinha sido implementado utilizando uma chave alavanca de duas posições como uma medida de redundância, para permitir que o piloto tivesse algum controle caso o potenciômetro apresentasse falhas, que foi um problema recorrente em 2014. Tal chave foi removida do painel em 2016 por ser considerado não mais necessária se outras medidas para aumentar a confiabilidade fossem tomadas.
 
 Já em 2018, a fim de garantir o bom funcionamento do controle de velocidade, os potenciômetros do painel foram montados em suportes fixados atrás do painel, expondo à água um segundo eixo, que de um lado era acoplado no eixo do potenciômetro, e do outdo, em um knob no painel na face acessível ao piloto, contendo uma borracha de vedação entre a parte fica do  ficando altamente protegido da água.
+
+Outro ponto levantado foi a melhoria da performance durante as provas implementando um relógio/cronômetro diretamente no volante, que traria agilidade ao piloto em relação à operação de um relógio de pulso.
 
 ---
 
