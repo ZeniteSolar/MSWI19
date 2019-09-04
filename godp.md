@@ -71,6 +71,14 @@ Entre a equipe, foi acordado que o próprio piloto Marcos terá atuação no pro
 
 A partir da identificação da oportunidade, uma etapa de investigação e mapeamento das possíveis interfaces de controle e feedback foi realizado, pegando referências nos volantes se formula 1 e controles de videogame, sumarizado em forma de um mapa mental, pensando em como estas tecnologias poderiam ser explorados para realizar as interfaces identificadas como potenciais soluções, ainda não selecionadas.
 
+Foi feita uma pesquisa na web por imagens de referências, vídeos e matérias que explicam o funcionamento dos volantes de fórmula 1.
+
+---
+
+## MOMENTO DE IDEAÇÃO
+
+### [2] ANÁLISE DE DADOS
+
 Que elementos de interface são utilizadas num volante de Fórmula 1 e o no que elas atuam? Onde ficam localizadas?
 
 * Visual
@@ -107,6 +115,8 @@ Que elementos de interface são utilizadas num volante de Fórmula 1 e o no que 
         * proposta: embreagem
             * posicionamento: lateral, traseira
 
+### [3] CRIAÇÃO
+
 Após racionalizar sobre os itens levantados na entrevista com os pilotos, foi investigado, em um segundo momento, se um controle que permitisse uma mudança fácil para o máximo seria interessante e ambos concordaram com entusiasmo, seguido de uma série de projeções quanto ao seu uso durante as provas, indicando uma melhoria que agregaria valor.
 
 Contextualizando e já res​​gatando um histórico, de 2014 para 2015 um controle que permitia uma mudança fácil para o nível máximo tinha sido implementado utilizando uma chave alavanca de duas posições como uma medida de redundância, para permitir que o piloto tivesse algum controle caso o potenciômetro apresentasse falhas, que foi um problema recorrente em 2014. Tal chave foi removida do painel em 2016 por ser considerado não mais necessária se outras medidas para aumentar a confiabilidade fossem tomadas.
@@ -115,15 +125,9 @@ Já em 2018, a fim de garantir o bom funcionamento do controle de velocidade, os
 
 Outro ponto levantado foi a melhoria da performance durante as provas implementando um relógio/cronômetro diretamente no volante, que traria agilidade ao piloto em relação à operação de um relógio de pulso.
 
+[ documentar propostas..... ]
+
 ---
-
-
-
-## MOMENTO DE IDEAÇÃO
-
-### [2] ANÁLISE DE DADOS
-
-### [3] CRIAÇÃO
 
 ## MOMENTO IMPLEMENTAÇÃO
 
