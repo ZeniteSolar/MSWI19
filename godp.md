@@ -73,6 +73,11 @@ A partir da identificação da oportunidade, uma etapa de investigação e mapea
 
 Foi feita uma pesquisa na web por imagens de referências, vídeos e matérias que explicam o funcionamento dos volantes de fórmula 1.
 
+<table><td><tr>
+    <img src="design/imgs_iteration_1/ref_1.jpeg" alt="Direção de Fórmula 1" width="200"/>
+    <img src="design/imgs_iteration_1/ref_2.jpeg" alt="Utilização dos botões" width="200"/>
+</tr></td></table>
+
 ---
 
 ## MOMENTO DE IDEAÇÃO
@@ -128,6 +133,57 @@ Já em 2018, a fim de garantir o bom funcionamento do controle de velocidade, os
 Outro ponto levantado foi a melhoria da performance durante as provas implementando um relógio/cronômetro diretamente no volante, que traria agilidade ao piloto em relação à operação de um relógio de pulso.
 
 [ documentar propostas..... ]
+
+#### Primeira itearção no design
+
+Inspirado nas dimensões do volante já existente na embarcação e na forma dos volantes de Fórmula 1 atuais, uma primeira iteração no design foi realizada, iniciando com uma forma simples de um retângulo, com rasgos para o posicionamento dos dedos do piloto.
+
+<table><td>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_1.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_1_.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_1_technical_drawing.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+</td></table>
+
+Realizando uma redução de área possivlemente não útil, gerou-se uma segunda alternativa:
+
+<table><td>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_2.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_2_.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_2_technical_drawing.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+</td></table>
+
+A partir disso, a pega reduzida para caber dentro da palma da mão do piloto, gerando três variações, das quais a terceira foi a preferida. Desta terceira opção, uma área foi reservada para a placa de circuito impresso, buscando um bom aproveitamento de área
+
+<table><td>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_3_alt_1.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_3_alt_2.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_3_alt_3.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/imgs_iteration_1/sw_3_alt_3_with_pcb.jpeg" alt="Utilização dos botões" width="200"/>
+    </tr>
+</td></table>
+
+Para verificar a viabilidade de roteamento, o formato da placa foi importada para o _KiCAD_ usando um arquivo `.dwg` exportado pelo _SolidWorks_ e os principais componentes de interface foram posicionados arbitrariamente, indicando que há espaço suficiente para o circuito na área reservada:
+
+<img src="design/imgs_iteration_1/sw_3_pcb_only_mounted.jpeg" alt="Utilização dos botões" width="200"/>
 
 ---
 
