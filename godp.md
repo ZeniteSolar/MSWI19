@@ -115,6 +115,8 @@ Que elementos de interface são utilizadas num volante de Fórmula 1 e o no que 
         * proposta: embreagem
             * posicionamento: lateral, traseira
 
+---
+
 ### [3] CRIAÇÃO
 
 Após racionalizar sobre os itens levantados na entrevista com os pilotos, foi investigado, em um segundo momento, se um controle que permitisse uma mudança fácil para o máximo seria interessante e ambos concordaram com entusiasmo, seguido de uma série de projeções quanto ao seu uso durante as provas, indicando uma melhoria que agregaria valor.
