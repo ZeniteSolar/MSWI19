@@ -120,6 +120,64 @@ Que elementos de interface são utilizadas num volante de Fórmula 1 e o no que 
         * proposta: embreagem
             * posicionamento: lateral, traseira
 
+
+Elementos estruturais de um volante com interface:
+
+* Volante
+    * Estrutura mecânica
+        * Frame de plástico, metal ou de material compósito
+        * Carcaça com indicações visuais textuais e simbólicas
+        * Engate com 
+    * Elementos de interface
+        * Chaves
+        * Botões
+        * Displays
+        * Leds
+        * Potenciômetros
+    * Placa de circuito impresso
+        * Componentes eletrônicos passivos
+        * Microcontrolador
+            * Programa
+    * Cabeamento
+        * Cabo condutor elétrico para energia e transferência de dados
+
+
+Foi realizado, com o projetista e o piloto, uma avaliação quanto ao grau de importãncia sobre a presença no volante de cada um dos comandos da embarcação, utilizado um diagrama de Mudge, concluindo que:
+
+* Mudge quanto à ordem de prioridade da presença dos comandos no volante:
+    1 Vel Motor
+    2 Cronômetro
+    3 dVel/dt Motor
+    4 ON/OFF Motor
+    5 ON/OFF Bombas de porão
+    6 pmax MPPT
+    7 Emergência
+    8 ON/OFF Geral
+    9 ON/OFF MPPTs
+
+Foi também realizado uma avaliação comparativa das características visibilidade (no sol), flexibilidade (de uso) e complexidade de implementação de cada um dos elementos visuais:
+
+Quais são os elementos de interface visuais disponíveis?
+* Elementos Visuais
+    * Bargraph
+        * visibilidade no sol: NENHUMA
+        * flexibilidade: BAIXA
+        * complexidade de implentação: BAIXA
+    * Leds de alto brilho
+        * visibilidade no sol: BOA
+        * flexibilidade: BAIXA
+        * complexidade de implentação: BAIXA
+    * Display OLED
+        * visibilidade no sol: BOA
+        * flexibilidade: ALTA
+        * complexidade de implentação: MÉDIA
+    * Display LCD
+        * visibilidade no sol: À TESTAR
+        * flexibilidade: MÉDIA
+        * complexidade de implentação: MÉDIA
+
+
+
 ---
 
 ### [3] CRIAÇÃO
@@ -184,6 +242,7 @@ A partir disso, a pega reduzida para caber dentro da palma da mão do piloto, ge
 Para verificar a viabilidade de roteamento, o formato da placa foi importada para o _KiCAD_ usando um arquivo `.dwg` exportado pelo _SolidWorks_ e os principais componentes de interface foram posicionados arbitrariamente, indicando que há espaço suficiente para o circuito na área reservada:
 
 <img src="design/imgs_iteration_1/sw_3_pcb_only_mounted.jpeg" alt="Utilização dos botões" width="200"/>
+
 
 ---
 
