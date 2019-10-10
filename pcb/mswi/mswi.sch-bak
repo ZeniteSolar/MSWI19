@@ -1,0 +1,27 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5D6ADCF4
+P 1700 1500
+F 0 "SW?" H 1700 1800 50  0000 C CNN
+F 1 "PTS125SM43LFS" H 1700 1700 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_PUSH-12mm" H 1700 1700 50  0001 C CNN
+F 3 "https://www.mouser.com/datasheet/2/60/-523824.pdf" H 1700 1700 50  0001 C CNN
+	1    1700 1500
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
