@@ -6455,7 +6455,7 @@
     )
   )
 
-  (gr_text "TODO:\n- OLED: Footprint & 3D\n- SW: 3D\n- PCB Geometry\n" (at 249.174 145.288) (layer Eco2.User)
+  (gr_text "TODO:\n- ISP: Change to Horizontal Version\n- OLED: Footprint & 3D\n- SW: 3D\n- RJ45: 3D\n- Fuse: 3D\n- PCB Geometry\n- Add zenitesolar and designer identification\n- Add opensource hardware symbol" (at 227.838 151.384) (layer Eco2.User)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
 
