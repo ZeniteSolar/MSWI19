@@ -324,7 +324,7 @@ Wire Wire Line
 	5300 3450 5300 3550
 Connection ~ 5300 3550
 Wire Wire Line
-	7750 3450 8400 3450
+	7750 3450 8050 3450
 Text Label 4550 4150 0    60   ~ 0
 USART_RX
 Wire Wire Line
@@ -349,9 +349,9 @@ USART_TX
 Text Label 7750 3550 0    60   ~ 0
 USART_RX
 Wire Wire Line
-	7750 3550 8400 3550
+	7750 3550 8150 3550
 Wire Wire Line
-	7750 3650 8400 3650
+	7750 3650 8250 3650
 Text Label 7750 3650 0    60   ~ 0
 USART_TX
 $Comp
@@ -1045,7 +1045,7 @@ U 1 1 5DAB430E
 P 2150 6650
 F 0 "BZ301" H 1950 6700 50  0000 C CNN
 F 1 "Buzzer" H 1900 6600 50  0000 C CNN
-F 2 "" V 2125 6750 50  0001 C CNN
+F 2 "Buzzer_Beeper:Buzzer_12x9.5RM7.6" V 2125 6750 50  0001 C CNN
 F 3 "~" V 2125 6750 50  0001 C CNN
 	1    2150 6650
 	-1   0    0    -1  
@@ -1181,4 +1181,58 @@ Wire Wire Line
 Connection ~ 8150 4500
 Wire Wire Line
 	8150 4500 8400 4500
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5DB9E1B1
+P 8050 3350
+AR Path="/5AABFC1B/5DB9E1B1" Ref="TP?"  Part="1" 
+AR Path="/5AACA401/5DB9E1B1" Ref="TP?"  Part="1" 
+F 0 "TP?" H 7950 3550 50  0000 C CNN
+F 1 "RST" H 7950 3500 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_2.0x2.0mm" H 8250 3350 50  0001 C CNN
+F 3 "" H 8250 3350 50  0001 C CNN
+	1    8050 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5DB9E6A4
+P 8150 3200
+AR Path="/5AABFC1B/5DB9E6A4" Ref="TP?"  Part="1" 
+AR Path="/5AACA401/5DB9E6A4" Ref="TP?"  Part="1" 
+F 0 "TP?" H 8050 3400 50  0000 C CNN
+F 1 "RX" H 8050 3350 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_2.0x2.0mm" H 8350 3200 50  0001 C CNN
+F 3 "" H 8350 3200 50  0001 C CNN
+	1    8150 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5DB9E9B2
+P 8250 3050
+AR Path="/5AABFC1B/5DB9E9B2" Ref="TP?"  Part="1" 
+AR Path="/5AACA401/5DB9E9B2" Ref="TP?"  Part="1" 
+F 0 "TP?" H 8150 3250 50  0000 C CNN
+F 1 "TX" H 8150 3200 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_2.0x2.0mm" H 8450 3050 50  0001 C CNN
+F 3 "" H 8450 3050 50  0001 C CNN
+	1    8250 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 3350 8050 3450
+Connection ~ 8050 3450
+Wire Wire Line
+	8050 3450 8400 3450
+Wire Wire Line
+	8150 3200 8150 3550
+Connection ~ 8150 3550
+Wire Wire Line
+	8150 3550 8400 3550
+Wire Wire Line
+	8250 3050 8250 3650
+Connection ~ 8250 3650
+Wire Wire Line
+	8250 3650 8400 3650
 $EndSCHEMATC
