@@ -41,13 +41,13 @@ CAN_GND
 $Comp
 L Connector:Conn_01x04_Male J501
 U 1 1 5DD7554D
-P 7300 3800
-F 0 "J501" H 7250 3700 50  0000 R CNN
-F 1 "Conn_01x04_Male" H 7450 4000 50  0001 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 7300 3800 50  0001 C CNN
-F 3 "~" H 7300 3800 50  0001 C CNN
-	1    7300 3800
-	-1   0    0    -1  
+P 7300 3900
+F 0 "J501" H 7250 3800 50  0000 R CNN
+F 1 "Conn_01x04_Male" H 7450 4100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 7300 3900 50  0001 C CNN
+F 3 "~" H 7300 3900 50  0001 C CNN
+	1    7300 3900
+	-1   0    0    1   
 $EndComp
 Text Label 6750 3700 2    60   ~ 0
 CAN_18V
