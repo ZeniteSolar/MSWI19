@@ -41,12 +41,12 @@ CAN_GND
 $Comp
 L Connector:Conn_01x04_Male J501
 U 1 1 5DD7554D
-P 6950 3900
-F 0 "J501" H 7100 4100 50  0000 C CNN
-F 1 "Conn_01x04_Male" H 7100 4100 50  0001 C CNN
-F 2 "" H 6950 3900 50  0001 C CNN
-F 3 "~" H 6950 3900 50  0001 C CNN
-	1    6950 3900
+P 7300 3900
+F 0 "J501" H 7250 3800 50  0000 R CNN
+F 1 "Conn_01x04_Male" H 7450 4100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 7300 3900 50  0001 C CNN
+F 3 "~" H 7300 3900 50  0001 C CNN
+	1    7300 3900
 	-1   0    0    1   
 $EndComp
 Text Label 6750 3700 2    60   ~ 0
@@ -57,4 +57,12 @@ Text Label 6750 3800 2    60   ~ 0
 CAN_L
 Text Label 6750 3900 2    60   ~ 0
 CAN_H
+Wire Wire Line
+	6750 3700 7100 3700
+Wire Wire Line
+	6750 3800 7100 3800
+Wire Wire Line
+	6750 3900 7100 3900
+Wire Wire Line
+	6750 4000 7100 4000
 $EndSCHEMATC
