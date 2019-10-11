@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 0)
+    (drawings 1)
     (tracks 0)
     (zones 0)
     (modules 164)
@@ -6453,6 +6453,10 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+  )
+
+  (gr_text "TODO:\n- OLED: Footprint & 3D\n- SW: 3D\n- PCB Geometry\n" (at 249.174 145.288) (layer Eco2.User)
+    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
 
 )
