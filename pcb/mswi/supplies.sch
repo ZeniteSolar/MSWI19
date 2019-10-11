@@ -28,7 +28,7 @@ F 3 "https://www.sparkfun.com/datasheets/Components/LM7805.pdf" H 5900 3900 50  
 	1    5900 3950
 	1    0    0    -1  
 $EndComp
-Text HLabel 3400 4800 0    60   Input ~ 0
+Text HLabel 3050 4800 0    60   Input ~ 0
 GND_IN
 Text HLabel 7300 3950 2    60   Output ~ 0
 +5V_OUT
@@ -60,7 +60,7 @@ F 3 "" H 5200 4400 50  0001 C CNN
 	1    5200 4400
 	1    0    0    -1  
 $EndComp
-Text HLabel 3400 3950 0    60   Input ~ 0
+Text HLabel 3050 3950 0    60   Input ~ 0
 +18V_IN
 $Comp
 L Device:C_Small C605
@@ -93,15 +93,17 @@ $EndComp
 $Comp
 L Device:Fuse_Small F601
 U 1 1 5AB12173
-P 3700 3950
+P 3350 3950
 AR Path="/5AACFFEF/5AB12173" Ref="F601"  Part="1" 
 AR Path="/5DDD6AD9/5AB12173" Ref="F?"  Part="1" 
 AR Path="/5DDDDD89/5AB12173" Ref="F?"  Part="1" 
-F 0 "F601" H 3700 3890 50  0000 C CNN
-F 1 "500mA" H 3700 4010 50  0000 C CNN
-F 2 "Fuse:Fuse_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3700 3950 50  0001 C CNN
-F 3 "https://www.mouser.com/datasheet/2/643/0ZCJ_Nov2016-1132002.pdf" H 3700 3950 50  0001 C CNN
-	1    3700 3950
+F 0 "F601" H 3350 3890 50  0000 C CNN
+F 1 "500mA" H 3350 4010 50  0000 C CNN
+F 2 "Fuse:Fuse_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3350 3950 50  0001 C CNN
+F 3 "https://www.mouser.com/datasheet/2/643/0ZCJ_Nov2016-1132002.pdf" H 3350 3950 50  0001 C CNN
+F 4 "https://br.mouser.com/ProductDetail/Bel-Fuse/0ZCJ0050AF2E?qs=%2Fha2pyFadugaoNql5zaJPtCzxaRCuZne0%252BGltuyizoH09DOBIA3TDQ%3D%3D" H 3350 3950 50  0001 C CNN "Mouser"
+F 5 "0ZCJ0050AF2E" H 3350 3950 50  0001 C CNN "Model"
+	1    3350 3950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -128,7 +130,7 @@ Connection ~ 6650 4800
 Wire Wire Line
 	4900 3950 4900 4300
 Wire Wire Line
-	3800 3950 4100 3950
+	3450 3950 3600 3950
 Wire Wire Line
 	4900 3950 5200 3950
 Wire Wire Line
@@ -186,7 +188,7 @@ Connection ~ 7000 4800
 Wire Wire Line
 	7000 4800 7300 4800
 Wire Wire Line
-	3400 3950 3600 3950
+	3050 3950 3250 3950
 Wire Wire Line
 	4050 4800 4100 4800
 $Comp
@@ -196,8 +198,8 @@ P 3850 4700
 AR Path="/5AACFFEF/5D9E3E7E" Ref="Q601"  Part="1" 
 AR Path="/5DDD6AD9/5D9E3E7E" Ref="Q?"  Part="1" 
 AR Path="/5DDDDD89/5D9E3E7E" Ref="Q?"  Part="1" 
-F 0 "Q601" V 3400 4600 50  0000 C CNN
-F 1 "si2308cds" V 3750 4450 50  0000 C CNN
+F 0 "Q601" V 4100 4700 50  0000 C CNN
+F 1 "si2308cds" V 4200 4700 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 4050 4800 50  0001 C CNN
 F 3 "~" H 3850 4700 50  0001 C CNN
 	1    3850 4700
@@ -241,8 +243,6 @@ Wire Wire Line
 	4100 4050 4100 3950
 Connection ~ 4100 3950
 Wire Wire Line
-	4100 3950 4900 3950
-Wire Wire Line
 	4100 4700 4100 4800
 Wire Wire Line
 	3850 4500 3850 4400
@@ -252,7 +252,7 @@ Connection ~ 4100 4400
 Wire Wire Line
 	4100 4400 4100 4500
 Wire Wire Line
-	3400 4800 3650 4800
+	3050 4800 3600 4800
 $Comp
 L Device:C_Small C603
 U 1 1 5D9EFA18
@@ -303,4 +303,32 @@ Wire Wire Line
 	6300 4800 6650 4800
 Wire Wire Line
 	5200 3850 5200 3950
+Wire Wire Line
+	4100 3950 4900 3950
+Text Label 4400 3950 0    50   ~ 0
++18V
+$Comp
+L Device:D_TVS D602
+U 1 1 5DD19DD4
+P 3600 4400
+F 0 "D602" V 3550 4600 50  0000 R CNN
+F 1 "400W 24VDC" V 3650 4950 50  0000 R CNN
+F 2 "Diode_SMD:D_SMA" H 3600 4400 50  0001 C CNN
+F 3 "https://www.mouser.com/datasheet/2/445/824501241-952945.pdf" H 3600 4400 50  0001 C CNN
+F 4 "https://br.mouser.com/ProductDetail/Wurth-Elektronik/824501241?qs=%2Fha2pyFadujZKBgF5S1ldkLPpipTn8KXCRHX4IsQDUlguH4XSGuxlw%3D%3D" V 3600 4400 50  0001 C CNN "Mouser"
+	1    3600 4400
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	3600 4250 3600 3950
+Connection ~ 3600 3950
+Wire Wire Line
+	3600 3950 4100 3950
+Wire Wire Line
+	3600 4550 3600 4800
+Connection ~ 3600 4800
+Wire Wire Line
+	3600 4800 3650 4800
+Text Notes 3400 5350 0    39   ~ 0
+TVS:\nhttps://m.littelfuse.com/~~/media/electronics/application_notes/littelfuse_tvs_diode_overview_application_note.pdf.pdf
 $EndSCHEMATC
