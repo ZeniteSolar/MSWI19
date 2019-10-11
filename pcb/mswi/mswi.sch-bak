@@ -74,50 +74,6 @@ Wire Wire Line
 	7850 3600 8250 3600
 Wire Wire Line
 	6400 3550 5900 3550
-$Comp
-L Mechanical:MountingHole H104
-U 1 1 5BE9AF15
-P 5650 7000
-F 0 "H104" H 5750 7050 50  0000 L CNN
-F 1 "MountingHole" H 5750 7000 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 5650 7000 50  0001 C CNN
-F 3 "~" H 5650 7000 50  0001 C CNN
-	1    5650 7000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mechanical:MountingHole H103
-U 1 1 5BE9BC53
-P 5650 6800
-F 0 "H103" H 5750 6850 50  0000 L CNN
-F 1 "MountingHole" H 5750 6800 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 5650 6800 50  0001 C CNN
-F 3 "~" H 5650 6800 50  0001 C CNN
-	1    5650 6800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mechanical:MountingHole H102
-U 1 1 5BE9BC79
-P 5650 6600
-F 0 "H102" H 5750 6650 50  0000 L CNN
-F 1 "MountingHole" H 5750 6600 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 5650 6600 50  0001 C CNN
-F 3 "~" H 5650 6600 50  0001 C CNN
-	1    5650 6600
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mechanical:MountingHole H101
-U 1 1 5BE9BC9F
-P 5650 6400
-F 0 "H101" H 5750 6450 50  0000 L CNN
-F 1 "MountingHole" H 5750 6400 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 5650 6400 50  0001 C CNN
-F 3 "~" H 5650 6400 50  0001 C CNN
-	1    5650 6400
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6500 3650 5900 3650
 Wire Wire Line
