@@ -1,0 +1,1807 @@
+EESchema Schematic File Version 4
+LIBS:main-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:C_Small C?
+U 1 1 5DE46ACF
+P 3400 3000
+AR Path="/5AACA401/5DE46ACF" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DE46ACF" Ref="C?"  Part="1" 
+F 0 "C?" H 3250 3100 50  0000 L CNN
+F 1 "1uF" H 3200 2900 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3400 3000 50  0001 C CNN
+F 3 "" H 3400 3000 50  0001 C CNN
+	1    3400 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 2850 3400 2900
+Wire Wire Line
+	3050 2850 3150 2850
+$Comp
+L Device:R_Small R?
+U 1 1 5DEDFADC
+P 3150 2700
+AR Path="/5AACA401/5DEDFADC" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DEDFADC" Ref="R?"  Part="1" 
+F 0 "R?" H 3180 2720 50  0000 L CNN
+F 1 "1k" H 3180 2660 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3150 2700 50  0001 C CNN
+F 3 "" H 3150 2700 50  0001 C CNN
+	1    3150 2700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 2800 3150 2850
+Connection ~ 3150 2850
+Wire Wire Line
+	3150 2850 3400 2850
+Wire Wire Line
+	3350 2300 3400 2300
+$Comp
+L power:GND #PWR?
+U 1 1 5DEF0BEE
+P 2900 2350
+AR Path="/5AACA401/5DEF0BEE" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DEF0BEE" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2900 2100 50  0001 C CNN
+F 1 "GND" H 2950 2150 50  0000 C CNN
+F 2 "" H 2900 2350 50  0001 C CNN
+F 3 "" H 2900 2350 50  0001 C CNN
+	1    2900 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2300 2900 2300
+Wire Wire Line
+	2900 2300 2900 2350
+Text HLabel 3050 2850 0    50   BiDi ~ 0
+io0
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5E1AF3B3
+P 3150 2400
+F 0 "Q?" V 3500 2400 50  0000 C CNN
+F 1 "BC856" V 3400 2400 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3350 2325 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 3150 2400 50  0001 L CNN
+	1    3150 2400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5E1B0ABD
+P 3500 2650
+F 0 "Q?" H 3350 2600 50  0000 L CNN
+F 1 "BC856" H 3200 2750 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3700 2575 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 3500 2650 50  0001 L CNN
+	1    3500 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DE46AC8
+P 3400 3400
+AR Path="/5AACA401/5DE46AC8" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DE46AC8" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3400 3150 50  0001 C CNN
+F 1 "GND" H 3450 3200 50  0000 C CNN
+F 2 "" H 3400 3400 50  0001 C CNN
+F 3 "" H 3400 3400 50  0001 C CNN
+	1    3400 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DE46AAA
+P 3700 3100
+AR Path="/5AACA401/5DE46AAA" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DE46AAA" Ref="SW?"  Part="1" 
+F 0 "SW?" V 3700 3100 50  0000 R CNN
+F 1 "SW_Push" H 3700 3300 50  0001 C CNN
+F 2 "" H 3700 3300 50  0001 C CNN
+F 3 "~" H 3700 3300 50  0001 C CNN
+	1    3700 3100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3700 2650 3700 2900
+Connection ~ 3400 2850
+Wire Wire Line
+	3400 2450 3700 2450
+Wire Wire Line
+	3700 2450 3700 2650
+Connection ~ 3400 2450
+Connection ~ 3700 2650
+Wire Wire Line
+	3400 2300 3400 2450
+Connection ~ 3400 2300
+Wire Wire Line
+	3400 2250 3400 2300
+$Comp
+L Device:LED_Small D?
+U 1 1 5DE46AB0
+P 3400 1950
+AR Path="/5AACA401/5DE46AB0" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DE46AB0" Ref="D?"  Part="1" 
+F 0 "D?" V 3350 2075 50  0000 L CNN
+F 1 "LED_RED" V 3300 2050 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3400 1950 50  0001 C CNN
+F 3 "" V 3400 1950 50  0001 C CNN
+	1    3400 1950
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DE46AB6
+P 3400 2150
+AR Path="/5AACA401/5DE46AB6" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DE46AB6" Ref="R?"  Part="1" 
+F 0 "R?" H 3430 2170 50  0000 L CNN
+F 1 "1k" H 3430 2110 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3400 2150 50  0001 C CNN
+F 3 "" H 3400 2150 50  0001 C CNN
+	1    3400 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DE46ABC
+P 3400 1850
+AR Path="/5AACA401/5DE46ABC" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DE46ABC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3400 1700 50  0001 C CNN
+F 1 "+5V" H 3450 2050 50  0000 C CNN
+F 2 "" H 3400 1850 50  0001 C CNN
+F 3 "" H 3400 1850 50  0001 C CNN
+	1    3400 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5E1C045F
+P 3400 3200
+AR Path="/5AACA401/5E1C045F" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5E1C045F" Ref="R?"  Part="1" 
+F 0 "R?" H 3430 3220 50  0000 L CNN
+F 1 "100" H 3430 3160 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3400 3200 50  0001 C CNN
+F 3 "" H 3400 3200 50  0001 C CNN
+	1    3400 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 3400 3400 3350
+Wire Wire Line
+	3400 3350 3700 3350
+Wire Wire Line
+	3700 3300 3700 3350
+Connection ~ 3400 3350
+Wire Wire Line
+	3400 3350 3400 3300
+$Comp
+L Device:C_Small C?
+U 1 1 5DA06724
+P 4500 3000
+AR Path="/5AACA401/5DA06724" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA06724" Ref="C?"  Part="1" 
+F 0 "C?" H 4350 3100 50  0000 L CNN
+F 1 "1uF" H 4300 2900 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4500 3000 50  0001 C CNN
+F 3 "" H 4500 3000 50  0001 C CNN
+	1    4500 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 2850 4500 2900
+Wire Wire Line
+	4150 2850 4250 2850
+$Comp
+L Device:R_Small R?
+U 1 1 5DA06730
+P 4250 2700
+AR Path="/5AACA401/5DA06730" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA06730" Ref="R?"  Part="1" 
+F 0 "R?" H 4280 2720 50  0000 L CNN
+F 1 "1k" H 4280 2660 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4250 2700 50  0001 C CNN
+F 3 "" H 4250 2700 50  0001 C CNN
+	1    4250 2700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 2800 4250 2850
+Connection ~ 4250 2850
+Wire Wire Line
+	4250 2850 4500 2850
+Wire Wire Line
+	4450 2300 4500 2300
+$Comp
+L power:GND #PWR?
+U 1 1 5DA0673E
+P 4000 2350
+AR Path="/5AACA401/5DA0673E" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0673E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4000 2100 50  0001 C CNN
+F 1 "GND" H 4050 2150 50  0000 C CNN
+F 2 "" H 4000 2350 50  0001 C CNN
+F 3 "" H 4000 2350 50  0001 C CNN
+	1    4000 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 2300 4000 2300
+Wire Wire Line
+	4000 2300 4000 2350
+Text HLabel 4150 2850 0    50   BiDi ~ 0
+io1
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA0674B
+P 4250 2400
+F 0 "Q?" V 4600 2400 50  0000 C CNN
+F 1 "BC856" V 4500 2400 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4450 2325 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 4250 2400 50  0001 L CNN
+	1    4250 2400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA06755
+P 4600 2650
+F 0 "Q?" H 4450 2600 50  0000 L CNN
+F 1 "BC856" H 4300 2750 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4800 2575 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 4600 2650 50  0001 L CNN
+	1    4600 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA0675F
+P 4500 3400
+AR Path="/5AACA401/5DA0675F" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0675F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4500 3150 50  0001 C CNN
+F 1 "GND" H 4550 3200 50  0000 C CNN
+F 2 "" H 4500 3400 50  0001 C CNN
+F 3 "" H 4500 3400 50  0001 C CNN
+	1    4500 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA06769
+P 4800 3100
+AR Path="/5AACA401/5DA06769" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA06769" Ref="SW?"  Part="1" 
+F 0 "SW?" V 4800 3100 50  0000 R CNN
+F 1 "SW_Push" H 4800 3300 50  0001 C CNN
+F 2 "" H 4800 3300 50  0001 C CNN
+F 3 "~" H 4800 3300 50  0001 C CNN
+	1    4800 3100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4800 2650 4800 2900
+Connection ~ 4500 2850
+Wire Wire Line
+	4500 2450 4800 2450
+Wire Wire Line
+	4800 2450 4800 2650
+Connection ~ 4500 2450
+Connection ~ 4800 2650
+Wire Wire Line
+	4500 2300 4500 2450
+Connection ~ 4500 2300
+Wire Wire Line
+	4500 2250 4500 2300
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA0677C
+P 4500 1950
+AR Path="/5AACA401/5DA0677C" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0677C" Ref="D?"  Part="1" 
+F 0 "D?" V 4450 2075 50  0000 L CNN
+F 1 "LED_RED" V 4400 2050 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4500 1950 50  0001 C CNN
+F 3 "" V 4500 1950 50  0001 C CNN
+	1    4500 1950
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA06786
+P 4500 2150
+AR Path="/5AACA401/5DA06786" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA06786" Ref="R?"  Part="1" 
+F 0 "R?" H 4530 2170 50  0000 L CNN
+F 1 "1k" H 4530 2110 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4500 2150 50  0001 C CNN
+F 3 "" H 4500 2150 50  0001 C CNN
+	1    4500 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA06790
+P 4500 1850
+AR Path="/5AACA401/5DA06790" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA06790" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4500 1700 50  0001 C CNN
+F 1 "+5V" H 4550 2050 50  0000 C CNN
+F 2 "" H 4500 1850 50  0001 C CNN
+F 3 "" H 4500 1850 50  0001 C CNN
+	1    4500 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA0679A
+P 4500 3200
+AR Path="/5AACA401/5DA0679A" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0679A" Ref="R?"  Part="1" 
+F 0 "R?" H 4530 3220 50  0000 L CNN
+F 1 "100" H 4530 3160 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4500 3200 50  0001 C CNN
+F 3 "" H 4500 3200 50  0001 C CNN
+	1    4500 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 3400 4500 3350
+Wire Wire Line
+	4500 3350 4800 3350
+Wire Wire Line
+	4800 3300 4800 3350
+Connection ~ 4500 3350
+Wire Wire Line
+	4500 3350 4500 3300
+$Comp
+L Device:C_Small C?
+U 1 1 5DA0FD1C
+P 5600 3000
+AR Path="/5AACA401/5DA0FD1C" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD1C" Ref="C?"  Part="1" 
+F 0 "C?" H 5450 3100 50  0000 L CNN
+F 1 "1uF" H 5400 2900 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5600 3000 50  0001 C CNN
+F 3 "" H 5600 3000 50  0001 C CNN
+	1    5600 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 2850 5600 2900
+Wire Wire Line
+	5250 2850 5350 2850
+$Comp
+L Device:R_Small R?
+U 1 1 5DA0FD28
+P 5350 2700
+AR Path="/5AACA401/5DA0FD28" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD28" Ref="R?"  Part="1" 
+F 0 "R?" H 5380 2720 50  0000 L CNN
+F 1 "1k" H 5380 2660 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5350 2700 50  0001 C CNN
+F 3 "" H 5350 2700 50  0001 C CNN
+	1    5350 2700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 2800 5350 2850
+Connection ~ 5350 2850
+Wire Wire Line
+	5350 2850 5600 2850
+Wire Wire Line
+	5550 2300 5600 2300
+$Comp
+L power:GND #PWR?
+U 1 1 5DA0FD36
+P 5100 2350
+AR Path="/5AACA401/5DA0FD36" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD36" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5100 2100 50  0001 C CNN
+F 1 "GND" H 5150 2150 50  0000 C CNN
+F 2 "" H 5100 2350 50  0001 C CNN
+F 3 "" H 5100 2350 50  0001 C CNN
+	1    5100 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 2300 5100 2300
+Wire Wire Line
+	5100 2300 5100 2350
+Text HLabel 5250 2850 0    50   BiDi ~ 0
+io2
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA0FD43
+P 5350 2400
+F 0 "Q?" V 5700 2400 50  0000 C CNN
+F 1 "BC856" V 5600 2400 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5550 2325 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 5350 2400 50  0001 L CNN
+	1    5350 2400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA0FD4D
+P 5700 2650
+F 0 "Q?" H 5550 2600 50  0000 L CNN
+F 1 "BC856" H 5400 2750 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5900 2575 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 5700 2650 50  0001 L CNN
+	1    5700 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA0FD57
+P 5600 3400
+AR Path="/5AACA401/5DA0FD57" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD57" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5600 3150 50  0001 C CNN
+F 1 "GND" H 5650 3200 50  0000 C CNN
+F 2 "" H 5600 3400 50  0001 C CNN
+F 3 "" H 5600 3400 50  0001 C CNN
+	1    5600 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA0FD61
+P 5900 3100
+AR Path="/5AACA401/5DA0FD61" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD61" Ref="SW?"  Part="1" 
+F 0 "SW?" V 5900 3100 50  0000 R CNN
+F 1 "SW_Push" H 5900 3300 50  0001 C CNN
+F 2 "" H 5900 3300 50  0001 C CNN
+F 3 "~" H 5900 3300 50  0001 C CNN
+	1    5900 3100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5900 2650 5900 2900
+Connection ~ 5600 2850
+Wire Wire Line
+	5600 2450 5900 2450
+Wire Wire Line
+	5900 2450 5900 2650
+Connection ~ 5600 2450
+Connection ~ 5900 2650
+Wire Wire Line
+	5600 2300 5600 2450
+Connection ~ 5600 2300
+Wire Wire Line
+	5600 2250 5600 2300
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA0FD74
+P 5600 1950
+AR Path="/5AACA401/5DA0FD74" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD74" Ref="D?"  Part="1" 
+F 0 "D?" V 5550 2075 50  0000 L CNN
+F 1 "LED_RED" V 5500 2050 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5600 1950 50  0001 C CNN
+F 3 "" V 5600 1950 50  0001 C CNN
+	1    5600 1950
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA0FD7E
+P 5600 2150
+AR Path="/5AACA401/5DA0FD7E" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD7E" Ref="R?"  Part="1" 
+F 0 "R?" H 5630 2170 50  0000 L CNN
+F 1 "1k" H 5630 2110 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5600 2150 50  0001 C CNN
+F 3 "" H 5600 2150 50  0001 C CNN
+	1    5600 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA0FD88
+P 5600 1850
+AR Path="/5AACA401/5DA0FD88" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD88" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5600 1700 50  0001 C CNN
+F 1 "+5V" H 5650 2050 50  0000 C CNN
+F 2 "" H 5600 1850 50  0001 C CNN
+F 3 "" H 5600 1850 50  0001 C CNN
+	1    5600 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA0FD92
+P 5600 3200
+AR Path="/5AACA401/5DA0FD92" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FD92" Ref="R?"  Part="1" 
+F 0 "R?" H 5630 3220 50  0000 L CNN
+F 1 "100" H 5630 3160 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5600 3200 50  0001 C CNN
+F 3 "" H 5600 3200 50  0001 C CNN
+	1    5600 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 3400 5600 3350
+Wire Wire Line
+	5600 3350 5900 3350
+Wire Wire Line
+	5900 3300 5900 3350
+Connection ~ 5600 3350
+Wire Wire Line
+	5600 3350 5600 3300
+$Comp
+L Device:C_Small C?
+U 1 1 5DA0FDA1
+P 6700 3000
+AR Path="/5AACA401/5DA0FDA1" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FDA1" Ref="C?"  Part="1" 
+F 0 "C?" H 6550 3100 50  0000 L CNN
+F 1 "1uF" H 6500 2900 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6700 3000 50  0001 C CNN
+F 3 "" H 6700 3000 50  0001 C CNN
+	1    6700 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 2850 6700 2900
+Wire Wire Line
+	6350 2850 6450 2850
+$Comp
+L Device:R_Small R?
+U 1 1 5DA0FDAD
+P 6450 2700
+AR Path="/5AACA401/5DA0FDAD" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FDAD" Ref="R?"  Part="1" 
+F 0 "R?" H 6480 2720 50  0000 L CNN
+F 1 "1k" H 6480 2660 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6450 2700 50  0001 C CNN
+F 3 "" H 6450 2700 50  0001 C CNN
+	1    6450 2700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 2800 6450 2850
+Connection ~ 6450 2850
+Wire Wire Line
+	6450 2850 6700 2850
+Wire Wire Line
+	6650 2300 6700 2300
+$Comp
+L power:GND #PWR?
+U 1 1 5DA0FDBB
+P 6200 2350
+AR Path="/5AACA401/5DA0FDBB" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FDBB" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6200 2100 50  0001 C CNN
+F 1 "GND" H 6250 2150 50  0000 C CNN
+F 2 "" H 6200 2350 50  0001 C CNN
+F 3 "" H 6200 2350 50  0001 C CNN
+	1    6200 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 2300 6200 2300
+Wire Wire Line
+	6200 2300 6200 2350
+Text HLabel 6350 2850 0    50   BiDi ~ 0
+io3
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA0FDC8
+P 6450 2400
+F 0 "Q?" V 6800 2400 50  0000 C CNN
+F 1 "BC856" V 6700 2400 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6650 2325 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 6450 2400 50  0001 L CNN
+	1    6450 2400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA0FDD2
+P 6800 2650
+F 0 "Q?" H 6650 2600 50  0000 L CNN
+F 1 "BC856" H 6500 2750 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 7000 2575 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 6800 2650 50  0001 L CNN
+	1    6800 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA0FDDC
+P 6700 3400
+AR Path="/5AACA401/5DA0FDDC" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FDDC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6700 3150 50  0001 C CNN
+F 1 "GND" H 6750 3200 50  0000 C CNN
+F 2 "" H 6700 3400 50  0001 C CNN
+F 3 "" H 6700 3400 50  0001 C CNN
+	1    6700 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA0FDE6
+P 7000 3100
+AR Path="/5AACA401/5DA0FDE6" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FDE6" Ref="SW?"  Part="1" 
+F 0 "SW?" V 7000 3100 50  0000 R CNN
+F 1 "SW_Push" H 7000 3300 50  0001 C CNN
+F 2 "" H 7000 3300 50  0001 C CNN
+F 3 "~" H 7000 3300 50  0001 C CNN
+	1    7000 3100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7000 2650 7000 2900
+Connection ~ 6700 2850
+Wire Wire Line
+	6700 2450 7000 2450
+Wire Wire Line
+	7000 2450 7000 2650
+Connection ~ 6700 2450
+Connection ~ 7000 2650
+Wire Wire Line
+	6700 2300 6700 2450
+Connection ~ 6700 2300
+Wire Wire Line
+	6700 2250 6700 2300
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA0FDF9
+P 6700 1950
+AR Path="/5AACA401/5DA0FDF9" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FDF9" Ref="D?"  Part="1" 
+F 0 "D?" V 6650 2075 50  0000 L CNN
+F 1 "LED_RED" V 6600 2050 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6700 1950 50  0001 C CNN
+F 3 "" V 6700 1950 50  0001 C CNN
+	1    6700 1950
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA0FE03
+P 6700 2150
+AR Path="/5AACA401/5DA0FE03" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FE03" Ref="R?"  Part="1" 
+F 0 "R?" H 6730 2170 50  0000 L CNN
+F 1 "1k" H 6730 2110 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6700 2150 50  0001 C CNN
+F 3 "" H 6700 2150 50  0001 C CNN
+	1    6700 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA0FE0D
+P 6700 1850
+AR Path="/5AACA401/5DA0FE0D" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FE0D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6700 1700 50  0001 C CNN
+F 1 "+5V" H 6750 2050 50  0000 C CNN
+F 2 "" H 6700 1850 50  0001 C CNN
+F 3 "" H 6700 1850 50  0001 C CNN
+	1    6700 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA0FE17
+P 6700 3200
+AR Path="/5AACA401/5DA0FE17" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA0FE17" Ref="R?"  Part="1" 
+F 0 "R?" H 6730 3220 50  0000 L CNN
+F 1 "100" H 6730 3160 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6700 3200 50  0001 C CNN
+F 3 "" H 6700 3200 50  0001 C CNN
+	1    6700 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3400 6700 3350
+Wire Wire Line
+	6700 3350 7000 3350
+Wire Wire Line
+	7000 3300 7000 3350
+Connection ~ 6700 3350
+Wire Wire Line
+	6700 3350 6700 3300
+$Comp
+L Device:C_Small C?
+U 1 1 5DA17742
+P 7800 3050
+AR Path="/5AACA401/5DA17742" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA17742" Ref="C?"  Part="1" 
+F 0 "C?" H 7650 3150 50  0000 L CNN
+F 1 "1uF" H 7600 2950 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7800 3050 50  0001 C CNN
+F 3 "" H 7800 3050 50  0001 C CNN
+	1    7800 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 2900 7800 2950
+Wire Wire Line
+	7450 2900 7550 2900
+$Comp
+L Device:R_Small R?
+U 1 1 5DA1774E
+P 7550 2750
+AR Path="/5AACA401/5DA1774E" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA1774E" Ref="R?"  Part="1" 
+F 0 "R?" H 7580 2770 50  0000 L CNN
+F 1 "1k" H 7580 2710 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7550 2750 50  0001 C CNN
+F 3 "" H 7550 2750 50  0001 C CNN
+	1    7550 2750
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 2850 7550 2900
+Connection ~ 7550 2900
+Wire Wire Line
+	7550 2900 7800 2900
+Wire Wire Line
+	7750 2350 7800 2350
+$Comp
+L power:GND #PWR?
+U 1 1 5DA1775C
+P 7300 2400
+AR Path="/5AACA401/5DA1775C" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA1775C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7300 2150 50  0001 C CNN
+F 1 "GND" H 7350 2200 50  0000 C CNN
+F 2 "" H 7300 2400 50  0001 C CNN
+F 3 "" H 7300 2400 50  0001 C CNN
+	1    7300 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 2350 7300 2350
+Wire Wire Line
+	7300 2350 7300 2400
+Text HLabel 7450 2900 0    50   BiDi ~ 0
+io4
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA17769
+P 7550 2450
+F 0 "Q?" V 7900 2450 50  0000 C CNN
+F 1 "BC856" V 7800 2450 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 7750 2375 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 7550 2450 50  0001 L CNN
+	1    7550 2450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA17773
+P 7900 2700
+F 0 "Q?" H 7750 2650 50  0000 L CNN
+F 1 "BC856" H 7600 2800 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 8100 2625 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 7900 2700 50  0001 L CNN
+	1    7900 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA1777D
+P 7800 3450
+AR Path="/5AACA401/5DA1777D" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA1777D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7800 3200 50  0001 C CNN
+F 1 "GND" H 7850 3250 50  0000 C CNN
+F 2 "" H 7800 3450 50  0001 C CNN
+F 3 "" H 7800 3450 50  0001 C CNN
+	1    7800 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA17787
+P 8100 3150
+AR Path="/5AACA401/5DA17787" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA17787" Ref="SW?"  Part="1" 
+F 0 "SW?" V 8100 3150 50  0000 R CNN
+F 1 "SW_Push" H 8100 3350 50  0001 C CNN
+F 2 "" H 8100 3350 50  0001 C CNN
+F 3 "~" H 8100 3350 50  0001 C CNN
+	1    8100 3150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8100 2700 8100 2950
+Connection ~ 7800 2900
+Wire Wire Line
+	7800 2500 8100 2500
+Wire Wire Line
+	8100 2500 8100 2700
+Connection ~ 7800 2500
+Connection ~ 8100 2700
+Wire Wire Line
+	7800 2350 7800 2500
+Connection ~ 7800 2350
+Wire Wire Line
+	7800 2300 7800 2350
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA1779A
+P 7800 2000
+AR Path="/5AACA401/5DA1779A" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA1779A" Ref="D?"  Part="1" 
+F 0 "D?" V 7750 2125 50  0000 L CNN
+F 1 "LED_RED" V 7700 2100 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7800 2000 50  0001 C CNN
+F 3 "" V 7800 2000 50  0001 C CNN
+	1    7800 2000
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA177A4
+P 7800 2200
+AR Path="/5AACA401/5DA177A4" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA177A4" Ref="R?"  Part="1" 
+F 0 "R?" H 7830 2220 50  0000 L CNN
+F 1 "1k" H 7830 2160 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7800 2200 50  0001 C CNN
+F 3 "" H 7800 2200 50  0001 C CNN
+	1    7800 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA177AE
+P 7800 1900
+AR Path="/5AACA401/5DA177AE" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA177AE" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7800 1750 50  0001 C CNN
+F 1 "+5V" H 7850 2100 50  0000 C CNN
+F 2 "" H 7800 1900 50  0001 C CNN
+F 3 "" H 7800 1900 50  0001 C CNN
+	1    7800 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA177B8
+P 7800 3250
+AR Path="/5AACA401/5DA177B8" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA177B8" Ref="R?"  Part="1" 
+F 0 "R?" H 7830 3270 50  0000 L CNN
+F 1 "100" H 7830 3210 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7800 3250 50  0001 C CNN
+F 3 "" H 7800 3250 50  0001 C CNN
+	1    7800 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 3450 7800 3400
+Wire Wire Line
+	7800 3400 8100 3400
+Wire Wire Line
+	8100 3350 8100 3400
+Connection ~ 7800 3400
+Wire Wire Line
+	7800 3400 7800 3350
+$Comp
+L Device:C_Small C?
+U 1 1 5DA265D9
+P 3400 5200
+AR Path="/5AACA401/5DA265D9" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA265D9" Ref="C?"  Part="1" 
+F 0 "C?" H 3250 5300 50  0000 L CNN
+F 1 "1uF" H 3200 5100 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3400 5200 50  0001 C CNN
+F 3 "" H 3400 5200 50  0001 C CNN
+	1    3400 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 5050 3400 5100
+Wire Wire Line
+	3050 5050 3150 5050
+$Comp
+L Device:R_Small R?
+U 1 1 5DA265E5
+P 3150 4900
+AR Path="/5AACA401/5DA265E5" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA265E5" Ref="R?"  Part="1" 
+F 0 "R?" H 3180 4920 50  0000 L CNN
+F 1 "1k" H 3180 4860 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3150 4900 50  0001 C CNN
+F 3 "" H 3150 4900 50  0001 C CNN
+	1    3150 4900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 5000 3150 5050
+Connection ~ 3150 5050
+Wire Wire Line
+	3150 5050 3400 5050
+Wire Wire Line
+	3350 4500 3400 4500
+$Comp
+L power:GND #PWR?
+U 1 1 5DA265F3
+P 2900 4550
+AR Path="/5AACA401/5DA265F3" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA265F3" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2900 4300 50  0001 C CNN
+F 1 "GND" H 2950 4350 50  0000 C CNN
+F 2 "" H 2900 4550 50  0001 C CNN
+F 3 "" H 2900 4550 50  0001 C CNN
+	1    2900 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 4500 2900 4500
+Wire Wire Line
+	2900 4500 2900 4550
+Text HLabel 3050 5050 0    50   BiDi ~ 0
+io5
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA26600
+P 3150 4600
+F 0 "Q?" V 3500 4600 50  0000 C CNN
+F 1 "BC856" V 3400 4600 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3350 4525 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 3150 4600 50  0001 L CNN
+	1    3150 4600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA2660A
+P 3500 4850
+F 0 "Q?" H 3350 4800 50  0000 L CNN
+F 1 "BC856" H 3200 4950 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3700 4775 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 3500 4850 50  0001 L CNN
+	1    3500 4850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA26614
+P 3400 5600
+AR Path="/5AACA401/5DA26614" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26614" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3400 5350 50  0001 C CNN
+F 1 "GND" H 3450 5400 50  0000 C CNN
+F 2 "" H 3400 5600 50  0001 C CNN
+F 3 "" H 3400 5600 50  0001 C CNN
+	1    3400 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA2661E
+P 3700 5300
+AR Path="/5AACA401/5DA2661E" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2661E" Ref="SW?"  Part="1" 
+F 0 "SW?" V 3700 5300 50  0000 R CNN
+F 1 "SW_Push" H 3700 5500 50  0001 C CNN
+F 2 "" H 3700 5500 50  0001 C CNN
+F 3 "~" H 3700 5500 50  0001 C CNN
+	1    3700 5300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3700 4850 3700 5100
+Connection ~ 3400 5050
+Wire Wire Line
+	3400 4650 3700 4650
+Wire Wire Line
+	3700 4650 3700 4850
+Connection ~ 3400 4650
+Connection ~ 3700 4850
+Wire Wire Line
+	3400 4500 3400 4650
+Connection ~ 3400 4500
+Wire Wire Line
+	3400 4450 3400 4500
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA26631
+P 3400 4150
+AR Path="/5AACA401/5DA26631" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26631" Ref="D?"  Part="1" 
+F 0 "D?" V 3350 4275 50  0000 L CNN
+F 1 "LED_RED" V 3300 4250 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3400 4150 50  0001 C CNN
+F 3 "" V 3400 4150 50  0001 C CNN
+	1    3400 4150
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA2663B
+P 3400 4350
+AR Path="/5AACA401/5DA2663B" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2663B" Ref="R?"  Part="1" 
+F 0 "R?" H 3430 4370 50  0000 L CNN
+F 1 "1k" H 3430 4310 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3400 4350 50  0001 C CNN
+F 3 "" H 3400 4350 50  0001 C CNN
+	1    3400 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA26645
+P 3400 4050
+AR Path="/5AACA401/5DA26645" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26645" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3400 3900 50  0001 C CNN
+F 1 "+5V" H 3450 4250 50  0000 C CNN
+F 2 "" H 3400 4050 50  0001 C CNN
+F 3 "" H 3400 4050 50  0001 C CNN
+	1    3400 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA2664F
+P 3400 5400
+AR Path="/5AACA401/5DA2664F" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2664F" Ref="R?"  Part="1" 
+F 0 "R?" H 3430 5420 50  0000 L CNN
+F 1 "100" H 3430 5360 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3400 5400 50  0001 C CNN
+F 3 "" H 3400 5400 50  0001 C CNN
+	1    3400 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 5600 3400 5550
+Wire Wire Line
+	3400 5550 3700 5550
+Wire Wire Line
+	3700 5500 3700 5550
+Connection ~ 3400 5550
+Wire Wire Line
+	3400 5550 3400 5500
+$Comp
+L Device:C_Small C?
+U 1 1 5DA2665E
+P 4500 5200
+AR Path="/5AACA401/5DA2665E" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2665E" Ref="C?"  Part="1" 
+F 0 "C?" H 4350 5300 50  0000 L CNN
+F 1 "1uF" H 4300 5100 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4500 5200 50  0001 C CNN
+F 3 "" H 4500 5200 50  0001 C CNN
+	1    4500 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 5050 4500 5100
+Wire Wire Line
+	4150 5050 4250 5050
+$Comp
+L Device:R_Small R?
+U 1 1 5DA2666A
+P 4250 4900
+AR Path="/5AACA401/5DA2666A" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2666A" Ref="R?"  Part="1" 
+F 0 "R?" H 4280 4920 50  0000 L CNN
+F 1 "1k" H 4280 4860 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4250 4900 50  0001 C CNN
+F 3 "" H 4250 4900 50  0001 C CNN
+	1    4250 4900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 5000 4250 5050
+Connection ~ 4250 5050
+Wire Wire Line
+	4250 5050 4500 5050
+Wire Wire Line
+	4450 4500 4500 4500
+$Comp
+L power:GND #PWR?
+U 1 1 5DA26678
+P 4000 4550
+AR Path="/5AACA401/5DA26678" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26678" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4000 4300 50  0001 C CNN
+F 1 "GND" H 4050 4350 50  0000 C CNN
+F 2 "" H 4000 4550 50  0001 C CNN
+F 3 "" H 4000 4550 50  0001 C CNN
+	1    4000 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 4500 4000 4500
+Wire Wire Line
+	4000 4500 4000 4550
+Text HLabel 4150 5050 0    50   BiDi ~ 0
+io6
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA26685
+P 4250 4600
+F 0 "Q?" V 4600 4600 50  0000 C CNN
+F 1 "BC856" V 4500 4600 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4450 4525 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 4250 4600 50  0001 L CNN
+	1    4250 4600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA2668F
+P 4600 4850
+F 0 "Q?" H 4450 4800 50  0000 L CNN
+F 1 "BC856" H 4300 4950 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4800 4775 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 4600 4850 50  0001 L CNN
+	1    4600 4850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA26699
+P 4500 5600
+AR Path="/5AACA401/5DA26699" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26699" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4500 5350 50  0001 C CNN
+F 1 "GND" H 4550 5400 50  0000 C CNN
+F 2 "" H 4500 5600 50  0001 C CNN
+F 3 "" H 4500 5600 50  0001 C CNN
+	1    4500 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA266A3
+P 4800 5300
+AR Path="/5AACA401/5DA266A3" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA266A3" Ref="SW?"  Part="1" 
+F 0 "SW?" V 4800 5300 50  0000 R CNN
+F 1 "SW_Push" H 4800 5500 50  0001 C CNN
+F 2 "" H 4800 5500 50  0001 C CNN
+F 3 "~" H 4800 5500 50  0001 C CNN
+	1    4800 5300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4800 4850 4800 5100
+Connection ~ 4500 5050
+Wire Wire Line
+	4500 4650 4800 4650
+Wire Wire Line
+	4800 4650 4800 4850
+Connection ~ 4500 4650
+Connection ~ 4800 4850
+Wire Wire Line
+	4500 4500 4500 4650
+Connection ~ 4500 4500
+Wire Wire Line
+	4500 4450 4500 4500
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA266B6
+P 4500 4150
+AR Path="/5AACA401/5DA266B6" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA266B6" Ref="D?"  Part="1" 
+F 0 "D?" V 4450 4275 50  0000 L CNN
+F 1 "LED_RED" V 4400 4250 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4500 4150 50  0001 C CNN
+F 3 "" V 4500 4150 50  0001 C CNN
+	1    4500 4150
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA266C0
+P 4500 4350
+AR Path="/5AACA401/5DA266C0" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA266C0" Ref="R?"  Part="1" 
+F 0 "R?" H 4530 4370 50  0000 L CNN
+F 1 "1k" H 4530 4310 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4500 4350 50  0001 C CNN
+F 3 "" H 4500 4350 50  0001 C CNN
+	1    4500 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA266CA
+P 4500 4050
+AR Path="/5AACA401/5DA266CA" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA266CA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4500 3900 50  0001 C CNN
+F 1 "+5V" H 4550 4250 50  0000 C CNN
+F 2 "" H 4500 4050 50  0001 C CNN
+F 3 "" H 4500 4050 50  0001 C CNN
+	1    4500 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA266D4
+P 4500 5400
+AR Path="/5AACA401/5DA266D4" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA266D4" Ref="R?"  Part="1" 
+F 0 "R?" H 4530 5420 50  0000 L CNN
+F 1 "100" H 4530 5360 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4500 5400 50  0001 C CNN
+F 3 "" H 4500 5400 50  0001 C CNN
+	1    4500 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 5600 4500 5550
+Wire Wire Line
+	4500 5550 4800 5550
+Wire Wire Line
+	4800 5500 4800 5550
+Connection ~ 4500 5550
+Wire Wire Line
+	4500 5550 4500 5500
+$Comp
+L Device:C_Small C?
+U 1 1 5DA266E3
+P 5600 5200
+AR Path="/5AACA401/5DA266E3" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA266E3" Ref="C?"  Part="1" 
+F 0 "C?" H 5450 5300 50  0000 L CNN
+F 1 "1uF" H 5400 5100 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5600 5200 50  0001 C CNN
+F 3 "" H 5600 5200 50  0001 C CNN
+	1    5600 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 5050 5600 5100
+Wire Wire Line
+	5250 5050 5350 5050
+$Comp
+L Device:R_Small R?
+U 1 1 5DA266EF
+P 5350 4900
+AR Path="/5AACA401/5DA266EF" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA266EF" Ref="R?"  Part="1" 
+F 0 "R?" H 5380 4920 50  0000 L CNN
+F 1 "1k" H 5380 4860 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5350 4900 50  0001 C CNN
+F 3 "" H 5350 4900 50  0001 C CNN
+	1    5350 4900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 5000 5350 5050
+Connection ~ 5350 5050
+Wire Wire Line
+	5350 5050 5600 5050
+Wire Wire Line
+	5550 4500 5600 4500
+$Comp
+L power:GND #PWR?
+U 1 1 5DA266FD
+P 5100 4550
+AR Path="/5AACA401/5DA266FD" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA266FD" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5100 4300 50  0001 C CNN
+F 1 "GND" H 5150 4350 50  0000 C CNN
+F 2 "" H 5100 4550 50  0001 C CNN
+F 3 "" H 5100 4550 50  0001 C CNN
+	1    5100 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 4500 5100 4500
+Wire Wire Line
+	5100 4500 5100 4550
+Text HLabel 5250 5050 0    50   BiDi ~ 0
+io7
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA2670A
+P 5350 4600
+F 0 "Q?" V 5700 4600 50  0000 C CNN
+F 1 "BC856" V 5600 4600 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5550 4525 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 5350 4600 50  0001 L CNN
+	1    5350 4600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA26714
+P 5700 4850
+F 0 "Q?" H 5550 4800 50  0000 L CNN
+F 1 "BC856" H 5400 4950 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5900 4775 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 5700 4850 50  0001 L CNN
+	1    5700 4850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA2671E
+P 5600 5600
+AR Path="/5AACA401/5DA2671E" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2671E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5600 5350 50  0001 C CNN
+F 1 "GND" H 5650 5400 50  0000 C CNN
+F 2 "" H 5600 5600 50  0001 C CNN
+F 3 "" H 5600 5600 50  0001 C CNN
+	1    5600 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA26728
+P 5900 5300
+AR Path="/5AACA401/5DA26728" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26728" Ref="SW?"  Part="1" 
+F 0 "SW?" V 5900 5300 50  0000 R CNN
+F 1 "SW_Push" H 5900 5500 50  0001 C CNN
+F 2 "" H 5900 5500 50  0001 C CNN
+F 3 "~" H 5900 5500 50  0001 C CNN
+	1    5900 5300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5900 4850 5900 5100
+Connection ~ 5600 5050
+Wire Wire Line
+	5600 4650 5900 4650
+Wire Wire Line
+	5900 4650 5900 4850
+Connection ~ 5600 4650
+Connection ~ 5900 4850
+Wire Wire Line
+	5600 4500 5600 4650
+Connection ~ 5600 4500
+Wire Wire Line
+	5600 4450 5600 4500
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA2673B
+P 5600 4150
+AR Path="/5AACA401/5DA2673B" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2673B" Ref="D?"  Part="1" 
+F 0 "D?" V 5550 4275 50  0000 L CNN
+F 1 "LED_RED" V 5500 4250 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5600 4150 50  0001 C CNN
+F 3 "" V 5600 4150 50  0001 C CNN
+	1    5600 4150
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA26745
+P 5600 4350
+AR Path="/5AACA401/5DA26745" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26745" Ref="R?"  Part="1" 
+F 0 "R?" H 5630 4370 50  0000 L CNN
+F 1 "1k" H 5630 4310 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5600 4350 50  0001 C CNN
+F 3 "" H 5600 4350 50  0001 C CNN
+	1    5600 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA2674F
+P 5600 4050
+AR Path="/5AACA401/5DA2674F" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2674F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5600 3900 50  0001 C CNN
+F 1 "+5V" H 5650 4250 50  0000 C CNN
+F 2 "" H 5600 4050 50  0001 C CNN
+F 3 "" H 5600 4050 50  0001 C CNN
+	1    5600 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA26759
+P 5600 5400
+AR Path="/5AACA401/5DA26759" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26759" Ref="R?"  Part="1" 
+F 0 "R?" H 5630 5420 50  0000 L CNN
+F 1 "100" H 5630 5360 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5600 5400 50  0001 C CNN
+F 3 "" H 5600 5400 50  0001 C CNN
+	1    5600 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 5600 5600 5550
+Wire Wire Line
+	5600 5550 5900 5550
+Wire Wire Line
+	5900 5500 5900 5550
+Connection ~ 5600 5550
+Wire Wire Line
+	5600 5550 5600 5500
+$Comp
+L Device:C_Small C?
+U 1 1 5DA26768
+P 6700 5200
+AR Path="/5AACA401/5DA26768" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26768" Ref="C?"  Part="1" 
+F 0 "C?" H 6550 5300 50  0000 L CNN
+F 1 "1uF" H 6500 5100 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6700 5200 50  0001 C CNN
+F 3 "" H 6700 5200 50  0001 C CNN
+	1    6700 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 5050 6700 5100
+Wire Wire Line
+	6350 5050 6450 5050
+$Comp
+L Device:R_Small R?
+U 1 1 5DA26774
+P 6450 4900
+AR Path="/5AACA401/5DA26774" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26774" Ref="R?"  Part="1" 
+F 0 "R?" H 6480 4920 50  0000 L CNN
+F 1 "1k" H 6480 4860 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6450 4900 50  0001 C CNN
+F 3 "" H 6450 4900 50  0001 C CNN
+	1    6450 4900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 5000 6450 5050
+Connection ~ 6450 5050
+Wire Wire Line
+	6450 5050 6700 5050
+Wire Wire Line
+	6650 4500 6700 4500
+$Comp
+L power:GND #PWR?
+U 1 1 5DA26782
+P 6200 4550
+AR Path="/5AACA401/5DA26782" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26782" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6200 4300 50  0001 C CNN
+F 1 "GND" H 6250 4350 50  0000 C CNN
+F 2 "" H 6200 4550 50  0001 C CNN
+F 3 "" H 6200 4550 50  0001 C CNN
+	1    6200 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 4500 6200 4500
+Wire Wire Line
+	6200 4500 6200 4550
+Text HLabel 6350 5050 0    50   BiDi ~ 0
+io8
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA2678F
+P 6450 4600
+F 0 "Q?" V 6800 4600 50  0000 C CNN
+F 1 "BC856" V 6700 4600 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6650 4525 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 6450 4600 50  0001 L CNN
+	1    6450 4600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA26799
+P 6800 4850
+F 0 "Q?" H 6650 4800 50  0000 L CNN
+F 1 "BC856" H 6500 4950 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 7000 4775 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 6800 4850 50  0001 L CNN
+	1    6800 4850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA267A3
+P 6700 5600
+AR Path="/5AACA401/5DA267A3" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA267A3" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6700 5350 50  0001 C CNN
+F 1 "GND" H 6750 5400 50  0000 C CNN
+F 2 "" H 6700 5600 50  0001 C CNN
+F 3 "" H 6700 5600 50  0001 C CNN
+	1    6700 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA267AD
+P 7000 5300
+AR Path="/5AACA401/5DA267AD" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA267AD" Ref="SW?"  Part="1" 
+F 0 "SW?" V 7000 5300 50  0000 R CNN
+F 1 "SW_Push" H 7000 5500 50  0001 C CNN
+F 2 "" H 7000 5500 50  0001 C CNN
+F 3 "~" H 7000 5500 50  0001 C CNN
+	1    7000 5300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7000 4850 7000 5100
+Connection ~ 6700 5050
+Wire Wire Line
+	6700 4650 7000 4650
+Wire Wire Line
+	7000 4650 7000 4850
+Connection ~ 6700 4650
+Connection ~ 7000 4850
+Wire Wire Line
+	6700 4500 6700 4650
+Connection ~ 6700 4500
+Wire Wire Line
+	6700 4450 6700 4500
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA267C0
+P 6700 4150
+AR Path="/5AACA401/5DA267C0" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA267C0" Ref="D?"  Part="1" 
+F 0 "D?" V 6650 4275 50  0000 L CNN
+F 1 "LED_RED" V 6600 4250 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6700 4150 50  0001 C CNN
+F 3 "" V 6700 4150 50  0001 C CNN
+	1    6700 4150
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA267CA
+P 6700 4350
+AR Path="/5AACA401/5DA267CA" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA267CA" Ref="R?"  Part="1" 
+F 0 "R?" H 6730 4370 50  0000 L CNN
+F 1 "1k" H 6730 4310 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6700 4350 50  0001 C CNN
+F 3 "" H 6700 4350 50  0001 C CNN
+	1    6700 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA267D4
+P 6700 4050
+AR Path="/5AACA401/5DA267D4" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA267D4" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6700 3900 50  0001 C CNN
+F 1 "+5V" H 6750 4250 50  0000 C CNN
+F 2 "" H 6700 4050 50  0001 C CNN
+F 3 "" H 6700 4050 50  0001 C CNN
+	1    6700 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA267DE
+P 6700 5400
+AR Path="/5AACA401/5DA267DE" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA267DE" Ref="R?"  Part="1" 
+F 0 "R?" H 6730 5420 50  0000 L CNN
+F 1 "100" H 6730 5360 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6700 5400 50  0001 C CNN
+F 3 "" H 6700 5400 50  0001 C CNN
+	1    6700 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 5600 6700 5550
+Wire Wire Line
+	6700 5550 7000 5550
+Wire Wire Line
+	7000 5500 7000 5550
+Connection ~ 6700 5550
+Wire Wire Line
+	6700 5550 6700 5500
+$Comp
+L Device:C_Small C?
+U 1 1 5DA267ED
+P 7800 5250
+AR Path="/5AACA401/5DA267ED" Ref="C?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA267ED" Ref="C?"  Part="1" 
+F 0 "C?" H 7650 5350 50  0000 L CNN
+F 1 "1uF" H 7600 5150 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7800 5250 50  0001 C CNN
+F 3 "" H 7800 5250 50  0001 C CNN
+	1    7800 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 5100 7800 5150
+Wire Wire Line
+	7450 5100 7550 5100
+$Comp
+L Device:R_Small R?
+U 1 1 5DA267F9
+P 7550 4950
+AR Path="/5AACA401/5DA267F9" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA267F9" Ref="R?"  Part="1" 
+F 0 "R?" H 7580 4970 50  0000 L CNN
+F 1 "1k" H 7580 4910 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7550 4950 50  0001 C CNN
+F 3 "" H 7550 4950 50  0001 C CNN
+	1    7550 4950
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 5050 7550 5100
+Connection ~ 7550 5100
+Wire Wire Line
+	7550 5100 7800 5100
+Wire Wire Line
+	7750 4550 7800 4550
+$Comp
+L power:GND #PWR?
+U 1 1 5DA26807
+P 7300 4600
+AR Path="/5AACA401/5DA26807" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26807" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7300 4350 50  0001 C CNN
+F 1 "GND" H 7350 4400 50  0000 C CNN
+F 2 "" H 7300 4600 50  0001 C CNN
+F 3 "" H 7300 4600 50  0001 C CNN
+	1    7300 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 4550 7300 4550
+Wire Wire Line
+	7300 4550 7300 4600
+Text HLabel 7450 5100 0    50   BiDi ~ 0
+io9
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA26814
+P 7550 4650
+F 0 "Q?" V 7900 4650 50  0000 C CNN
+F 1 "BC856" V 7800 4650 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 7750 4575 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 7550 4650 50  0001 L CNN
+	1    7550 4650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:BC856 Q?
+U 1 1 5DA2681E
+P 7900 4900
+F 0 "Q?" H 7750 4850 50  0000 L CNN
+F 1 "BC856" H 7600 5000 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 8100 4825 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC856.pdf" H 7900 4900 50  0001 L CNN
+	1    7900 4900
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DA26828
+P 7800 5650
+AR Path="/5AACA401/5DA26828" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26828" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7800 5400 50  0001 C CNN
+F 1 "GND" H 7850 5450 50  0000 C CNN
+F 2 "" H 7800 5650 50  0001 C CNN
+F 3 "" H 7800 5650 50  0001 C CNN
+	1    7800 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5DA26832
+P 8100 5350
+AR Path="/5AACA401/5DA26832" Ref="SW?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26832" Ref="SW?"  Part="1" 
+F 0 "SW?" V 8100 5350 50  0000 R CNN
+F 1 "SW_Push" H 8100 5550 50  0001 C CNN
+F 2 "" H 8100 5550 50  0001 C CNN
+F 3 "~" H 8100 5550 50  0001 C CNN
+	1    8100 5350
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8100 4900 8100 5150
+Connection ~ 7800 5100
+Wire Wire Line
+	7800 4700 8100 4700
+Wire Wire Line
+	8100 4700 8100 4900
+Connection ~ 7800 4700
+Connection ~ 8100 4900
+Wire Wire Line
+	7800 4550 7800 4700
+Connection ~ 7800 4550
+Wire Wire Line
+	7800 4500 7800 4550
+$Comp
+L Device:LED_Small D?
+U 1 1 5DA26845
+P 7800 4200
+AR Path="/5AACA401/5DA26845" Ref="D?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26845" Ref="D?"  Part="1" 
+F 0 "D?" V 7750 4325 50  0000 L CNN
+F 1 "LED_RED" V 7700 4300 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7800 4200 50  0001 C CNN
+F 3 "" V 7800 4200 50  0001 C CNN
+	1    7800 4200
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA2684F
+P 7800 4400
+AR Path="/5AACA401/5DA2684F" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA2684F" Ref="R?"  Part="1" 
+F 0 "R?" H 7830 4420 50  0000 L CNN
+F 1 "1k" H 7830 4360 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7800 4400 50  0001 C CNN
+F 3 "" H 7800 4400 50  0001 C CNN
+	1    7800 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DA26859
+P 7800 4100
+AR Path="/5AACA401/5DA26859" Ref="#PWR?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26859" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7800 3950 50  0001 C CNN
+F 1 "+5V" H 7850 4300 50  0000 C CNN
+F 2 "" H 7800 4100 50  0001 C CNN
+F 3 "" H 7800 4100 50  0001 C CNN
+	1    7800 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5DA26863
+P 7800 5450
+AR Path="/5AACA401/5DA26863" Ref="R?"  Part="1" 
+AR Path="/5AACA401/5DE38629/5DA26863" Ref="R?"  Part="1" 
+F 0 "R?" H 7830 5470 50  0000 L CNN
+F 1 "100" H 7830 5410 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7800 5450 50  0001 C CNN
+F 3 "" H 7800 5450 50  0001 C CNN
+	1    7800 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 5650 7800 5600
+Wire Wire Line
+	7800 5600 8100 5600
+Wire Wire Line
+	8100 5550 8100 5600
+Connection ~ 7800 5600
+Wire Wire Line
+	7800 5600 7800 5550
+$EndSCHEMATC
