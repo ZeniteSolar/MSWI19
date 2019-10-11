@@ -6602,7 +6602,7 @@
   )
   (gr_line (start 265.355981 50.910094) (end 265.355981 123.214313) (layer Dwgs.User) (width 0.4))
   (gr_line (start 163.461214 123.214313) (end 267.355981 123.214313) (layer Dwgs.User) (width 0.4))
-  (gr_text "TODO:\n[x] ISP: Change to VERTICAL Version\n[_] OLED: Footprint & 3D\n[_] SW: 3D\n[_] RJ45: 3D\n[_] Fuse: 3D\n[x] PCB Geometry \n[_] Add zenitesolar and designer identification\n[_] Add opensource hardware symbol\n" (at 125 180) (layer Eco2.User)
+  (gr_text "TODO:\n[x] ISP: Change to VERTICAL Version\n[_] OLED: Footprint & 3D\n[_] SW: 3D\n[_] RJ45: 3D\n[_] Fuse: 3D\n[x] PCB Geometry \n[_] Add zenitesolar and designer identification\n[_] Add opensource hardware symbol\n[_] Define the switches position -> paper prototype" (at 115 180) (layer Eco2.User)
     (effects (font (size 1.5 1.5) (thickness 0.1)) (justify left))
   )
 
