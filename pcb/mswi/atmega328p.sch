@@ -788,18 +788,12 @@ Wire Wire Line
 	4450 4550 4550 4550
 Text Label 3150 4150 2    60   ~ 0
 LED0
-Text Label 4550 4450 0    60   ~ 0
-SW1
-Text Label 4550 4550 0    60   ~ 0
-SW2
-Text Label 4550 4650 0    60   ~ 0
+Text Label 4550 4350 0    60   ~ 0
 SW3
-Text Label 4550 4750 0    60   ~ 0
+Text Label 4550 3350 0    60   ~ 0
 SW4
 Text Label 4550 4850 0    60   ~ 0
 SW5
-Text Label 4550 4350 0    60   ~ 0
-SW0
 Wire Wire Line
 	3150 4150 3250 4150
 Wire Wire Line
@@ -816,13 +810,13 @@ Text Label 3150 4450 2    60   ~ 0
 LED3
 Text Label 4550 2450 0    60   ~ 0
 BUZZER
-Text Label 4550 3350 0    60   ~ 0
-SW6
-Text Label 4550 3450 0    60   ~ 0
-SW7
-Text Label 4550 3550 0    60   ~ 0
-SW8
 Text Label 4550 3650 0    60   ~ 0
+SW6
+Text Label 4550 4550 0    60   ~ 0
+SW7
+Text Label 4550 3450 0    60   ~ 0
+SW8
+Text Label 4550 4650 0    60   ~ 0
 SW9
 $Comp
 L Device:LED_Small D302
@@ -1268,4 +1262,10 @@ Wire Wire Line
 Connection ~ 7700 4700
 Wire Wire Line
 	7700 4700 7700 4800
+Text Label 4550 4450 0    60   ~ 0
+SW2
+Text Label 4550 3550 0    60   ~ 0
+SW1
+Text Label 4550 4750 0    60   ~ 0
+SW0
 $EndSCHEMATC

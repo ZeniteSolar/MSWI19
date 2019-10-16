@@ -14,20 +14,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Regulator_Linear:LM7805_TO220 U601
-U 1 1 5A007B62
-P 5900 3950
-AR Path="/5AACFFEF/5A007B62" Ref="U601"  Part="1" 
-AR Path="/5DDD6AD9/5A007B62" Ref="U?"  Part="1" 
-AR Path="/5DDDDD89/5A007B62" Ref="U?"  Part="1" 
-F 0 "U601" H 5750 4075 50  0000 C CNN
-F 1 "LM7805" H 5900 4100 50  0000 L CNN
-F 2 "KicadZeniteSolarLibrary18:TO-220-3_Horizontal_TabDown_SMD" H 5900 4175 50  0001 C CIN
-F 3 "https://www.sparkfun.com/datasheets/Components/LM7805.pdf" H 5900 3900 50  0001 C CNN
-	1    5900 3950
-	1    0    0    -1  
-$EndComp
 Text HLabel 3050 4800 0    60   Input ~ 0
 GND_IN
 Text HLabel 7300 3950 2    60   Output ~ 0
@@ -331,4 +317,15 @@ Wire Wire Line
 	3600 4800 3650 4800
 Text Notes 3400 5350 0    39   ~ 0
 TVS:\nhttps://m.littelfuse.com/~~/media/electronics/application_notes/littelfuse_tvs_diode_overview_application_note.pdf.pdf
+$Comp
+L Regulator_Linear:LM1117-5.0 U601
+U 1 1 5DA67007
+P 5900 3950
+F 0 "U601" H 5900 4250 50  0000 C CNN
+F 1 "LM1117-5.0" H 5900 4150 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 5900 3950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm1117.pdf" H 5900 3950 50  0001 C CNN
+	1    5900 3950
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

@@ -701,12 +701,12 @@ $EndComp
 $Comp
 L Device:C_Small C308
 U 1 1 5DAD7BBB
-P 7700 4800
-F 0 "C308" H 7800 4800 50  0000 L CNN
-F 1 "100nF" H 7700 4900 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7700 4800 50  0001 C CNN
-F 3 "" H 7700 4800 50  0001 C CNN
-	1    7700 4800
+P 7700 4900
+F 0 "C308" H 7800 4900 50  0000 L CNN
+F 1 "100nF" H 7700 5000 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7700 4900 50  0001 C CNN
+F 3 "" H 7700 4900 50  0001 C CNN
+	1    7700 4900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -724,21 +724,15 @@ Wire Wire Line
 	8800 4400 8600 4400
 Wire Wire Line
 	7750 4500 8150 4500
-Wire Wire Line
-	8600 4800 8600 4700
-Wire Wire Line
-	8600 4700 8800 4700
-Wire Wire Line
-	7700 4700 7700 4600
 $Comp
 L power:GND #PWR0316
 U 1 1 5DAE5F27
-P 7700 4900
-F 0 "#PWR0316" H 7700 4650 50  0001 C CNN
-F 1 "GND" H 7750 4700 50  0000 C CNN
-F 2 "" H 7700 4900 50  0001 C CNN
-F 3 "" H 7700 4900 50  0001 C CNN
-	1    7700 4900
+P 7700 5000
+F 0 "#PWR0316" H 7700 4750 50  0001 C CNN
+F 1 "GND" H 7750 4800 50  0000 C CNN
+F 2 "" H 7700 5000 50  0001 C CNN
+F 3 "" H 7700 5000 50  0001 C CNN
+	1    7700 5000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -778,11 +772,6 @@ F 3 "" H 7700 4250 50  0001 C CNN
 	1    7700 4250
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7700 4250 7700 4600
-Connection ~ 7700 4600
-Wire Wire Line
-	7700 4600 8800 4600
 Text Notes 7150 5450 0    50   ~ 0
 Nota:  Verificar posicionamento dos pinos do OLED e criar conector customizado para ele\n
 Wire Wire Line
@@ -799,18 +788,12 @@ Wire Wire Line
 	4450 4550 4550 4550
 Text Label 3150 4150 2    60   ~ 0
 LED0
-Text Label 4550 4450 0    60   ~ 0
-SW1
-Text Label 4550 4550 0    60   ~ 0
-SW2
-Text Label 4550 4650 0    60   ~ 0
+Text Label 4550 4350 0    60   ~ 0
 SW3
-Text Label 4550 4750 0    60   ~ 0
+Text Label 4550 3550 0    60   ~ 0
 SW4
 Text Label 4550 4850 0    60   ~ 0
 SW5
-Text Label 4550 4350 0    60   ~ 0
-SW0
 Wire Wire Line
 	3150 4150 3250 4150
 Wire Wire Line
@@ -827,13 +810,13 @@ Text Label 3150 4450 2    60   ~ 0
 LED3
 Text Label 4550 2450 0    60   ~ 0
 BUZZER
-Text Label 4550 3350 0    60   ~ 0
-SW6
-Text Label 4550 3450 0    60   ~ 0
-SW7
-Text Label 4550 3550 0    60   ~ 0
-SW8
 Text Label 4550 3650 0    60   ~ 0
+SW6
+Text Label 4550 4550 0    60   ~ 0
+SW7
+Text Label 4550 3450 0    60   ~ 0
+SW8
+Text Label 4550 4650 0    60   ~ 0
 SW9
 $Comp
 L Device:LED_Small D302
@@ -1268,4 +1251,21 @@ F 3 "" H 8600 2450 50  0001 C CNN
 	1    8600 2450
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	7700 4250 7700 4700
+Wire Wire Line
+	8600 4600 8800 4600
+Wire Wire Line
+	8600 4600 8600 4800
+Wire Wire Line
+	8800 4700 7700 4700
+Connection ~ 7700 4700
+Wire Wire Line
+	7700 4700 7700 4800
+Text Label 4550 4450 0    60   ~ 0
+SW2
+Text Label 4550 3350 0    60   ~ 0
+SW1
+Text Label 4550 4750 0    60   ~ 0
+SW0
 $EndSCHEMATC
