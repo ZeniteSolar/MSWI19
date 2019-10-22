@@ -11,26 +11,26 @@
 
   (page A4)
   (layers
-    (0 F.Cu jumper hide)
+    (0 F.Cu jumper)
     (31 B.Cu signal)
-    (32 B.Adhes user hide)
-    (33 F.Adhes user hide)
-    (34 B.Paste user hide)
-    (35 F.Paste user hide)
-    (36 B.SilkS user hide)
+    (32 B.Adhes user)
+    (33 F.Adhes user)
+    (34 B.Paste user)
+    (35 F.Paste user)
+    (36 B.SilkS user)
     (37 F.SilkS user)
-    (38 B.Mask user hide)
+    (38 B.Mask user)
     (39 F.Mask user)
-    (40 Dwgs.User user hide)
-    (41 Cmts.User user hide)
-    (42 Eco1.User user hide)
-    (43 Eco2.User user hide)
+    (40 Dwgs.User user)
+    (41 Cmts.User user)
+    (42 Eco1.User user)
+    (43 Eco2.User user)
     (44 Edge.Cuts user)
-    (45 Margin user hide)
-    (46 B.CrtYd user hide)
-    (47 F.CrtYd user hide)
-    (48 B.Fab user hide)
-    (49 F.Fab user hide)
+    (45 Margin user)
+    (46 B.CrtYd user)
+    (47 F.CrtYd user)
+    (48 B.Fab user)
+    (49 F.Fab user)
   )
 
   (setup
@@ -89,11 +89,11 @@
       (plotinvisibletext false)
       (padsonsilk false)
       (subtractmaskfromsilk true)
-      (outputformat 1)
+      (outputformat 4)
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "GERBERS/"))
+      (outputdirectory "PDF"))
   )
 
   (net 0 "")
@@ -788,10 +788,10 @@
       (net 1 GND))
     (pad 1 thru_hole rect (at 0 0 90) (size 2 2) (drill 1) (layers *.Cu *.Mask)
       (net 21 "Net-(BZ301-Pad1)"))
-    (model ${KISYS3DMOD}/Buzzer_Beeper.3dshapes/Buzzer_12x9.5RM7.6.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/buzzer.step
+      (offset (xyz 3.81 0 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 180))
     )
   )
 
@@ -831,7 +831,7 @@
       (net 4 "Net-(C203-Pad1)"))
     (model ${KISYS3DMOD}/Crystal.3dshapes/Crystal_HC49-U_Vertical.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 0.2))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1004,7 +1004,7 @@
       (net 22 "Net-(C305-Pad1)"))
     (model ${KISYS3DMOD}/Crystal.3dshapes/Crystal_HC49-U_Vertical.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 0.2))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1599,10 +1599,10 @@
       (net 86 "Net-(Q415-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 48.2) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -1645,10 +1645,10 @@
       (net 84 "Net-(Q414-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 131.8) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -1691,10 +1691,10 @@
       (net 82 "Net-(Q413-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 48.2) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -1783,10 +1783,10 @@
       (net 78 "Net-(Q411-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 48.2) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -1829,10 +1829,10 @@
       (net 76 "Net-(Q405-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 131.8) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -1875,10 +1875,10 @@
       (net 74 "Net-(Q404-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 131.8) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -1921,10 +1921,10 @@
       (net 72 "Net-(Q403-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 48.2) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -1967,10 +1967,10 @@
       (net 70 "Net-(Q402-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 131.8) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -2013,10 +2013,10 @@
       (net 68 "Net-(Q401-Pad2)"))
     (pad 1 thru_hole oval (at 12.5 0 48.2) (size 3.048 1.7272) (drill 0.8128) (layers *.Cu *.Mask)
       (net 1 GND))
-    (model ${KISYS3DMOD}/Button_Switch_THT.3dshapes/SW_PUSH-12mm.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/swich.wrl
+      (offset (xyz 6.35 -2.54 0.254))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -4862,10 +4862,10 @@
       (net 1 GND))
     (pad 1 thru_hole rect (at 0 0 90) (size 2.3 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 2 +5V))
-    (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x04_P2.54mm_Vertical.wrl
-      (at (xyz 0 0 0))
+    (model /home/joaoantoniocardoso/ZeniteSolar/2019/boat-steering-wheel/design/models/display.step
+      (offset (xyz -12.7 -3.81 3.175))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 0 90))
     )
   )
 
@@ -7795,7 +7795,7 @@
   (segment (start 160.795981 89.487978) (end 161.495981 90.187978) (width 0.381) (layer B.Cu) (net 101) (tstamp 5DACC8BC) (status 20))
   (segment (start 158.520981 89.487978) (end 160.795981 89.487978) (width 0.381) (layer B.Cu) (net 101) (tstamp 5DACCB8C) (status 10))
 
-  (zone (net 1) (net_name GND) (layer F.Cu) (tstamp 5DAE928C) (hatch edge 0.508)
+  (zone (net 1) (net_name GND) (layer F.Cu) (tstamp 5DAEB7B4) (hatch edge 0.508)
     (connect_pads (clearance 0.3048))
     (min_thickness 0.381)
     (fill yes (arc_segments 32) (thermal_gap 0.508) (thermal_bridge_width 0.508))
@@ -9330,7 +9330,7 @@
       )
     )
   )
-  (zone (net 1) (net_name GND) (layer B.Cu) (tstamp 5DAE9289) (hatch edge 0.508)
+  (zone (net 1) (net_name GND) (layer B.Cu) (tstamp 5DAEB7B1) (hatch edge 0.508)
     (connect_pads (clearance 0.3048))
     (min_thickness 0.381)
     (fill yes (arc_segments 32) (thermal_gap 0.508) (thermal_bridge_width 0.508))
