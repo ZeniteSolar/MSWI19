@@ -1,4 +1,20 @@
-Cmp-Mod V01 Created by PcbNew   date = Tue 22 Oct 2019 12:21:30 AM -03
+Cmp-Mod V01 Created by PcbNew   date = Tue 22 Oct 2019 04:35:18 PM -03
+
+BeginCmp
+TimeStamp = 5DB08737
+Path = 
+Reference = REF**;
+ValeurCmp = OSHW-Logo2_7.3x6mm_SilkScreen_NoText;
+IdModule  = mswi:OSHW-Logo2_7.3x6mm_SilkScreen_NoText;
+EndCmp
+
+BeginCmp
+TimeStamp = 5DB09AC1
+Path = 
+Reference = G***;
+ValeurCmp = LOGO;
+IdModule  = mswi:logo;
+EndCmp
 
 BeginCmp
 TimeStamp = 5DA5C8AC
