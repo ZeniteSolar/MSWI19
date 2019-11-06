@@ -243,12 +243,86 @@ Para verificar a viabilidade de roteamento, o formato da placa foi importada par
 
 <img src="design/imgs_iteration_1/sw_3_pcb_only_mounted.jpeg" alt="Utilização dos botões" width="200"/>
 
-
 ---
 
 ## MOMENTO IMPLEMENTAÇÃO
 
 ### [4] EXECUÇÃO
+
+#### Hardware parte 1: Projeto do Circuito Eletrônico
+
+O projeto foi desenhado no [KiCAD](http://www.kicad-pcb.org/) enquanto suas partes fundamentais foram simuladas no [LTSpice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html), divindo o circuito na seguinte estrutura:  
+├── mswi.sch (MSWI)  
+│   ├── POWER SUPPLY (design: supplies.sch, simulations: input.asc, input_alt.asc)  
+|   ├── MCU (design: atmega328p.sch, simulations: buzzer.asc)  
+|   ├── ├── SWITCHES (design: swiches.sch, simulations: switches_and_leds.asc)  
+|   ├── CANBUS (design: canbus.sch)  
+|   ├── CANBUS CONN (design: canbus_connector.sch)  
+
+
+##### POWER SUPPLY (supplies.sch, input.asc, input_alt.asc)
+
+Na embarcação, no cabo que leva o barramento can aos módulos, há um barramento de alimentação de 18V, que utilizaremos como nossa fonte de alimentação.
+
+Primeiramente a potência consumida pelo circuito foi estimada considerando uma estimativa de carga de trabalho de 10% para os leds (7.7mA médio) e buzzer (3mA médio), enquanto o display foi considerado 30mA médio e o microcontrolador 10mA, somando uma potência de 250mW para uma saída de +5V.
+
+Para converter 18V para 5V para esta potência, um simples regulador linear pode ser utilizado, implementado com um PNP (simulado em input_alt.asc) ou com um circuito integrado (simulado em input.asc). As vantagens de se utilizar um circuito integrado são sua robustez, proteção de sobre-corrente e temperatura.
+
+Para melhorar a robustez da fonte, foram adicionados uma proteção de polaridade utilizando um NMOS, de sobrecorrente na entrada utilizando um fusível rearmável (500mA) e de surto utilizando um diodo ESD (24V).
+
+O circuito foi simulado em diversas situações e se comportou como o esperado, sem oscilações ou picos de corrente no transitório. 
+
+##### SWITCHES (switches.sch, switches_and_leds.asc)
+
+Para que o piloto possa ter um feedback visual dos botões (além do próprio feedback tátil que o botão possui), um circuito de interface foi implementado, de maneira a permitir que os leds de cada botão liguem quando os botões forem pressionados, mas também permite que os leds sejam ativados pela mesma porta do microcontrolador. 
+
+Esta interface conta com o pull-up do microcontrolador e portanto as portas do microcontrolaor precisam estar com o pull-up ativo para que funcionem corretamente quando configuradas como entradadas. Para controlar os leds, basta serem configuradas como saída, e esta alternância entre entrada e saída pode ser realizado em uma frequência suficientemente alta para não que seja percebido pelo piloto.
+
+A possível oscilação no ligar e desligar das chaves foi tratado de maneira analógica com um filtro RC passa-baixa, não sendo necessário ser tratado digitalmente.
+
+Tal circuito de interface foi simulado (switches_and_leds.asc) no LTSpice e se comportou conforme o esperado.
+
+##### MCU (atmega328p.sch)
+
+Para que o sistema possa emitir sinais luminosos arbitrários, quatro leds foram utilizados, além de um buzzer, que serão utilizados como alarmes visuais e sonoros para a interface, em especial, para o cronômetro.
+
+O display OLed foi representado pelo conector J303, conectado no i2c.
+
+Para gravar o microcontrolador, o SPI0 + reset foram disponibilizados no conector J301, que infelizmente não pode seguir o padrão da AVR por restrições espaciais da PCB.
+
+Além disso, o USART0 + reset foi disponibilizado no conector J302, caso seja gravado um bootloader que permita gravar firmwares pela interface serial.
+
+##### Final
+
+O esquemático final pode ser acessado [aqui (PDF)](https://github.com/joaoantoniocardoso/boat-steering-wheel/raw/master/pcb/mswi/PDF/mswi.pdf).
+
+#### Hardware parte 2: Projeto da Placa de Circuito Impresso
+
+Primeiramente a especificação mecânica da forma da PCB, posição dos botões e do display foram importadas para o KiCAD. 
+
+Os componentes foram agrupados por sua funcionalidade e cada pequeno grupo foi roteado individualmente, buscando prover caminho para as entradas e saídas para pelo menos dois lados por ambas as camadas, deixando sua integração de forma simples.
+
+Em seguida o microcontrolador e os CIs do CAN foram posicionados numa região mais centralizada, e então os blocos foram conectados por trilhas.
+
+Regras iniciais foram definidas pensando numa fabricação utilizando a Freza do IFSC, mas posteriormente foram trocadas para a capabilidade padrão industrial (6/6mils), pois foi decidido que sua fabricação seria feita em alguma empresa, fora do IFSC, especialmente por que a capabilidade da Fresa do IFSC não garante que não fiquem pequenas regiões de cobre de micrômetros entre as trilhas do microcontrolador, que tem um encapsulamento com pitch de 5mm (espaçamento de 2mm entre os pads).
+
+O Layout finalizado pode ser verificado nas figuras abaixo.
+
+<table><td>
+    <tr>
+        <img src="design/pcb_traces.png" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/pcb_top.png" alt="Utilização dos botões" width="200"/>
+    </tr>
+    <tr>
+        <img src="design/pcb_bottom.png" alt="Utilização dos botões" width="200"/>
+    </tr>
+</td></table>
+
+#### Hardware parte 3: Projeto das Partes Mecânicas
+
+#### Firmware
 
 ### [5] VIABILIZAÇÃO
 
