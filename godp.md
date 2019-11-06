@@ -252,12 +252,12 @@ Para verificar a viabilidade de roteamento, o formato da placa foi importada par
 #### Hardware parte 1: Projeto do Circuito Eletrônico
 
 O projeto foi desenhado no [KiCAD](http://www.kicad-pcb.org/) enquanto suas partes fundamentais foram simuladas no [LTSpice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html), divindo o circuito na seguinte estrutura:  
-|-- mswi.sch (MSWI)  
-    |-- POWER SUPPLY (design: supplies.sch, simulations: input.asc, input_alt.asc)  
-    |-- MCU (design: atmega328p.sch, simulations: buzzer.asc)  
-        |-- SWITCHES (design: swiches.sch, simulations: switches_and_leds.asc)  
-    |-- CANBUS (design: canbus.sch)  
-    |-- CANBUS CONN (design: canbus_connector.sch)  
+* mswi.sch (MSWI)  
+    * POWER SUPPLY (design: supplies.sch, simulations: input.asc, input_alt.asc)  
+    * MCU (design: atmega328p.sch, simulations: buzzer.asc)  
+        * SWITCHES (design: swiches.sch, simulations: switches_and_leds.asc)  
+    * CANBUS (design: canbus.sch)  
+    * CANBUS CONN (design: canbus_connector.sch)  
 
 
 ##### POWER SUPPLY (supplies.sch, input.asc, input_alt.asc)
