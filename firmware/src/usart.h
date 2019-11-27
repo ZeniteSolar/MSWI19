@@ -12,6 +12,7 @@
 #define USART_H
 
 #include <avr/io.h>
+#include <stdlib.h>
 #include "../lib/bit_utils.h"
 #include "conf.h"
 
@@ -29,14 +30,19 @@ char usart_receive_char(void);
 
 void usart_send_string(const char *s);
 
+void usart_send_int8(int8_t num);
 void usart_send_uint8(uint8_t num);
 
+void usart_send_int16(int16_t num);
 void usart_send_uint16(uint16_t num);
 
+void usart_send_int32(int32_t num);
 void usart_send_uint32(uint32_t num);
 
 void usart_send_buffer(uint8_t *b, uint8_t lenght);
 
 void usart_init(uint16_t ubrr, uint8_t rx, uint8_t tx);
+
+void usart_send_float(float num);
 
 #endif
