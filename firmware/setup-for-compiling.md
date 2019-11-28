@@ -17,7 +17,7 @@ This is an easy way to use atmega328pb-au:
         - hint: you can use `sudo updatedb && locate arduino/tools/avr-gcc | grep bin`
     - Open Makefile and edit `CROSS` (around line 68) to match your bin folder.
 
-# To upload:
+## To upload:
 - Plug your usb-serial device and edit the -P (port parameter).
     - hint 1: `dmesg | tail -n10 | grep attached` to find it.
     - hint 2: you need to have write permission and the correct way of doing
