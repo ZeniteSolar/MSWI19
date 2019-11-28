@@ -52,15 +52,29 @@
 #define VERBOSE_MSG_MACHINE(x)
 #endif 
  
+#ifdef VERBOSE_ON_DISPLAY
+#define VERBOSE_MSG_DISPLAY_TEST(x) x
+#else
+#define VERBOSE_MSG_DISPLAY_TEST(x)
+#endif 
 
 #ifdef DEBUG_ON
 #define DEBUG_MSG(x) x
-#define DEBUG0 cpl_bit(PORTB, PB5);
-#define DEBUG1 cpl_bit(PORTB, PB4);
+//#define DEBUG0 cpl_bit(PORTB, PB2);
+//#define DEBUG1 cpl_bit(PORTB, PB2);
+#define DEBUG0
+#define DEBUG1
 #else
 #define DEBUG_MSG(x)
 #define DEBUG0
 #define DEBUG1
 #endif
+
+// https://stackoverflow.com/a/10791845/3850957
+//usage:
+//#pragma message "The value of ABC: " XSTR(ABC)
+#define XSTR(x) STR(x)
+#define STR(x) #x
+
 
 #endif /* ifndef DBG_VRB_H */

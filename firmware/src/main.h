@@ -7,7 +7,7 @@
  *
  */
 #ifndef MAIN_H
-#define MAIN_H 
+#define MAIN_H
 
 #ifndef F_CPU
 #define F_CPU 16000000UL    ///< Frequency of CPU
@@ -29,6 +29,13 @@
 #pragma message "USART: OFF!"
 #endif /*ifdef USART_ON*/
 
+#ifdef UI_ON
+#include "ui.h"
+#pragma message "UI: ON!"
+#else
+#pragma message "UI: OFF!"
+#endif /*ifdef UI_ON*/
+
 #ifdef CAN_ON
 #include "can.h"
 #include "can_filters.h"
@@ -37,7 +44,7 @@
 #pragma message "CAN: OFF!"
 #endif /*ifdef CAN_ON*/
 
-#ifdef ADC_ON 
+#ifdef ADC_ON
 #include "adc.h"
 #pragma message "ADC: ON!"
 #else
@@ -50,13 +57,6 @@
 #else
 #pragma message "MACHINE: OFF!"
 #endif /*ifdef MACHINE_ON*/
-
-#ifdef PWM_ON
-#include "pwm.h"
-#pragma message "PWM: ON!"
-#else
-#pragma message "PWM: OFF!"
-#endif /*ifdef PWM_ON*/
 
 #ifdef LED_ON
 #pragma message "LED: ON!"

@@ -44,9 +44,11 @@ MAIN 		= 	main
 MCU 		?=	atmega328pb
 F_CPU		?=	16000000UL
 # Optimization
-OPT=s
+OPT			=	s
+# Debug
+DEBUG		=	dwarf-2
 # documentation (auto generated)
-DOXYFILE_MK		=	Doxyfile
+DOXYFILE_MK	=	Doxyfile
 
 ########### Project Settings ends here
 ################################################################################
@@ -90,20 +92,43 @@ $(foreach i,$(SPECIAL_DEFS),$(eval $(call CHECK_ANSWER,$(i))))
 
 ##
 
+#---------------- Compiler Options C ----------------
+#  -g*:          generate debugging information
+#  -O*:          optimization level
+#  -f...:        tuning, see GCC manual and avr-libc documentation
+#  -Wall...:     warning level
+#  -Wa,...:      tell GCC to pass this to the assembler.
+#  -adhlns...:   create assembler listing
+CFLAGS += $(CDEFS)
+CFLAGS += -O$(OPT)
+CFLAGS += -g$(DEBUG)
+CFLAGS += -funsigned-char
+CFLAGS += -funsigned-bitfields
+CFLAGS += -fpack-struct
+CFLAGS += -fshort-enums
+CFLAGS += -Wall
+CFLAGS += -Wstrict-prototypes
+CFLAGS += -mshort-calls
+#CFLAGS += -fno-unit-at-a-time
+CFLAGS += -Wundef
+CFLAGS += -Wunreachable-code
+CFLAGS += -Wsign-compare
+#CFLAGS += -Wa,-adhlns=$(<:%.c=$(OBJDIR)/%.lst)
+CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
+CFLAGS += -mmcu=$(MCU)
+CFLAGS += -std=gnu99
+CFLAGS += -DF_CPU=$(F_CPU)
+CFLAGS += -finput-charset=utf-8 -fexec-charset=iso-8859-15
 
-CFLAGS += \
-	-O$(OPT) \
-	-Wall \
-	-std=gnu99 \
-	-mmcu=$(MCU)
 CFLAGSALT += \
 	-D__AVR_DEV_LIB_NAME__=m328pb
 
-LDFLAGS = -Wl,-Map=$(OBJDIR)/$(TARGET).map
+LDFLAGS = -Wl,-Map=$(OBJDIR)/$(TARGET).map,--cref
 LDFLAGS += $(patsubst %,-L%,$(EXTRALIBDIRS))
 #LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB) 
 LDFLAGS += $(MATH_LIB)
-#LDFLAGS += -Llib/avr-can-lib/src/ -lcan
+LDFLAGS += -static -Llib/avr-can-lib/src/ -lcan
+LDFLAGS += -static -Llib/DISPLAYS/SSD1306_AVR/ -lssd1306
 
 ## Intel Hex file production flags
 HEX_FLASH_FLAGS = \

@@ -29,9 +29,13 @@ void display_update(void)
 
 void display_layout(void)
 {
+    display_send_string_big_font("Hello", col2, line2);
+    display_send_string_big_font("World!", col2, line4);
+
+    /*
     LCD_Line(0, 13, LCD_WIDTH, 13, 1);
     LCD_Line(LCD_WIDTH/2, 0, LCD_WIDTH/2, LCD_HEIGHT, 1);
-
+    
     display_send_string("BAT.", col2, line1);
     display_send_string("M", col1, line2);
     display_send_string("A", col1, line3);
@@ -41,6 +45,7 @@ void display_layout(void)
     display_send_string(">", col3, line2);
     display_send_string("<", col3, line3);
     display_send_string("T", col3, line4);
+    */
 
     /*
     display_send_uint16(43218, col2, line2);

@@ -28,7 +28,7 @@ void ui_draw_layout(void)
     display_layout();
 }
 
-void ui_update_battery_voltage_main(uint16_t num)
+/*void ui_update_battery_voltage_main(uint16_t num)
 {
     float val = num / 1000.f;
     display_send_float(val, col2, line2);
@@ -148,3 +148,4 @@ void ui_no_communication_with_mcs(void)
     display_update();
     _delay_ms(500);
 }
+*/

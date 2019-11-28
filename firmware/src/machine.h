@@ -40,7 +40,6 @@ extern const uint8_t can_filter[];
 typedef enum state_machine{
     STATE_INITIALIZING,
     STATE_IDLE,
-    STATE_CAP_CHARGING,
     STATE_RUNNING,
     STATE_ERROR,
     STATE_RESET,
@@ -49,16 +48,9 @@ typedef enum state_machine{
 typedef union system_flags{
     struct{
         uint8_t     none          :1;
-        uint8_t     cap_charging  :1;
-        uint8_t     charge_failed :1;
-        uint8_t     boat_on       :1;
     };
     uint8_t   all;
 } system_flags_t;
-
-typedef struct control{
-    uint16_t rpm;
-}control_t;
 
 typedef union error_flags{
     struct{
@@ -73,19 +65,6 @@ typedef union error_flags{
     uint8_t   all;
 }error_flags_t;
 
-typedef struct battery_voltage
-{
-    uint16_t main;
-    uint16_t aux;
-    uint16_t extra;
-}battery_voltage_t;
-
-typedef struct battery_current
-{
-    uint16_t in;
-    uint16_t out;
-}battery_current_t;
-
 // debug functions
 void print_configurations(void);
 void print_system_flags(void);
@@ -94,7 +73,6 @@ void print_error_flags(void);
 // machine tasks
 void task_initializing(void);
 void task_idle(void);
-void task_cap_charging();
 void task_running(void);
 void task_error(void);
 void task_reset(void);
@@ -115,11 +93,8 @@ void ui_boat_info(void);
 // machine variables
 volatile state_machine_t state_machine;
 volatile system_flags_t system_flags;
-volatile control_t control;
 volatile error_flags_t error_flags;
 
-volatile battery_voltage_t battery_voltage;
-volatile battery_current_t battery_current;
 volatile uint8_t machine_clk;
 volatile uint8_t machine_clk_divider;
 volatile uint8_t total_errors;           // Contagem de ERROS
@@ -129,7 +104,6 @@ volatile uint8_t led_clk_div;
 volatile uint8_t ui_clk_div;
 volatile uint8_t ui_clk_div_2;
 volatile uint16_t ui_timeout_clk_div;
-
 
 // ISRs
 ISR(TIMER2_COMPA_vect);

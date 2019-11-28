@@ -2,23 +2,134 @@
 
 #include "main.h"
 
-int main(void)
+void init(void)
 {
-    _delay_ms(1000);
-
     #ifdef USART_ON
-        usart_init(MYUBRR,0,1);                         // inicializa a usart
+        usart_init(MYUBRR,1,1);                         // inicializa a usart
         VERBOSE_MSG_INIT(usart_send_string("\n\n\nUSART... OK!\n"));
     #endif
 
-    // reset as input pull-up against noise
-    clr_bit(DDRC, PC6);
-    set_bit(PORTC, PC6);
-	
-	for(;;){
-        usart_send_string("Hello World!\n");
-        _delay_ms(100);
-	}
+    #ifdef LED_ON
+        set_bit(LED_DDR, LED0);                      // LED como saída
+        set_bit(LED_DDR, LED1);                      
+        set_bit(LED_DDR, LED2);                      
+        set_bit(LED_DDR, LED3);                      
+        set_led(LED0);
+        set_led(LED1);
+        set_led(LED2);
+        set_led(LED3);
+        VERBOSE_MSG_INIT(usart_send_string("LED... OK!\n"));
+    #else
+        VERBOSE_MSG_INIT(usart_send_string("LED... OFF!\n"));
+    #endif
+
+    #ifdef UI_ON
+        VERBOSE_MSG_INIT(usart_send_string("UI..."));
+        ui_init();
+        VERBOSE_MSG_INIT(usart_send_string(" OK!\n"));
+    #else
+        VERBOSE_MSG_INIT(usart_send_string("UI... OFF!\n"));
+    #endif
+
+    _delay_ms(200);
+
+    #ifdef WATCHDOG_ON
+        VERBOSE_MSG_INIT(usart_send_string("WATCHDOG..."));
+        wdt_init();
+        VERBOSE_MSG_INIT(usart_send_string(" OK!\n"));
+        wdt_reset();
+    #else
+        VERBOSE_MSG_INIT(usart_send_string("WATCHDOG... OFF!\n"));
+    #endif
+
+    #ifdef WATCHDOG_ON
+        wdt_reset();
+    #endif
+
+    #ifdef SPI_ON
+        set_bit(DDRB, PB2);     //output to be the spi master
+    #endif
+
+    #ifdef CAN_ON
+        VERBOSE_MSG_INIT(usart_send_string("CAN (500kbps)..."));
+        can_init(BITRATE_500_KBPS);
+        //can_set_mode(LOOPBACK_MODE);
+        VERBOSE_MSG_INIT(usart_send_string(" OK!\n"));
+        VERBOSE_MSG_INIT(usart_send_string("CAN filters..."));
+        can_static_filter(can_filter);
+        VERBOSE_MSG_INIT(usart_send_string(" OK!\n"));
+    #else
+        VERBOSE_MSG_INIT(usart_send_string("CAN... OFF!\n"));
+    #endif
+
+    #ifdef WATCHDOG_ON
+        wdt_reset();
+    #endif
+
+    #ifdef ADC_ON
+        VERBOSE_MSG_INIT(usart_send_string("ADC..."));
+        adc_init();
+        VERBOSE_MSG_INIT(usart_send_string(" OK!\n"));
+    #else
+        VERBOSE_MSG_INIT(usart_send_string("ADC... OFF!\n"));
+    #endif
+
+    #ifdef WATCHDOG_ON
+        wdt_reset();
+    #endif
+
+    #ifdef SLEEP_ON
+        VERBOSE_MSG_INIT(usart_send_string("SLEEP..."));
+        sleep_init();
+        VERBOSE_MSG_INIT(usart_send_string(" OK!\n"));
+    #else
+        VERBOSE_MSG_INIT(usart_send_string("SLEEP... OFF!\n"));
+    #endif
+
+    #ifdef WATCHDOG_ON
+        wdt_reset();
+    #endif
+
+ 	#ifdef MACHINE_ON
+        VERBOSE_MSG_INIT(usart_send_string("MACHINE..."));
+		machine_init();
+        VERBOSE_MSG_INIT(usart_send_string(" OK!\n"));
+    #else
+        VERBOSE_MSG_INIT(usart_send_string("MACHINE... OFF!\n"));
+	#endif
+
+    #ifdef WATCHDOG_ON
+        wdt_reset();
+    #endif
+
+    #ifdef MACHINE_ON
+        print_configurations();
+    #endif
+
+    #ifdef WATCHDOG_ON
+        wdt_reset();
+    #endif
+
+    sei();
+}
+
+int main(void)
+{
+    init();
+
+    for(;;){
+        #ifdef WATCHDOG_ON
+            wdt_reset();
+	    #endif
+
+        #ifdef MACHINE_ON
+            machine_run();
+        #endif
+
+	    #ifdef SLEEP_ON
+            sleep_mode();
+       	#endif
+	  }
 }
 
 
@@ -39,4 +150,3 @@ ISR(BADISR_vect)
         #endif
     }
 }
-

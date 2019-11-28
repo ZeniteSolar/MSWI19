@@ -1,0 +1,6 @@
+*.ini
+build
+Debug
+.dep
+.vs
+*.a

@@ -58,7 +58,7 @@ inline void can_app_send_state(void)
 #endif
 }
 
-
+/*
 void can_app_extractor_msc19_1_state(can_t *msg)
 {
     // if(msg->data[CAN_SIGNATURE_BYTE] == CAN_SIGNATURE_MSC19_1){
@@ -223,7 +223,7 @@ void can_app_extractor_mcs_relay(can_t *msg)
         system_flags.boat_on = 0;
       }
     }
-}
+}*/
 
 /**
  * @brief redirects a specific message extractor to a given message
@@ -231,7 +231,7 @@ void can_app_extractor_mcs_relay(can_t *msg)
  */
 inline void can_app_msg_extractors_switch(can_t *msg)
 {
-    if(msg->data[CAN_SIGNATURE_BYTE] == CAN_SIGNATURE_MCS17){
+/*    if(msg->data[CAN_SIGNATURE_BYTE] == CAN_SIGNATURE_MCS17){
         // can_app_checks_without_mcs19_msg = 0;
 
         switch(msg->id)
@@ -426,6 +426,7 @@ inline void can_app_msg_extractors_switch(can_t *msg)
                 break;
         }
     } // CAN_SIGNATURE_MT19
+    */
 
     #ifdef CAN_DEPENDENT
     if(msg->data[CAN_SIGNATURE_BYTE] == CAN_SIGNATURE_MIC17)
@@ -440,7 +441,7 @@ inline void can_app_msg_extractors_switch(can_t *msg)
  */
 inline void check_can(void)
 {
-
+    /*
 #ifdef CAN_DEPENDENT
       if(can_app_checks_without_mic17_msg++ >= CAN_APP_CHECKS_WITHOUT_MIC17_MSG){
 #ifdef USART_ON
@@ -522,4 +523,5 @@ inline void check_can(void)
             can_app_msg_extractors_switch(&msg);
         }
     }
+    */
 }

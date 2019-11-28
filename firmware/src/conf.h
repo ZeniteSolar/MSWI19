@@ -26,14 +26,14 @@
 
 // MODULES ACTIVATION
 #define USART_ON
-// #define CAN_ON
-// #define CAN_DEPENDENT
+//#define CAN_ON
+//#define CAN_DEPENDENT
 //#define ADC_ON
-// #define MACHINE_ON
-// #define LED_ON
-// #define WATCHDOG_ON
-// #define SLEEP_ON
-// #define UI_ON
+#define MACHINE_ON
+//#define LED_ON
+//#define WATCHDOG_ON
+//#define SLEEP_ON
+#define UI_ON
 
 #ifdef ADC_ON
 // ADC CONFIGURATION
@@ -70,18 +70,16 @@
 #define MACHINE_CLK_DIVIDER_VALUE           1
 #endif // ADC_ON
 #define MACHINE_FREQUENCY                   (MACHINE_TIMER_FREQUENCY)/(MACHINE_CLK_DIVIDER_VALUE)
-
-// SCALE TO CONVERT ADC DEFINITIONS
-#define VSCALE                              (uint16_t)1000
-
 #endif // MACHINE_ON
 
 #ifdef LED_ON
-#define     LED_PORT                PORTD
-#define     LED_PIN                 PIND
-#define     LED_DDR                 DDRD
-#define     LED1                    PD5
-#define     LED2                    PD6
+#define     LED_PORT                PORTE
+#define     LED_PIN                 PINE
+#define     LED_DDR                 DDRE
+#define     LED0                    PE0
+#define     LED1                    PE1
+#define     LED2                    PE2
+#define     LED3                    PE3
 #define     cpl_led(y)              cpl_bit(LED_PORT, y)
 #define     set_led(y)              set_bit(LED_PORT, y)
 #define     clr_led(y)              clr_bit(LED_PORT, y)
