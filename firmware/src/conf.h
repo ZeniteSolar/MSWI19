@@ -26,7 +26,7 @@
 
 // MODULES ACTIVATION
 #define USART_ON
-//#define CAN_ON
+#define CAN_ON
 //#define CAN_DEPENDENT
 //#define ADC_ON
 #define MACHINE_ON

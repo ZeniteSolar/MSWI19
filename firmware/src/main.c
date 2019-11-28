@@ -4,6 +4,13 @@
 
 void init(void)
 {
+    _delay_ms(200);
+    
+    #ifdef SPI_ON
+        //spi slave-select as output to atmega work as the spi master
+        set_bit(DDRB, PB1);     
+    #endif
+
     #ifdef USART_ON
         usart_init(MYUBRR,1,1);                         // inicializa a usart
         VERBOSE_MSG_INIT(usart_send_string("\n\n\nUSART... OK!\n"));
@@ -31,8 +38,6 @@ void init(void)
         VERBOSE_MSG_INIT(usart_send_string("UI... OFF!\n"));
     #endif
 
-    _delay_ms(200);
-
     #ifdef WATCHDOG_ON
         VERBOSE_MSG_INIT(usart_send_string("WATCHDOG..."));
         wdt_init();
@@ -44,10 +49,6 @@ void init(void)
 
     #ifdef WATCHDOG_ON
         wdt_reset();
-    #endif
-
-    #ifdef SPI_ON
-        set_bit(DDRB, PB2);     //output to be the spi master
     #endif
 
     #ifdef CAN_ON
