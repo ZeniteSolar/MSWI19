@@ -99,6 +99,7 @@ $(foreach i,$(SPECIAL_DEFS),$(eval $(call CHECK_ANSWER,$(i))))
 #  -Wall...:     warning level
 #  -Wa,...:      tell GCC to pass this to the assembler.
 #  -adhlns...:   create assembler listing
+#  INFO: https://www.nongnu.org/avr-libc/user-manual/using_tools.html
 CFLAGS += $(CDEFS)
 CFLAGS += -O$(OPT)
 CFLAGS += -g$(DEBUG)
@@ -109,10 +110,19 @@ CFLAGS += -fshort-enums
 CFLAGS += -Wall
 CFLAGS += -Wstrict-prototypes
 CFLAGS += -mshort-calls
+CFLAGS += -ffunction-sections
+CFLAGS += -fdata-sections
+CFLAGS += -ffreestanding
+CFLAGS += -mcall-prologues
+#CFLAGS += --param inline-call-cost=2
+#CFLAGS += -finline-limit=3
+#CFLAGS += -fno-inline-small-functions
 #CFLAGS += -fno-unit-at-a-time
 CFLAGS += -Wundef
 CFLAGS += -Wunreachable-code
 CFLAGS += -Wsign-compare
+CFLAGS += -Waddr-space-convert
+CFLAGS += -Wmisspelled-isr
 #CFLAGS += -Wa,-adhlns=$(<:%.c=$(OBJDIR)/%.lst)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 CFLAGS += -mmcu=$(MCU)

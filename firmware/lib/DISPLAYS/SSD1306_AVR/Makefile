@@ -158,10 +158,19 @@ CFLAGS += -fshort-enums
 CFLAGS += -Wall
 CFLAGS += -Wstrict-prototypes
 CFLAGS += -mshort-calls
+CFLAGS += -ffunction-sections
+CFLAGS += -fdata-sections
+CFLAGS += -ffreestanding
+CFLAGS += -mcall-prologues
+#CFLAGS += --param inline-call-cost=2
+#CFLAGS += -finline-limit=3
+#CFLAGS += -fno-inline-small-functions
 #CFLAGS += -fno-unit-at-a-time
 CFLAGS += -Wundef
 CFLAGS += -Wunreachable-code
 CFLAGS += -Wsign-compare
+CFLAGS += -Waddr-space-convert
+CFLAGS += -Wmisspelled-isr
 CFLAGS += -Wa,-adhlns=$(<:%.c=$(OBJDIR)/%.lst)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 CFLAGS += $(CSTANDARD)
