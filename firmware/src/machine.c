@@ -215,6 +215,10 @@ inline void task_idle(void)
 #endif
 
     switches_read();
+
+    chronometer_update(chronometers.uptime);
+    chronometer_print(chronometers.uptime);
+
     //ui_boat_info();
 }
 
@@ -359,6 +363,10 @@ inline void machine_run(void)
 */
 ISR(TIMER2_COMPA_vect)
 {
+#ifdef CHRONOMETER_ON
+    chronometer_counter++;
+#endif //CHRONOMETER_ON
+
     if(++machine_clk_divider == MACHINE_CLK_DIVIDER_VALUE){
         machine_clk_divider = 0;
        /*if(machine_clk){

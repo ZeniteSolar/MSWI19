@@ -65,6 +65,13 @@
 #pragma message "MACHINE: OFF!"
 #endif /*ifdef MACHINE_ON*/
 
+#ifdef CHRONOMETER_ON
+#include "chronometer.h"
+#pragma message "CHRONOMETER: ON!"
+#else
+#pragma message "CHRONOMETER: OFF!"
+#endif /*ifdef CHRONOMETER_ON*/
+
 #ifdef LED_ON
 #pragma message "LED: ON!"
 #else

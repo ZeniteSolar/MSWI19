@@ -39,6 +39,9 @@ extern const uint8_t can_filter[];
 #ifdef IO_ON
 #include "io.h"
 #endif //IO_ON
+#ifdef CHRONOMETER_ON
+#include "chronometer.h"
+#endif //CHRONOMETER_ON
 
 typedef enum state_machine{
     STATE_INITIALIZING,

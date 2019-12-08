@@ -19,7 +19,7 @@ void init(void)
     #ifdef IO_ON
         leds_init();
         switches_init();
-        buzzer_init();
+        //buzzer_init();
         VERBOSE_MSG_INIT(usart_send_string("IOs... OK!\n\r"));
     #else
         VERBOSE_MSG_INIT(usart_send_string("IOs... OFF!\n\r"));
@@ -86,6 +86,10 @@ void init(void)
         wdt_reset();
     #endif
 
+    #ifdef CHRONOMETER_ON
+        chronometer_init();
+    #endif
+
  	#ifdef MACHINE_ON
         VERBOSE_MSG_INIT(usart_send_string("MACHINE..."));
 		machine_init();
@@ -107,6 +111,7 @@ void init(void)
     #endif
 
     sei();
+    
 }
 
 int main(void)

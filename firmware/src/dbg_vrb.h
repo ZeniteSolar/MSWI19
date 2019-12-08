@@ -64,6 +64,12 @@
 #define VERBOSE_MSG_IO(x)
 #endif
 
+#ifdef VERBOSE_ON_CHRONOMETER
+#define VERBOSE_MSG_CHRONOMETER(x) x
+#else
+#define VERBOSE_MSG_CHRONOMETER(x)
+#endif
+
 #ifdef DEBUG_ON
 #define DEBUG_MSG(x) x
 //#define DEBUG0 cpl_bit(PORTB, PB2);

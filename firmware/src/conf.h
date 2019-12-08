@@ -24,6 +24,7 @@
 #define VERBOSE_ON_INIT
 #define VERBOSE_ON_ERROR
 #define VERBOSE_ON_IO
+#define VERBOSE_ON_CHRONOMETER
 
 // MODULES ACTIVATION
 #define USART_ON
@@ -31,6 +32,7 @@
 //#define CAN_DEPENDENT
 //#define ADC_ON
 #define MACHINE_ON
+#define CHRONOMETER_ON
 //#define LED_ON
 //#define WATCHDOG_ON
 //#define SLEEP_ON
@@ -61,12 +63,12 @@
 
 #ifdef MACHINE_ON
 // The machine frequency may not be superior of ADC_FREQUENCY/ADC_AVG_SIZE_10
-#define MACHINE_TIMER_FREQUENCY             100           //<! machine timer frequency in Hz
+#define MACHINE_TIMER_FREQUENCY             1000           //<! machine timer frequency in Hz
 #define MACHINE_TIMER_PRESCALER             1024          //<! machine timer prescaler
 #ifdef ADC_ON
 #define MACHINE_CLK_DIVIDER_VALUE           ((uint64_t)(uint32_t)MACHINE_TIMER_FREQUENCY*(uint32_t)ADC_AVG_SIZE_10)/(ADC_FREQUENCY)           //<! machine_run clock divider
 #else
-#define MACHINE_CLK_DIVIDER_VALUE           1
+#define MACHINE_CLK_DIVIDER_VALUE           20
 #endif // ADC_ON
 #define MACHINE_FREQUENCY                   (MACHINE_TIMER_FREQUENCY)/(MACHINE_CLK_DIVIDER_VALUE)
 #endif // MACHINE_ON
