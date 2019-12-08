@@ -25,6 +25,7 @@
 #define VERBOSE_ON_ERROR
 #define VERBOSE_ON_IO
 #define VERBOSE_ON_CHRONOMETER
+#define VERBOSE_ON_INPUT
 
 // MODULES ACTIVATION
 #define USART_ON
@@ -38,6 +39,7 @@
 //#define SLEEP_ON
 #define UI_ON
 #define IO_ON
+#define INPUT_ON
 
 #ifdef ADC_ON
 // ADC CONFIGURATION

@@ -70,6 +70,12 @@
 #define VERBOSE_MSG_CHRONOMETER(x)
 #endif
 
+#ifdef VERBOSE_ON_INPUT
+#define VERBOSE_MSG_INPUT(x) x
+#else
+#define VERBOSE_MSG_INPUT(x)
+#endif
+
 #ifdef DEBUG_ON
 #define DEBUG_MSG(x) x
 //#define DEBUG0 cpl_bit(PORTB, PB2);

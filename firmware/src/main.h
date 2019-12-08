@@ -36,6 +36,13 @@
 #pragma message "IO: OFF!"
 #endif /*ifdef IO_ON*/
 
+#ifdef INPUT_ON
+#include "input.h"
+#pragma message "INPUT: ON!"
+#else
+#pragma message "INPUT: OFF!"
+#endif /*ifdef INPUT_ON*/
+
 #ifdef UI_ON
 #include "ui.h"
 #pragma message "UI: ON!"

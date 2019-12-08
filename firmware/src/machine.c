@@ -202,6 +202,22 @@ inline void task_initializing(void)
     set_state_idle();
 }
 
+//#define CHRONOMETER_DEBUG
+//#define DEBUG_INPUT
+void task_chronometer(void)
+{                              
+#ifdef CHRONOMETER_ON
+
+    inputs_update();
+
+    chronometer_update(chronometers.uptime);
+
+#ifdef CHRONOMETER_DEBUG
+    chronometer_print(chronometers.uptime);
+#endif
+#endif
+}
+
 /**
  * @brief waits for commands while checking the system
  */
@@ -214,13 +230,10 @@ inline void task_idle(void)
     }
 #endif
 
-    switches_read();
-
-    chronometer_update(chronometers.uptime);
-    chronometer_print(chronometers.uptime);
-
+    task_chronometer();
     //ui_boat_info();
 }
+
 
 /**
  * @brief running task checks the system and apply the control action to pwm.
@@ -234,7 +247,6 @@ inline void task_running(void)
     }
 #endif
 
-    //check_switches();
     //ui_boat_info();
 }
 
