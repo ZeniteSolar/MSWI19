@@ -19,10 +19,11 @@
 #define DEBUG_ON
 #define VERBOSE_ON
 //#define VERBOSE_ON_CAN_APP
-//#define VERBOSE_ON_MACHINE
+#define VERBOSE_ON_MACHINE
 //#define VERBOSE_ON_ADC
 #define VERBOSE_ON_INIT
 #define VERBOSE_ON_ERROR
+#define VERBOSE_ON_IO
 
 // MODULES ACTIVATION
 #define USART_ON
@@ -34,6 +35,7 @@
 //#define WATCHDOG_ON
 //#define SLEEP_ON
 #define UI_ON
+#define IO_ON
 
 #ifdef ADC_ON
 // ADC CONFIGURATION
@@ -50,19 +52,16 @@
 #ifdef FAKE_ADC_ON
 #define FAKE_ADC                            1
 #endif // FAKE_ADC_ON
-
 #endif //ADC_ON
 
-//#define UI_FAKE_DATA
 #ifdef UI_ON
 #define UI_CLK_DIVIDER_VALUE  50
 #endif // UI_ON
 #define UI_TIMEOUT_CLK_DIV_VALUE  500
 
-
 #ifdef MACHINE_ON
 // The machine frequency may not be superior of ADC_FREQUENCY/ADC_AVG_SIZE_10
-#define MACHINE_TIMER_FREQUENCY             120           //<! machine timer frequency in Hz
+#define MACHINE_TIMER_FREQUENCY             100           //<! machine timer frequency in Hz
 #define MACHINE_TIMER_PRESCALER             1024          //<! machine timer prescaler
 #ifdef ADC_ON
 #define MACHINE_CLK_DIVIDER_VALUE           ((uint64_t)(uint32_t)MACHINE_TIMER_FREQUENCY*(uint32_t)ADC_AVG_SIZE_10)/(ADC_FREQUENCY)           //<! machine_run clock divider
@@ -71,24 +70,6 @@
 #endif // ADC_ON
 #define MACHINE_FREQUENCY                   (MACHINE_TIMER_FREQUENCY)/(MACHINE_CLK_DIVIDER_VALUE)
 #endif // MACHINE_ON
-
-#ifdef LED_ON
-#define     LED_PORT                PORTE
-#define     LED_PIN                 PINE
-#define     LED_DDR                 DDRE
-#define     LED0                    PE0
-#define     LED1                    PE1
-#define     LED2                    PE2
-#define     LED3                    PE3
-#define     cpl_led(y)              cpl_bit(LED_PORT, y)
-#define     set_led(y)              set_bit(LED_PORT, y)
-#define     clr_led(y)              clr_bit(LED_PORT, y)
-#else
-#define     cpl_led()
-#define     set_led()
-#define     clr_led()
-#endif // LED_ON
-
 
 #ifdef CAN_ON
 #define SPI_ON

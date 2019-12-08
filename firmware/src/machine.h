@@ -36,6 +36,9 @@ extern const uint8_t can_filter[];
 #ifdef UI_ON
 #include "ui.h"
 #endif // UI_ON
+#ifdef IO_ON
+#include "io.h"
+#endif //IO_ON
 
 typedef enum state_machine{
     STATE_INITIALIZING,

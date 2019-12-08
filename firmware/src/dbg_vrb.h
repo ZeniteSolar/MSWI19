@@ -58,6 +58,12 @@
 #define VERBOSE_MSG_DISPLAY_TEST(x)
 #endif 
 
+#ifdef VERBOSE_ON_IO
+#define VERBOSE_MSG_IO(x) x
+#else
+#define VERBOSE_MSG_IO(x)
+#endif
+
 #ifdef DEBUG_ON
 #define DEBUG_MSG(x) x
 //#define DEBUG0 cpl_bit(PORTB, PB2);

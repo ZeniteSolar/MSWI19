@@ -5,7 +5,7 @@
  */
 void machine_init(void)
 {
-	//clr_bit(PRR0, PRTIM2);                          // Activates clock
+	clr_bit(PRR0, PRTIM2);                          // Activates clock
 
     // MODE 2 -> CTC with TOP on OCR1
     TCCR2A  =    (1 << WGM21) | (0 << WGM20)        // mode 2
@@ -54,7 +54,7 @@ inline void set_machine_initial_state(void)
  */
 inline void set_state_error(void)
 {
-    VERBOSE_MSG_MACHINE(usart_send_string("\n>>>STATE ERROR\n"));
+    VERBOSE_MSG_MACHINE(usart_send_string("\n\r>>>STATE ERROR\n\r"));
     state_machine = STATE_ERROR;
 }
 
@@ -63,7 +63,7 @@ inline void set_state_error(void)
 */
 inline void set_state_initializing(void)
 {
-    VERBOSE_MSG_MACHINE(usart_send_string("\n>>>INITIALIZING STATE\n"));
+    VERBOSE_MSG_MACHINE(usart_send_string("\n\r>>>INITIALIZING STATE\n\r"));
     state_machine = STATE_INITIALIZING;
 }
 
@@ -72,7 +72,7 @@ inline void set_state_initializing(void)
 */
 inline void set_state_idle(void)
 {
-    VERBOSE_MSG_MACHINE(usart_send_string("\n>>>IDLE STATE\n"));
+    VERBOSE_MSG_MACHINE(usart_send_string("\n\r>>>IDLE STATE\n\r"));
     state_machine = STATE_IDLE;
 }
 
@@ -81,7 +81,7 @@ inline void set_state_idle(void)
 */
 inline void set_state_running(void)
 {
-    VERBOSE_MSG_MACHINE(usart_send_string("\n>>>RUNNING STATE\n"));
+    VERBOSE_MSG_MACHINE(usart_send_string("\n\r>>>RUNNING STATE\n\r"));
     state_machine = STATE_RUNNING;
 }
 
@@ -90,7 +90,7 @@ inline void set_state_running(void)
  */
 inline void set_state_reset(void)
 {
-    VERBOSE_MSG_MACHINE(usart_send_string("\n>>>RESET STATE\n"));
+    VERBOSE_MSG_MACHINE(usart_send_string("\n\r>>>RESET STATE\n\r\r"));
     state_machine = STATE_RESET;
 }
 
@@ -99,19 +99,20 @@ inline void set_state_reset(void)
  */
 inline void print_configurations(void)
 {
-    VERBOSE_MSG_MACHINE(usart_send_string("CONFIGURATIONS:\n"));
+    VERBOSE_MSG_MACHINE(usart_send_string("CONFIGURATIONS:\n\r"));
 
 #ifdef ADC_ON
-    VERBOSE_MSG_MACHINE(usart_send_string("\nadc_f: "));
+    VERBOSE_MSG_MACHINE(usart_send_string("\n\radc_f: "));
     VERBOSE_MSG_MACHINE(usart_send_uint16( ADC_FREQUENCY ));
     VERBOSE_MSG_MACHINE(usart_send_char(','));
     VERBOSE_MSG_MACHINE(usart_send_uint16( ADC_AVG_SIZE_10 ));
 #endif // ADC_ON
 
-    VERBOSE_MSG_MACHINE(usart_send_string("\nmachine_f: "));
+    VERBOSE_MSG_MACHINE(usart_send_string("\n\rmachine_f: "));
     VERBOSE_MSG_MACHINE(usart_send_uint16( MACHINE_FREQUENCY ));
 
     VERBOSE_MSG_MACHINE(usart_send_char('\n'));
+    VERBOSE_MSG_MACHINE(usart_send_char('\r'));
 }
 
 /**
@@ -119,7 +120,7 @@ inline void print_configurations(void)
 */
 inline void print_system_flags(void)
 {
-    //VERBOSE_MSG_MACHINE(usart_send_string(" EN "));
+    //VERBOSE_MSG_MACHINE(usart_send_string(" CLOCK \n\r"));
     //VERBOSE_MSG_MACHINE(usart_send_char(48+system_flags.enable));
 }
 
@@ -197,7 +198,7 @@ inline void task_initializing(void)
 #endif
 
     set_machine_initial_state();
-    VERBOSE_MSG_INIT(usart_send_string("System initialized without errors.\n"));
+    VERBOSE_MSG_INIT(usart_send_string("System initialized without errors.\n\r"));
     set_state_idle();
 }
 
@@ -213,6 +214,7 @@ inline void task_idle(void)
     }
 #endif
 
+    switches_read();
     //ui_boat_info();
 }
 
@@ -228,6 +230,7 @@ inline void task_running(void)
     }
 #endif
 
+    //check_switches();
     //ui_boat_info();
 }
 
@@ -248,7 +251,7 @@ inline void task_error(void)
 
     if(error_flags.no_communication_with_mcs)
     {
-        VERBOSE_MSG_ERROR(usart_send_string("\t - No canbus communication with MCS!\n"));
+        VERBOSE_MSG_ERROR(usart_send_string("\t - No canbus communication with MCS!\n\r"));
         ui_no_communication_with_mcs()
     }
 
@@ -256,10 +259,10 @@ inline void task_error(void)
         VERBOSE_ON_ERROR(usart_send_string("\t - can_app_task failed"));
 
     if(total_errors < 2){
-        VERBOSE_MSG_ERROR(usart_send_string("I will reset the machine state.\n"));
+        VERBOSE_MSG_ERROR(usart_send_string("I will reset the machine state.\n\r"));
     }
     if(total_errors >= 20){
-        VERBOSE_MSG_ERROR(usart_send_string("The watchdog will reset the whole system.\n"));
+        VERBOSE_MSG_ERROR(usart_send_string("The watchdog will reset the whole system.\n\r"));
         set_state_reset();
     }
 
@@ -282,7 +285,7 @@ inline void task_reset(void)
 
     cli();  // disable interrupts
 
-    VERBOSE_MSG_ERROR(usart_send_string("WAITING FOR A RESET!\n"));
+    VERBOSE_MSG_ERROR(usart_send_string("WAITING FOR A RESET!\n\r"));
     for(;;)
     {
 #ifdef LED_ON
@@ -304,8 +307,6 @@ void print_infos(void)
         case 1:
             //print_error_flags();
             break;
-        case 2:
-            //print_control_others();
         default:
             //VERBOSE_MSG_MACHINE(usart_send_char('\n'));
             i = 0;
@@ -322,35 +323,35 @@ inline void machine_run(void)
 
     if(machine_clk){
         machine_clk = 0;
-            switch(state_machine){
-                case STATE_INITIALIZING:
-                    task_initializing();
-                    break;
+        switch(state_machine){
+            case STATE_INITIALIZING:
+                task_initializing();
+                break;
 
-                case STATE_IDLE:
-                    task_idle();
-                    #ifdef CAN_ON
-                    can_app_task();
-                    #endif /* CAN_ON */
-                    break;
+            case STATE_IDLE:
+                task_idle();
+                #ifdef CAN_ON
+                can_app_task();
+                #endif /* CAN_ON */
+                break;
 
-                case STATE_RUNNING:
-                    task_running();
-                    #ifdef CAN_ON
-                    can_app_task();
-                    #endif /* CAN_ON */
-                    break;
+            case STATE_RUNNING:
+                task_running();
+                #ifdef CAN_ON
+                can_app_task();
+                #endif /* CAN_ON */
+                break;
 
-                case STATE_ERROR:
-                    task_error();
-                    break;
+            case STATE_ERROR:
+                task_error();
+                break;
 
-                case STATE_RESET:
-                default:
-                    task_reset();
-                    break;
-            }
+            case STATE_RESET:
+            default:
+                task_reset();
+                break;
         }
+    }
 }
 
 /**
@@ -358,14 +359,14 @@ inline void machine_run(void)
 */
 ISR(TIMER2_COMPA_vect)
 {
-    if(machine_clk_divider++ == MACHINE_CLK_DIVIDER_VALUE){
-       /* if(machine_clk){
+    if(++machine_clk_divider == MACHINE_CLK_DIVIDER_VALUE){
+        machine_clk_divider = 0;
+       /*if(machine_clk){
             for(;;){
         //        pwm_reset();
-                VERBOSE_MSG_ERROR(if(machine_clk) usart_send_string("\nERROR: CLOCK CONFLICT!!!\n"));
+                VERBOSE_MSG_ERROR(if(machine_clk) usart_send_string("\n\rERROR: CLOCK CONFLICT!!!\n\r"));
             }
         }*/
         machine_clk = 1;
-        machine_clk_divider = 0;
     }
 }

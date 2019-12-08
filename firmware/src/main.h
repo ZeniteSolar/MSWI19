@@ -29,6 +29,13 @@
 #pragma message "USART: OFF!"
 #endif /*ifdef USART_ON*/
 
+#ifdef IO_ON
+#include "io.h"
+#pragma message "IO: ON!"
+#else
+#pragma message "IO: OFF!"
+#endif /*ifdef IO_ON*/
+
 #ifdef UI_ON
 #include "ui.h"
 #pragma message "UI: ON!"
