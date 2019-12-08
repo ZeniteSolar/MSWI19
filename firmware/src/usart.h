@@ -35,6 +35,7 @@ void usart_send_uint8(uint8_t num);
 
 void usart_send_int16(int16_t num);
 void usart_send_uint16(uint16_t num);
+void usart_send_binary_uint16(uint16_t num);
 
 void usart_send_int32(int32_t num);
 void usart_send_uint32(uint32_t num);
