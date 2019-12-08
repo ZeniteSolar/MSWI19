@@ -3,6 +3,18 @@
 #define NUMBER_OF_CHRONOMETERS  3
 static chronometer_t __chronometers[NUMBER_OF_CHRONOMETERS];
 
+void chronometer_callback_test(chronometer_t *chronometer)
+{
+    usart_send_char('\r');
+    usart_send_uint8(*(uint8_t *)chronometer);
+    usart_send_char(',');
+    usart_send_uint32(chronometer->start);
+    usart_send_char(',');
+    usart_send_uint32(chronometer->delta);
+    usart_send_char(',');
+    usart_send_uint32(chronometer->finish);
+}
+
 void chronometer_print(chronometer_t *chronometer)
 {
     usart_send_string("chronometer: ");
@@ -31,6 +43,11 @@ void chronometer_start(chronometer_t *chronometer)
     VERBOSE_MSG_CHRONOMETER(usart_send_string("chronometer start!\n\r"));
     chronometer->config.status = chronometer_status_running;
     chronometer->start = chronometer_counter;
+    if(chronometer->config.mode == chronometer_mode_progressive){
+        chronometer->delta = chronometer->start;
+    }else{
+        chronometer->delta = chronometer->finish;
+    }
 }
 
 void chronometer_pause(chronometer_t *chronometer)
@@ -51,18 +68,14 @@ void chronometer_update(chronometer_t *chronometer)
 {
     if(chronometer->config.status == chronometer_status_running){
 
+        chronometer->delta = chronometer_counter -chronometer->start;
         if(chronometer->config.mode == chronometer_mode_progressive){
-            chronometer->delta = chronometer_counter - chronometer->start;
-
             if(chronometer->config.stop == chronometer_stop_auto){
                 if(chronometer->delta >= chronometer->finish){
                     chronometer_finish(chronometer);
                 }
             }
-
         }else{
-            chronometer->delta = chronometer->finish -chronometer_counter;
-
             if(chronometer->config.stop == chronometer_stop_auto){
                 if(chronometer->delta == 0){
                     chronometer_finish(chronometer);

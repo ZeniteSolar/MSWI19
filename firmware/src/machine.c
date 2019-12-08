@@ -200,16 +200,21 @@ inline void task_initializing(void)
     set_machine_initial_state();
     VERBOSE_MSG_INIT(usart_send_string("System initialized without errors.\n\r"));
     set_state_idle();
+
+    chronometer_callback_test(chronometers.uptime);
+    input_assign_callback(sw1, chronometer_callback_test, chronometers.uptime);
+
+    input_assign_callback(sw5, chronometer_start, chronometers.uptime);
+    input_assign_callback(sw0, chronometer_reset_delta, chronometers.uptime);
+
 }
 
 //#define CHRONOMETER_DEBUG
-//#define DEBUG_INPUT
 void task_chronometer(void)
 {                              
 #ifdef CHRONOMETER_ON
 
     inputs_update();
-
     chronometer_update(chronometers.uptime);
 
 #ifdef CHRONOMETER_DEBUG

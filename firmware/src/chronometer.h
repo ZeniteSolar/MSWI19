@@ -55,7 +55,9 @@ typedef struct{
     chronometer_t *current_lap;
     chronometer_t *last_lap;
 } chronometers_t;
-volatile chronometers_t chronometers;
+chronometers_t chronometers;
+
+void chronometer_callback_test(chronometer_t *chronometer);
 
 void chronometer_init(void);
 void chronometer_print(chronometer_t *chronometer);
