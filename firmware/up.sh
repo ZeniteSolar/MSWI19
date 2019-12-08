@@ -1,5 +1,5 @@
 #!/bin/sh
-#cppcheck  --force --std=c99 --language=c src/
+#cppcheck  --force --std=c99 --language=c --platform=avr8 src/ lib/
 make clean
 rm -rf bin obj
 make all
