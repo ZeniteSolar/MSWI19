@@ -20,6 +20,7 @@
 
 typedef enum { direction_input, direction_output } direction_t;
 typedef enum { pullup_disabled, pullup_enabled } pullup_t;
+typedef enum { switch_pressed, switch_released } switch_status_t;
 
 typedef union{
     struct{

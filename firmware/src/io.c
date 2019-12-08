@@ -39,6 +39,20 @@ void switches_read(void)
 {
 #ifdef IO_ON
     switches.all = SW_PIN;
+
+#ifdef IO_DEBUG
+	if(switches.sw0 == switch_on) usart_send_string("sw0\n\r");
+	if(switches.sw1 == switch_on) usart_send_string("sw1\n\r");
+	if(switches.sw2 == switch_on) usart_send_string("sw2\n\r");
+	if(switches.sw3 == switch_on) usart_send_string("sw3\n\r");
+	if(switches.sw4 == switch_on) usart_send_string("sw4\n\r");
+	if(switches.sw5 == switch_on) usart_send_string("sw5\n\r");
+	if(switches.sw6 == switch_on) usart_send_string("sw6\n\r");
+	if(switches.sw7 == switch_on) usart_send_string("sw7\n\r");
+	if(switches.sw8 == switch_on) usart_send_string("sw8\n\r");
+	if(switches.sw9 == switch_on) usart_send_string("sw9\n\r");
+#endif
+    
 #endif 
 }
 
