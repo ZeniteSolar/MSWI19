@@ -29,7 +29,9 @@ void input_assign_callback(input_names_t input, void *function, void *argument)
 static void callback_caller(input_names_t input)
 {
     if(input < input_length){
-        callback_functions[input](callback_arguments[input]);
+        if(callback_functions[input]){
+            callback_functions[input](callback_arguments[input]);
+        }
     }
 }
 
