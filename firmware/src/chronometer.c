@@ -67,7 +67,6 @@ void chronometer_finish(chronometer_t *chronometer)
 void chronometer_update(chronometer_t *chronometer)
 {
     if(chronometer->config.status == chronometer_status_running){
-
         chronometer->delta = chronometer_counter -chronometer->start;
         if(chronometer->config.mode == chronometer_mode_progressive){
             if(chronometer->config.stop == chronometer_stop_auto){
