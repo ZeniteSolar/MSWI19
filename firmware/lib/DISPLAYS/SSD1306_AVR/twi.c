@@ -2,7 +2,7 @@
 
 void TWI_Init(void)
 {
-	TWBR0 = (((F_CPU)/(F_SCL)-16)/2);
+	TWBR0 = (((F_CPU)/(F_SCL)-16) >> 1);
 	TWSR0 = 0;
 }
 

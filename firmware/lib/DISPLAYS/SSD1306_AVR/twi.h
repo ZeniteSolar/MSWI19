@@ -8,7 +8,7 @@ extern C {
 #include <avr/io.h>
 #include <ctype.h>
 
-#define F_SCL 100000
+#define F_SCL 800000
 
 void TWI_Init(void);
 void TWI_Start(void);
