@@ -6,3 +6,5 @@ make all
 #fuser -k /dev/ttyACM0
 avrdude -C etc/avrdude.conf -v -c arduino -P /dev/ttyUSB0 -p atmega328pb -b 115200 -D -U flash:w:bin/firmware.elf
 figlet "MSWI19"
+stty -F /dev/ttyUSB0 57600
+cat /dev/ttyUSB0
