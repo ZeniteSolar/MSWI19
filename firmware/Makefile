@@ -154,7 +154,7 @@ HEX_EEPROM_FLAGS = \
 .PHONY: directories doc
 
 # all
-all: directories $(TARGET).elf size
+all: directories $(TARGET).elf $(TARGET).hex size 
 
 # directories
 directories: 
@@ -183,10 +183,10 @@ MKDIR_P := mkdir -p
 	@echo ""
 	$(SILENT) $(CC) $(CFLAGSALT) $(CFLAGS) $(OBJS) -o $(BINDIR)/$@ $(LDFLAGS)
 
-%.hex: $(TARGET)
-	@echo "hex..:"
+%.hex: $(BINDIR)/$(TARGET).elf 
+	@echo "hex..:" $@
 	@echo ""
-	$(SILENT) $(OBJCPY) -O ihex $(HEX_FLASH_FLAGS)
+	$(SILENT) $(OBJCOPY) -O ihex $(BINDIR)/$(TARGET).elf $(HEX_FLASH_FLAGS) $(BINDIR)/$@
  
 ## Compile
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
