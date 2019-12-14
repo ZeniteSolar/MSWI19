@@ -5,50 +5,67 @@
  *
  * @brief This module implements a simple UI
  *
- *  _________________
- * |  BAT.  |  CURR. |
- * |_________________|
- * |M 43218 |> 03972 |
- * |A 12657 |< 10421 |
- * |S:13014 |        |
- * |_________________|
- *
  */
+
+
 
 #ifndef _UI_H_
 #define _UI_H_
 
+#include <util/delay.h>
 #include "conf.h"
 #include "dbg_vrb.h"
 #include "usart.h"
 #include "display.h"
-#include <util/delay.h>
+#include "chronometer.h"
+
+// NORMALSIZE -> 21x8
+// DOUBLESIZE -> 10x4
+
+/**
+ *  TELA GERAL
+ * .---------------------.
+ * :  LAP: 02            : -> Volta 
+ * :  02:23:51.876       : -> tempo total
+ * :---------------------: 
+ * :[ M A X ] :  1 0 0 % : -> limite superior
+ * :                     :
+ * :[ V E L ] :  0 7 0 % : -> velocidade do motor
+ * :                     :
+ * '---------------------'
+ */
+void ui_screen_main(void);
+
+/**
+ *  TELA DE VOLTAS -> melhor volta
+ * .---------------------.
+ * :TOTAL) 02:23:51.876  : -> tempo total
+ * :---------------------: 
+ * :L.10)  00:03:19.161  : -> volta atual
+ * :L.09)  00:20:42.122  : -> melhor volta
+ * :diff) = -00:17:23.039: -> diferença
+ * :L.09)  00:20:42.122  : -> última volta
+ * :diff) = -00:17:23.039: -> diferença
+ * '---------------------'
+ */
+void ui_screen_laps(void);
+
+/**
+ *  TELA DE CRIAÇÃO DE DESPERTADOR
+ * .---------------------.
+ * :                     :
+ * :---------------------:
+ * :   [00:00:00.000]    : -> [ ] -> editando um timer:
+ * : mode:               : um sublinhado inversao nas cores indicam
+ * :                     : o campo que está sendo editado.
+ * :                     :
+ * '---------------------' Ações: incremento, decremento, próximo, cancelar.
+ */
+void ui_screen_create_timer(void);
 
 void ui_init(void);
 void ui_clear(void);
 void ui_update(void);
-void ui_draw_layout(void);
 
-void ui_update_battery_voltage_main(uint16_t num);
-void ui_update_battery_voltage_auxiliary(uint16_t num);
-void ui_update_battery_voltage_extra(uint16_t num);
-void ui_update_battery_current_input(uint16_t num);
-void ui_update_battery_current_output(uint16_t num);
-void ui_update_boat_rpm(uint16_t num);
-void ui_update_no_communication_with_battery_main(void);
-void ui_update_no_communication_with_battery_auxiliary(void);
-void ui_update_no_communication_with_battery_extra(void);
-void ui_update_no_communication_with_current_input(void);
-void ui_update_no_communication_with_current_output(void);
-void ui_update_no_communication_with_tachometer(void);
-
-// UI boat messages
-void ui_boat_charging(void);
-void ui_boat_on(void);
-void ui_boat_off(void);
-void ui_boat_charge_failed(void);
-
-void ui_no_communication_with_mic(void);
-void ui_no_communication_with_mcs(void);
 
 #endif /* ifndef _UI_H_ */

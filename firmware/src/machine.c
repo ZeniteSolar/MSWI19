@@ -5,7 +5,7 @@
  */
 void machine_init(void)
 {
-	clr_bit(PRR0, PRTIM2);                          // Activates clock
+	clr_bit(PRR0, PRTIM2);           // Activates clock
 
     // MODE 2 -> CTC with TOP on OCR1
     TCCR2A  =    (1 << WGM21) | (0 << WGM20)        // mode 2
@@ -32,9 +32,12 @@ void machine_init(void)
 #endif
                 | (0 << WGM22);      // mode 2
 
-    OCR2A = MACHINE_TIMER_TOP;                       // OCR2A = TOP = fcpu/(N*2*f) -1
+    OCR2A = MACHINE_TIMER_TOP;       // OCR2A = TOP = fcpu/(N*2*f) -1
 
-    TIMSK2 |=   (1 << OCIE2A);                      // Activates interruption
+    TIMSK2 |=   (1 << OCIE2A);       // Activates interruption
+
+    VERBOSE_MSG_INIT(usart_send_string("\n\rMACHINE_TIMER_TOP: "));
+    VERBOSE_MSG_INIT(usart_send_uint16(MACHINE_TIMER_TOP));
 
     set_machine_initial_state();
     set_state_initializing();
@@ -134,61 +137,6 @@ inline void print_error_flags(void)
 }
 
 /**
- * @brief Exibe no display um resumo das informações do barco
- */
-/*void ui_boat_info(void)
-{
-  #ifdef UI_ON
-      if(ui_clk_div++ >= UI_CLK_DIVIDER_VALUE){
-          ui_clear();
-          ui_draw_layout();
-
-  #ifdef UI_FAKE_DATA
-      static uint16_t fake_data = 0;
-      ui_update_battery_voltage_main(fake_data++);
-      ui_update_battery_voltage_auxiliary(fake_data++);
-      ui_update_battery_voltage_extra(fake_data++);
-      ui_update_battery_current_input(fake_data++);
-      ui_update_battery_current_output(fake_data++);
-      ui_update_boat_rpm(fake_data++);
-  #else
-      if(error_flags.no_message_from_MSC19_1)
-          ui_update_no_communication_with_battery_main();
-      else
-          ui_update_battery_voltage_main(battery_voltage.main);
-
-      if(error_flags.no_message_from_MSC19_2)
-          ui_update_no_communication_with_battery_auxiliary();
-      else
-          ui_update_battery_voltage_auxiliary(battery_voltage.aux);
-      if(error_flags.no_message_from_MSC19_3)
-          ui_update_no_communication_with_battery_extra();
-      else
-          ui_update_battery_voltage_extra(battery_voltage.extra);
-
-      if(error_flags.no_message_from_MSC19_4)
-          ui_update_no_communication_with_current_input();
-      else
-          ui_update_battery_current_input(battery_current.in);
-
-      if(error_flags.no_message_from_MSC19_5)
-          ui_update_no_communication_with_current_output();
-      else
-          ui_update_battery_current_output(battery_current.out);
-
-      if(error_flags.no_message_from_MT19)
-          ui_update_no_communication_with_tachometer();
-      else
-          ui_update_boat_rpm(control.rpm);
-
-  #endif
-          ui_update();
-          ui_clk_div = 0;
-      }
-  #endif // UI_ON
-}*/
-
-/**
  * @brief Checks if the system is OK to run
  */
 inline void task_initializing(void)
@@ -201,6 +149,7 @@ inline void task_initializing(void)
     VERBOSE_MSG_INIT(usart_send_string("System initialized without errors.\n\r"));
     set_state_idle();
 
+    // CONFIGURE BUTTONS 
     chronometer_callback_test(chronometers.uptime);
     input_assign_callback(sw1, chronometer_callback_test, chronometers.uptime);
 
@@ -236,7 +185,7 @@ inline void task_idle(void)
 #endif
 
     task_chronometer();
-    //ui_boat_info();
+    ui_update();
 }
 
 
@@ -252,7 +201,6 @@ inline void task_running(void)
     }
 #endif
 
-    //ui_boat_info();
 }
 
 /**

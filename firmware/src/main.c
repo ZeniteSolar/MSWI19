@@ -19,12 +19,12 @@ void init(void)
     #ifdef IO_ON
         leds_init();
         switches_init();
-        //buzzer_init();
+        buzzer_init();
         VERBOSE_MSG_INIT(usart_send_string("IOs... OK!\n\r"));
     #else
         VERBOSE_MSG_INIT(usart_send_string("IOs... OFF!\n\r"));
     #endif
-
+    
     #ifdef UI_ON
         VERBOSE_MSG_INIT(usart_send_string("UI..."));
         ui_init();
