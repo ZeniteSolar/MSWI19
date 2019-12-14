@@ -35,7 +35,7 @@
 #define MACHINE_ON
 #define CHRONOMETER_ON
 //#define LED_ON
-//#define WATCHDOG_ON
+#define WATCHDOG_ON
 //#define SLEEP_ON
 #define UI_ON
 #define IO_ON

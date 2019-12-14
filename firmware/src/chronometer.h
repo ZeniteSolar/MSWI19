@@ -73,6 +73,13 @@ typedef struct{
 } chronometers_t;
 chronometers_t chronometers;
 
+typedef struct{
+    uint8_t laps_counter;
+    uint8_t lap_best;
+    uint8_t lap_last;
+} _foo;
+
+void chronometer_difference(chronometer_t *a, chronometer_t *b, chronometer_t *result);
 void chronometer_callback_test(chronometer_t *chronometer);
 void chronometer_millis_to_time_string(uint32_t millis, char *str);
 void chronometer_millis_to_time(uint32_t millis, time_t * time);

@@ -154,7 +154,9 @@ inline void task_initializing(void)
     input_assign_callback(sw1, chronometer_callback_test, chronometers.uptime);
 
     input_assign_callback(sw5, chronometer_start, chronometers.uptime);
-    input_assign_callback(sw0, chronometer_reset_delta, chronometers.uptime);
+    //input_assign_callback(sw0, chronometer_reset_delta, chronometers.uptime);
+
+    input_assign_callback(sw9, ui_screen_change, NULL);
 
 }
 

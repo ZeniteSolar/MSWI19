@@ -7,8 +7,6 @@
  *
  */
 
-
-
 #ifndef _UI_H_
 #define _UI_H_
 
@@ -22,11 +20,15 @@
 // NORMALSIZE -> 21x8
 // DOUBLESIZE -> 10x4
 
+// TODO: add screen_init
+typedef enum {screen_main, screen_laps, screen_last} screen_t;
+
+
 /**
  *  TELA GERAL
  * .---------------------.
- * :  LAP: 02            : -> Volta 
- * :  02:23:51.876       : -> tempo total
+ * :  LAP) 02            : -> Volta 
+ * :TOTAL) 02:23:51.876  : -> tempo total
  * :---------------------: 
  * :[ M A X ] :  1 0 0 % : -> limite superior
  * :                     :
@@ -39,6 +41,7 @@ void ui_screen_main(void);
 /**
  *  TELA DE VOLTAS -> melhor volta
  * .---------------------.
+ * :  LAP) 02            : -> Volta 
  * :TOTAL) 02:23:51.876  : -> tempo total
  * :---------------------: 
  * :L.10)  00:03:19.161  : -> volta atual
@@ -63,8 +66,8 @@ void ui_screen_laps(void);
  */
 void ui_screen_create_timer(void);
 
+void ui_screen_change(screen_t * screen);
 void ui_init(void);
-void ui_clear(void);
 void ui_update(void);
 
 

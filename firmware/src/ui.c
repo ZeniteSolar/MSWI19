@@ -1,151 +1,82 @@
 #include "ui.h"
 
-/**
- * @brief inicializa o UI
- */
+static screen_t ui_screen;
+
 void ui_init(void)
 {
-    display_init();
-    test_display();
-
-    ui_clear();
-    ui_draw_layout();
-    ui_update();
-}
-
-void ui_clear(void)
-{
+    ui_screen = screen_main;
+    display_init(); 
+    display_test();
     display_clear();
 }
 
-void ui_update(void)
-{
-    display_update();
+void ui_update(void){
+    switch(ui_screen){
+        default:
+        case screen_main:
+            ui_screen_main();
+            break;
+        case screen_laps:
+            ui_screen_laps();
+            break;
+    }
 }
 
-void ui_draw_layout(void)
-{
-    display_layout();
-}
-
-/*void ui_update_battery_voltage_main(uint16_t num)
-{
-    float val = num / 1000.f;
-    display_send_float(val, col2, line2);
-}
-
-void ui_update_battery_voltage_auxiliary(uint16_t num)
-{
-    float val = num / 1000.f;
-    display_send_float(val, col2, line3);
-}
-
-void ui_update_battery_voltage_extra(uint16_t num)
-{
-    float val = num / 1000.f;
-    display_send_float(val, col2, line4);
-}
-
-void ui_update_battery_current_input(uint16_t num)
-{
-    float val = num / 100.f;
-    display_send_float(val, col4, line2);
-}
-
-void ui_update_battery_current_output(uint16_t num)
-{
-    float val = num / 100.f;
-    display_send_float(val, col4, line3);
-}
-
-void ui_update_boat_rpm(uint16_t num)
-{
-    display_send_uint16(num, col4, line4);
-}
-
-void ui_update_no_communication_with_tachometer()
-{
-    display_send_string(" N.C.", col4, line4);
-}
-
-void ui_update_no_communication_with_battery_main()
-{
-    display_send_string(" N.C.", col2, line2);
-}
-
-void ui_update_no_communication_with_battery_auxiliary()
-{
-    display_send_string(" N.C.", col2, line3);
-}
-
-void ui_update_no_communication_with_battery_extra()
-{
-    display_send_string(" N.C.", col2, line4);
-}
-
-void ui_update_no_communication_with_current_input()
-{
-    display_send_string(" N.C.", col4, line2);
-}
-
-void ui_update_no_communication_with_current_output()
-{
-    display_send_string(" N.C.", col4, line3);
-}
-
-void ui_boat_charging(void)
+void ui_screen_change(screen_t * screen)
 {
     display_clear();
-    display_send_string_big_font("  CAP ", col1, line3-2);
-    display_send_string_big_font("CHARGING", col1, line4+4);
-    display_update();
+    if(screen == NULL){
+        if(++ui_screen== screen_last) ui_screen = screen_main;
+    }else{
+        if(*screen < screen_last) ui_screen = *screen;
+    }
 }
 
-void ui_boat_on(void)
+void ui_screen_main(void)
 {
-    display_clear();
-    display_send_string_big_font(" BOAT", col2, line3-2);
-    display_send_string_big_font("  ON!", col2, line4+5);
-    display_update();
-    _delay_ms(500);
-    LCD_Fill(1);
-    display_update();
-    display_layout();
-    display_update();
+    char time_str[TIME_STRING_LEN];
+    static uint8_t a = 0;
+    if(a++ == 101) a = 0;
+    
+    // LAP
+    display_send_string("LAP)", 2, 0, font_small);
+    display_send_uint8(2, 7, 0, font_small);
+
+    // total
+    display_send_string("TOTAL)", 0, 1, font_small);
+    chronometer_millis_to_time_string(chronometers.uptime->delta, time_str);
+    display_send_string(time_str, 7, 1, font_small);
+
+    // max velocity setting
+    display_send_string(" MAX :", 0, 3, font_big);
+    display_send_uint8(a, 12, 3, font_big);
+
+    // current velocity setting
+    display_send_string(" VEL :", 0, 5, font_big);
+    display_send_uint8(a, 12, 5, font_big);
 }
 
-void ui_boat_off(void)
+void ui_screen_laps(void)
 {
-    display_clear();
-    display_send_string_big_font(" BOAT", col2, line3-2);
-    display_send_string_big_font(" OFF!", col2, line4+5);
-    display_update();
-    _delay_ms(500);
-}
+    char time_str[TIME_STRING_LEN];
 
-void ui_boat_charge_failed(void)
-{
-    display_clear();
-    display_send_string_big_font(" CHARGE", col1, line3-2);
-    display_send_string_big_font(" FAILED", col1, line4+5);
-    display_update();
-}
+    // LAP
+    display_send_string("LAP)", 2, 0, font_small);
+    display_send_uint8(2, 7, 0, font_small);
 
-void ui_no_communication_with_mic(void)
-{
-    display_clear();
-    display_send_string_big_font(" MIC", col2, line3-2);
-    display_send_string_big_font("DISCON.", col1, line4+5);
-    display_update();
-    _delay_ms(250);
-}
+    // total
+    display_send_string("TOTAL)", 0, 1, font_small);
+    chronometer_millis_to_time_string(chronometers.uptime->delta, time_str);
+    display_send_string(time_str, 7, 1, font_small);
 
-void ui_no_communication_with_mcs(void)
-{
-    display_clear();
-    display_send_string_big_font(" MCS", col2, line3-2);
-    display_send_string_big_font("DISCON.", col1, line4+5);
-    display_update();
-    _delay_ms(500);
+    // best lap
+    display_send_string("L.10)", 0, 3, font_small);
+    chronometer_millis_to_time_string(chronometers.uptime->delta, time_str);
+    display_send_string(time_str, 7, 3, font_small);
+
+    // last lap
+    display_send_string("L.09)", 0, 3, font_small);
+    chronometer_millis_to_time_string(chronometers.uptime->delta, time_str);
+    display_send_string(time_str, 7, 3, font_small);
+
 }
-*/
