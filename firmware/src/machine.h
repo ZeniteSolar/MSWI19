@@ -19,7 +19,7 @@
 
 // Equations for mode 2 (CTC with TOP OCR2A)
 // Note the resolution. For example.. at 150hz, ICR1 = PWM_TOP = 159, so it
-#define MACHINE_TIMER_TOP ((F_CPU/(2*MACHINE_TIMER_PRESCALER))/(MACHINE_TIMER_FREQUENCY) -1)
+#define MACHINE_TIMER_TOP ((F_CPU/(MACHINE_TIMER_PRESCALER))/(MACHINE_TIMER_FREQUENCY) -1)
 
 #ifdef ADC_ON
 #include "adc.h"
