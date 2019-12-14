@@ -17,6 +17,7 @@
 #include "dbg_vrb.h"
 
 volatile uint32_t chronometer_counter;
+#define TIME_STRING_LEN 13
 
 typedef enum{
     chronometer_status_paused,
@@ -41,6 +42,21 @@ typedef struct{
         chronometer_stop_t stop     : 2;
 } chronometer_config_t;
 
+typedef union{
+    struct{
+        struct{
+            uint16_t millis : 10;
+            uint16_t hours : 6;
+        };
+        struct{
+            uint8_t minutes;
+            uint8_t seconds;
+        };
+    };
+    uint32_t all;
+} time_t;
+ 
+
 // TODO: (maybe) implement callback?
 // TODO: (maybe) implement name?
 typedef struct{
@@ -58,8 +74,10 @@ typedef struct{
 chronometers_t chronometers;
 
 void chronometer_callback_test(chronometer_t *chronometer);
-
+void chronometer_millis_to_time_string(uint32_t millis, char *str);
+void chronometer_millis_to_time(uint32_t millis, time_t * time);
 void chronometer_init(void);
+void chronometer_print_time(chronometer_t *chronometer);
 void chronometer_print(chronometer_t *chronometer);
 void chronometer_reset_delta(chronometer_t *chronometer);
 void chronometer_reset_all(chronometer_t *chronometer);

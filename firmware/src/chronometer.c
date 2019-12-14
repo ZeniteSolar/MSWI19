@@ -3,6 +3,40 @@
 #define NUMBER_OF_CHRONOMETERS  3
 static chronometer_t __chronometers[NUMBER_OF_CHRONOMETERS];
 
+inline void chronometer_millis_to_time_string(uint32_t millis, char* str)
+{
+    time_t time;
+    chronometer_millis_to_time(millis, &time);
+
+    str[0] = '0' + ((time.hours/10) % 10);
+    str[1] = '0' + (time.hours % 10);
+    str[2] = ':';
+    str[3] = '0' + ((time.minutes/10) % 10);
+    str[4] = '0' + ((time.minutes) % 10);
+    str[5] = ':';
+    str[6] = '0' + ((time.seconds/10) % 10);
+    str[7] = '0' + ((time.seconds) % 10);
+    str[8] = '.';
+    str[9] = '0' + ((time.millis/100) % 10);
+    str[10] = '0' + ((time.millis/10) % 10);
+    str[11] = '0' + ((time.millis) % 10);
+    str[12] = '\0';
+}
+
+inline void chronometer_millis_to_time(uint32_t millis, time_t *time)
+{
+    time->hours = millis / 3600000;
+    millis -= 3600000 * time->hours;
+    
+    time->minutes = millis / 60000U;
+    millis -= 60000 * time->minutes;
+
+    time->seconds = millis / 1000;
+    millis -= 1000 * time->seconds;
+
+    time->millis = millis;
+}
+
 void chronometer_callback_test(chronometer_t *chronometer)
 {
     usart_send_char('\r');
@@ -13,6 +47,26 @@ void chronometer_callback_test(chronometer_t *chronometer)
     usart_send_uint32(chronometer->delta);
     usart_send_char(',');
     usart_send_uint32(chronometer->finish);
+
+    chronometer_print_time(chronometer);
+}
+
+void chronometer_print_time(chronometer_t *chronometer)
+{
+    usart_send_string("time: ");
+    char str_time[TIME_STRING_LEN];
+
+    chronometer_millis_to_time_string(chronometer->start, str_time);
+    usart_send_string(str_time);
+    usart_send_char(',');
+
+    chronometer_millis_to_time_string(chronometer->delta, str_time);
+    usart_send_string(str_time);
+    usart_send_char(',');
+
+    chronometer_millis_to_time_string(chronometer->finish, str_time);
+    usart_send_string(str_time);
+    usart_send_string("\n\r");
 }
 
 void chronometer_print(chronometer_t *chronometer)
