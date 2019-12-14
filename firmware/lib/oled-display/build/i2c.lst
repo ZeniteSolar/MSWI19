@@ -1,0 +1,457 @@
+   1               		.file	"i2c.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.i2c_init,"ax",@progbits
+  11               	.global	i2c_init
+  13               	i2c_init:
+  14               	.LFB1:
+  15               		.file 1 "i2c.c"
+   1:i2c.c         **** //
+   2:i2c.c         **** //  i2c.c
+   3:i2c.c         **** //  i2c
+   4:i2c.c         **** //
+   5:i2c.c         **** //  Created by Michael Köhler on 09.10.17.
+   6:i2c.c         **** //
+   7:i2c.c         **** //
+   8:i2c.c         **** 
+   9:i2c.c         **** #include "i2c.h"
+  10:i2c.c         **** 
+  11:i2c.c         **** #if PSC_I2C != 1 && PSC_I2C != 4 && PSC_I2C != 16 && PSC_I2C != 64
+  12:i2c.c         **** #error "Wrong prescaler for TWI !"
+  13:i2c.c         **** #elif SET_TWBR < 0 || SET_TWBR > 255
+  14:i2c.c         **** #error "TWBR0 out of range, change PSC_I2C or F_I2C !"
+  15:i2c.c         **** #endif
+  16:i2c.c         **** 
+  17:i2c.c         **** uint8_t I2C_ErrorCode;
+  18:i2c.c         **** /**********************************************
+  19:i2c.c         ****  Public Function: i2c_init
+  20:i2c.c         ****  
+  21:i2c.c         ****  Purpose: Initialise TWI/I2C interface
+  22:i2c.c         ****  
+  23:i2c.c         ****  Input Parameter: none
+  24:i2c.c         ****  
+  25:i2c.c         ****  Return Value: none
+  26:i2c.c         ****  **********************************************/
+  27:i2c.c         **** void i2c_init(void){
+  16               		.loc 1 27 0
+  17               		.cfi_startproc
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+  28:i2c.c         ****     // set clock
+  29:i2c.c         ****     switch (PSC_I2C) {
+  30:i2c.c         ****         case 4:
+  31:i2c.c         ****             TWSR0 = 0x1;
+  32:i2c.c         ****             break;
+  33:i2c.c         ****         case 16:
+  34:i2c.c         ****             TWSR0 = 0x2;
+  35:i2c.c         ****             break;
+  36:i2c.c         ****         case 64:
+  37:i2c.c         ****             TWSR0 = 0x3;
+  38:i2c.c         ****             break;
+  39:i2c.c         ****         default:
+  40:i2c.c         ****             TWSR0 = 0x00;
+  22               		.loc 1 40 0
+  23 0000 1092 B900 		sts 185,__zero_reg__
+  41:i2c.c         ****             break;
+  42:i2c.c         ****     }
+  43:i2c.c         ****     TWBR0 = (uint8_t)SET_TWBR;
+  24               		.loc 1 43 0
+  25 0004 82E0      		ldi r24,lo8(2)
+  26 0006 8093 B800 		sts 184,r24
+  44:i2c.c         ****     // enable
+  45:i2c.c         ****     TWCR0 = (1 << TWEN);
+  27               		.loc 1 45 0
+  28 000a 84E0      		ldi r24,lo8(4)
+  29 000c 8093 BC00 		sts 188,r24
+  30               	/* epilogue start */
+  46:i2c.c         **** }
+  31               		.loc 1 46 0
+  32 0010 0895      		ret
+  33               		.cfi_endproc
+  34               	.LFE1:
+  36               		.section	.text.i2c_start,"ax",@progbits
+  37               	.global	i2c_start
+  39               	i2c_start:
+  40               	.LFB2:
+  47:i2c.c         **** /**********************************************
+  48:i2c.c         ****  Public Function: i2c_start
+  49:i2c.c         ****  
+  50:i2c.c         ****  Purpose: Start TWI/I2C interface
+  51:i2c.c         ****  
+  52:i2c.c         ****  Input Parameter:
+  53:i2c.c         ****  - uint8_t i2c_addr: Adress of reciever
+  54:i2c.c         ****  
+  55:i2c.c         ****  Return Value: none
+  56:i2c.c         ****  **********************************************/
+  57:i2c.c         **** void i2c_start(uint8_t i2c_addr){
+  41               		.loc 1 57 0
+  42               		.cfi_startproc
+  43               	.LVL0:
+  44               	/* prologue: function */
+  45               	/* frame size = 0 */
+  46               	/* stack size = 0 */
+  47               	.L__stack_usage = 0
+  58:i2c.c         ****     // i2c start
+  59:i2c.c         ****     TWCR0 = (1 << TWINT)|(1 << TWSTA)|(1 << TWEN);
+  48               		.loc 1 59 0
+  49 0000 94EA      		ldi r25,lo8(-92)
+  50 0002 9093 BC00 		sts 188,r25
+  51               	.LVL1:
+  60:i2c.c         **** 	uint16_t timeout = F_CPU/F_I2C*2.0;
+  61:i2c.c         ****     while((TWCR0 & (1 << TWINT)) == 0 &&
+  52               		.loc 1 61 0
+  53 0006 28E2      		ldi r18,lo8(40)
+  54 0008 30E0      		ldi r19,0
+  55               	.LVL2:
+  56               	.L3:
+  57 000a 9091 BC00 		lds r25,188
+  58 000e 97FF      		sbrs r25,7
+  59 0010 00C0      		rjmp .L5
+  62:i2c.c         **** 		timeout !=0){
+  63:i2c.c         **** 		timeout--;
+  64:i2c.c         **** 		if(timeout == 0){
+  65:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_START);
+  66:i2c.c         **** 			return;
+  67:i2c.c         **** 		}
+  68:i2c.c         **** 	};
+  69:i2c.c         ****     // send adress
+  70:i2c.c         ****     TWDR0 = i2c_addr;
+  60               		.loc 1 70 0
+  61 0012 8093 BB00 		sts 187,r24
+  71:i2c.c         ****     TWCR0 = (1 << TWINT)|( 1 << TWEN);
+  62               		.loc 1 71 0
+  63 0016 84E8      		ldi r24,lo8(-124)
+  64               	.LVL3:
+  65 0018 8093 BC00 		sts 188,r24
+  66               	.LVL4:
+  72:i2c.c         ****     timeout = F_CPU/F_I2C*2.0;
+  73:i2c.c         ****     while((TWCR0 & (1 << TWINT)) == 0 &&
+  67               		.loc 1 73 0
+  68 001c 88E2      		ldi r24,lo8(40)
+  69 001e 90E0      		ldi r25,0
+  70               	.LVL5:
+  71               	.L6:
+  72 0020 2091 BC00 		lds r18,188
+  73 0024 27FF      		sbrs r18,7
+  74 0026 00C0      		rjmp .L7
+  75               	/* epilogue start */
+  74:i2c.c         **** 		  timeout !=0){
+  75:i2c.c         **** 		timeout--;
+  76:i2c.c         **** 		if(timeout == 0){
+  77:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_SENDADRESS);
+  78:i2c.c         **** 			return;
+  79:i2c.c         **** 		}
+  80:i2c.c         **** 	};
+  81:i2c.c         **** }
+  76               		.loc 1 81 0
+  77 0028 0895      		ret
+  78               	.LVL6:
+  79               	.L5:
+  80 002a 2150      		subi r18,1
+  81 002c 3109      		sbc r19,__zero_reg__
+  82               	.LVL7:
+  64:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_START);
+  83               		.loc 1 64 0
+  84 002e 01F4      		brne .L3
+  65:i2c.c         **** 			return;
+  85               		.loc 1 65 0
+  86 0030 8091 0000 		lds r24,I2C_ErrorCode
+  87               	.LVL8:
+  88 0034 8160      		ori r24,lo8(1)
+  89               	.LVL9:
+  90               	.L10:
+  77:i2c.c         **** 			return;
+  91               		.loc 1 77 0
+  92 0036 8093 0000 		sts I2C_ErrorCode,r24
+  78:i2c.c         **** 		}
+  93               		.loc 1 78 0
+  94 003a 0895      		ret
+  95               	.LVL10:
+  96               	.L7:
+  97 003c 0197      		sbiw r24,1
+  98               	.LVL11:
+  76:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_SENDADRESS);
+  99               		.loc 1 76 0
+ 100 003e 01F4      		brne .L6
+  77:i2c.c         **** 			return;
+ 101               		.loc 1 77 0
+ 102 0040 8091 0000 		lds r24,I2C_ErrorCode
+ 103               	.LVL12:
+ 104 0044 8260      		ori r24,lo8(2)
+ 105 0046 00C0      		rjmp .L10
+ 106               		.cfi_endproc
+ 107               	.LFE2:
+ 109               		.section	.text.i2c_stop,"ax",@progbits
+ 110               	.global	i2c_stop
+ 112               	i2c_stop:
+ 113               	.LFB3:
+  82:i2c.c         **** /**********************************************
+  83:i2c.c         ****  Public Function: i2c_stop
+  84:i2c.c         ****  
+  85:i2c.c         ****  Purpose: Stop TWI/I2C interface
+  86:i2c.c         ****  
+  87:i2c.c         ****  Input Parameter: none
+  88:i2c.c         ****  
+  89:i2c.c         ****  Return Value: none
+  90:i2c.c         ****  **********************************************/
+  91:i2c.c         **** void i2c_stop(void){
+ 114               		.loc 1 91 0
+ 115               		.cfi_startproc
+ 116               	/* prologue: function */
+ 117               	/* frame size = 0 */
+ 118               	/* stack size = 0 */
+ 119               	.L__stack_usage = 0
+  92:i2c.c         ****     // i2c stop
+  93:i2c.c         ****     TWCR0 = (1 << TWINT)|(1 << TWSTO)|(1 << TWEN);
+ 120               		.loc 1 93 0
+ 121 0000 84E9      		ldi r24,lo8(-108)
+ 122 0002 8093 BC00 		sts 188,r24
+ 123               	/* epilogue start */
+  94:i2c.c         **** }
+ 124               		.loc 1 94 0
+ 125 0006 0895      		ret
+ 126               		.cfi_endproc
+ 127               	.LFE3:
+ 129               		.section	.text.i2c_byte,"ax",@progbits
+ 130               	.global	i2c_byte
+ 132               	i2c_byte:
+ 133               	.LFB4:
+  95:i2c.c         **** /**********************************************
+  96:i2c.c         ****  Public Function: i2c_byte
+  97:i2c.c         ****  
+  98:i2c.c         ****  Purpose: Send byte at TWI/I2C interface
+  99:i2c.c         ****  
+ 100:i2c.c         ****  Input Parameter:
+ 101:i2c.c         ****  - uint8_t byte: Byte to send to reciever
+ 102:i2c.c         ****  
+ 103:i2c.c         ****  Return Value: none
+ 104:i2c.c         ****  **********************************************/
+ 105:i2c.c         **** void i2c_byte(uint8_t byte){
+ 134               		.loc 1 105 0
+ 135               		.cfi_startproc
+ 136               	.LVL13:
+ 137               	/* prologue: function */
+ 138               	/* frame size = 0 */
+ 139               	/* stack size = 0 */
+ 140               	.L__stack_usage = 0
+ 106:i2c.c         ****     TWDR0 = byte;
+ 141               		.loc 1 106 0
+ 142 0000 8093 BB00 		sts 187,r24
+ 107:i2c.c         ****     TWCR0 = (1 << TWINT)|( 1 << TWEN);
+ 143               		.loc 1 107 0
+ 144 0004 84E8      		ldi r24,lo8(-124)
+ 145               	.LVL14:
+ 146 0006 8093 BC00 		sts 188,r24
+ 147               	.LVL15:
+ 108:i2c.c         ****     uint16_t timeout = F_CPU/F_I2C*2.0;
+ 109:i2c.c         ****     while((TWCR0 & (1 << TWINT)) == 0 &&
+ 148               		.loc 1 109 0
+ 149 000a 88E2      		ldi r24,lo8(40)
+ 150 000c 90E0      		ldi r25,0
+ 151               	.LVL16:
+ 152               	.L13:
+ 153 000e 2091 BC00 		lds r18,188
+ 154 0012 27FD      		sbrc r18,7
+ 155               	/* epilogue start */
+ 110:i2c.c         **** 		  timeout !=0){
+ 111:i2c.c         **** 		timeout--;
+ 112:i2c.c         **** 		if(timeout == 0){
+ 113:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_BYTE);
+ 114:i2c.c         **** 			return;
+ 115:i2c.c         **** 		}
+ 116:i2c.c         **** 	};
+ 117:i2c.c         **** }
+ 156               		.loc 1 117 0
+ 157 0014 0895      		ret
+ 158               	.L15:
+ 159               	.LVL17:
+ 160 0016 0197      		sbiw r24,1
+ 161               	.LVL18:
+ 112:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_BYTE);
+ 162               		.loc 1 112 0
+ 163 0018 01F4      		brne .L13
+ 113:i2c.c         **** 			return;
+ 164               		.loc 1 113 0
+ 165 001a 8091 0000 		lds r24,I2C_ErrorCode
+ 166               	.LVL19:
+ 167 001e 8460      		ori r24,lo8(4)
+ 168 0020 8093 0000 		sts I2C_ErrorCode,r24
+ 114:i2c.c         **** 		}
+ 169               		.loc 1 114 0
+ 170 0024 0895      		ret
+ 171               		.cfi_endproc
+ 172               	.LFE4:
+ 174               		.section	.text.i2c_readAck,"ax",@progbits
+ 175               	.global	i2c_readAck
+ 177               	i2c_readAck:
+ 178               	.LFB5:
+ 118:i2c.c         **** /**********************************************
+ 119:i2c.c         ****  Public Function: i2c_readAck
+ 120:i2c.c         ****  
+ 121:i2c.c         ****  Purpose: read acknowledge from TWI/I2C Interface
+ 122:i2c.c         ****  
+ 123:i2c.c         ****  Input Parameter: none
+ 124:i2c.c         ****  
+ 125:i2c.c         ****  Return Value: uint8_t
+ 126:i2c.c         ****   - TWDR0: recieved value at TWI/I2C-Interface, 0 at timeout
+ 127:i2c.c         ****   - 0:    Error at read
+ 128:i2c.c         ****  **********************************************/
+ 129:i2c.c         **** uint8_t i2c_readAck(void){
+ 179               		.loc 1 129 0
+ 180               		.cfi_startproc
+ 181               	/* prologue: function */
+ 182               	/* frame size = 0 */
+ 183               	/* stack size = 0 */
+ 184               	.L__stack_usage = 0
+ 130:i2c.c         ****     TWCR0 = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
+ 185               		.loc 1 130 0
+ 186 0000 84EC      		ldi r24,lo8(-60)
+ 187 0002 8093 BC00 		sts 188,r24
+ 188               	.LVL20:
+ 131:i2c.c         ****     uint16_t timeout = F_CPU/F_I2C*2.0;
+ 132:i2c.c         ****     while((TWCR0 & (1 << TWINT)) == 0 &&
+ 189               		.loc 1 132 0
+ 190 0006 88E2      		ldi r24,lo8(40)
+ 191 0008 90E0      		ldi r25,0
+ 192               	.LVL21:
+ 193               	.L18:
+ 194 000a 2091 BC00 		lds r18,188
+ 195 000e 27FF      		sbrs r18,7
+ 196 0010 00C0      		rjmp .L20
+ 133:i2c.c         **** 		  timeout !=0){
+ 134:i2c.c         **** 		timeout--;
+ 135:i2c.c         **** 		if(timeout == 0){
+ 136:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_READACK);
+ 137:i2c.c         **** 			return 0;
+ 138:i2c.c         **** 		}
+ 139:i2c.c         **** 	};
+ 140:i2c.c         ****     return TWDR0;
+ 197               		.loc 1 140 0
+ 198 0012 8091 BB00 		lds r24,187
+ 199               	.LVL22:
+ 200               	/* epilogue start */
+ 141:i2c.c         **** }
+ 201               		.loc 1 141 0
+ 202 0016 0895      		ret
+ 203               	.LVL23:
+ 204               	.L20:
+ 205 0018 0197      		sbiw r24,1
+ 206               	.LVL24:
+ 135:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_READACK);
+ 207               		.loc 1 135 0
+ 208 001a 01F4      		brne .L18
+ 136:i2c.c         **** 			return 0;
+ 209               		.loc 1 136 0
+ 210 001c 8091 0000 		lds r24,I2C_ErrorCode
+ 211               	.LVL25:
+ 212 0020 8860      		ori r24,lo8(8)
+ 213 0022 8093 0000 		sts I2C_ErrorCode,r24
+ 137:i2c.c         **** 		}
+ 214               		.loc 1 137 0
+ 215 0026 80E0      		ldi r24,0
+ 216 0028 0895      		ret
+ 217               		.cfi_endproc
+ 218               	.LFE5:
+ 220               		.section	.text.i2c_readNAck,"ax",@progbits
+ 221               	.global	i2c_readNAck
+ 223               	i2c_readNAck:
+ 224               	.LFB6:
+ 142:i2c.c         **** 
+ 143:i2c.c         ****  /**********************************************
+ 144:i2c.c         ****  Public Function: i2c_readNAck
+ 145:i2c.c         ****  
+ 146:i2c.c         ****  Purpose: read non-acknowledge from TWI/I2C Interface
+ 147:i2c.c         ****  
+ 148:i2c.c         ****  Input Parameter: none
+ 149:i2c.c         ****  
+ 150:i2c.c         ****  Return Value: uint8_t
+ 151:i2c.c         ****   - TWDR0: recieved value at TWI/I2C-Interface
+ 152:i2c.c         ****   - 0:    Error at read
+ 153:i2c.c         ****  **********************************************/
+ 154:i2c.c         **** uint8_t i2c_readNAck(void){
+ 225               		.loc 1 154 0
+ 226               		.cfi_startproc
+ 227               	/* prologue: function */
+ 228               	/* frame size = 0 */
+ 229               	/* stack size = 0 */
+ 230               	.L__stack_usage = 0
+ 155:i2c.c         ****     TWCR0 = (1<<TWINT)|(1<<TWEN);
+ 231               		.loc 1 155 0
+ 232 0000 84E8      		ldi r24,lo8(-124)
+ 233 0002 8093 BC00 		sts 188,r24
+ 234               	.LVL26:
+ 156:i2c.c         ****     uint16_t timeout = F_CPU/F_I2C*2.0;
+ 157:i2c.c         ****     while((TWCR0 & (1 << TWINT)) == 0 &&
+ 235               		.loc 1 157 0
+ 236 0006 88E2      		ldi r24,lo8(40)
+ 237 0008 90E0      		ldi r25,0
+ 238               	.LVL27:
+ 239               	.L23:
+ 240 000a 2091 BC00 		lds r18,188
+ 241 000e 27FF      		sbrs r18,7
+ 242 0010 00C0      		rjmp .L25
+ 158:i2c.c         **** 		  timeout !=0){
+ 159:i2c.c         **** 		timeout--;
+ 160:i2c.c         **** 		if(timeout == 0){
+ 161:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_READNACK);
+ 162:i2c.c         ****             return 0;
+ 163:i2c.c         **** 		}
+ 164:i2c.c         **** 	};
+ 165:i2c.c         ****     return TWDR0;
+ 243               		.loc 1 165 0
+ 244 0012 8091 BB00 		lds r24,187
+ 245               	.LVL28:
+ 246               	/* epilogue start */
+ 166:i2c.c         **** }
+ 247               		.loc 1 166 0
+ 248 0016 0895      		ret
+ 249               	.LVL29:
+ 250               	.L25:
+ 251 0018 0197      		sbiw r24,1
+ 252               	.LVL30:
+ 160:i2c.c         **** 			I2C_ErrorCode |= (1 << I2C_READNACK);
+ 253               		.loc 1 160 0
+ 254 001a 01F4      		brne .L23
+ 161:i2c.c         ****             return 0;
+ 255               		.loc 1 161 0
+ 256 001c 8091 0000 		lds r24,I2C_ErrorCode
+ 257               	.LVL31:
+ 258 0020 8061      		ori r24,lo8(16)
+ 259 0022 8093 0000 		sts I2C_ErrorCode,r24
+ 162:i2c.c         **** 		}
+ 260               		.loc 1 162 0
+ 261 0026 80E0      		ldi r24,0
+ 262 0028 0895      		ret
+ 263               		.cfi_endproc
+ 264               	.LFE6:
+ 266               		.comm	I2C_ErrorCode,1,1
+ 267               		.text
+ 268               	.Letext0:
+ 269               		.file 2 "/home/joaoantoniocardoso/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-ardui
+ 270               		.file 3 "/home/joaoantoniocardoso/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-ardui
+ 271               		.file 4 "i2c.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 i2c.c
+     /tmp/ccfueWmy.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccfueWmy.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccfueWmy.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccfueWmy.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccfueWmy.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccfueWmy.s:13     .text.i2c_init:0000000000000000 i2c_init
+     /tmp/ccfueWmy.s:39     .text.i2c_start:0000000000000000 i2c_start
+                            *COM*:0000000000000001 I2C_ErrorCode
+     /tmp/ccfueWmy.s:112    .text.i2c_stop:0000000000000000 i2c_stop
+     /tmp/ccfueWmy.s:132    .text.i2c_byte:0000000000000000 i2c_byte
+     /tmp/ccfueWmy.s:177    .text.i2c_readAck:0000000000000000 i2c_readAck
+     /tmp/ccfueWmy.s:223    .text.i2c_readNAck:0000000000000000 i2c_readNAck
+
+UNDEFINED SYMBOLS
+__do_clear_bss

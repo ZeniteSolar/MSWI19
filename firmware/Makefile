@@ -138,7 +138,8 @@ LDFLAGS += $(patsubst %,-L%,$(EXTRALIBDIRS))
 #LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB) 
 LDFLAGS += $(MATH_LIB)
 LDFLAGS += -static -Llib/avr-can-lib/src/ -lcan
-LDFLAGS += -static -Llib/DISPLAYS/SSD1306_AVR/ -lssd1306
+#LDFLAGS += -static -Llib/DISPLAYS/SSD1306_AVR/ -lssd1306
+LDFLAGS += -static -Llib/oled-display/ -loled-display
 
 ## Intel Hex file production flags
 HEX_FLASH_FLAGS = \
@@ -154,7 +155,7 @@ HEX_EEPROM_FLAGS = \
 .PHONY: directories doc
 
 # all
-all: directories $(TARGET).elf $(TARGET).hex size 
+all: directories $(TARGET).elf size 
 
 # directories
 directories: 

@@ -1,0 +1,87 @@
+   1               		.file	"main.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.rodata.main.str1.1,"aMS",@progbits,1
+  11               	.LC0:
+  12 0000 4865 6C6C 		.string	"Hello World"
+  12      6F20 576F 
+  12      726C 6400 
+  13               		.section	.text.startup.main,"ax",@progbits
+  14               	.global	main
+  16               	main:
+  17               	.LFB2:
+  18               		.file 1 "main.c"
+   1:main.c        **** //****main.c****//
+   2:main.c        **** #include "lcd.h"
+   3:main.c        **** 
+   4:main.c        **** 
+   5:main.c        **** int main(void){
+  19               		.loc 1 5 0
+  20               		.cfi_startproc
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	/* stack size = 0 */
+  24               	.L__stack_usage = 0
+   6:main.c        ****   lcd_init(LCD_DISP_ON);    // init lcd and turn on
+  25               		.loc 1 6 0
+  26 0000 8FEA      		ldi r24,lo8(-81)
+  27 0002 0E94 0000 		call lcd_init
+  28               	.LVL0:
+   7:main.c        ****   
+   8:main.c        ****   lcd_puts("Hello World");  // put string from RAM to display (TEXTMODE) or buffer (GRAPHICMODE)
+  29               		.loc 1 8 0
+  30 0006 80E0      		ldi r24,lo8(.LC0)
+  31 0008 90E0      		ldi r25,hi8(.LC0)
+  32 000a 0E94 0000 		call lcd_puts
+  33               	.LVL1:
+   9:main.c        ****   lcd_gotoxy(0,2);          // set cursor to first column at line 3
+  34               		.loc 1 9 0
+  35 000e 62E0      		ldi r22,lo8(2)
+  36 0010 80E0      		ldi r24,0
+  37 0012 0E94 0000 		call lcd_gotoxy
+  38               	.LVL2:
+  10:main.c        ****   lcd_puts_p(PSTR("String from flash"));  // puts string form flash to display (TEXTMODE) or buffer
+  39               		.loc 1 10 0
+  40 0016 80E0      		ldi r24,lo8(__c.1423)
+  41 0018 90E0      		ldi r25,hi8(__c.1423)
+  42 001a 0E94 0000 		call lcd_puts_p
+  43               	.LVL3:
+  44               	.L2:
+  45 001e 00C0      		rjmp .L2
+  46               		.cfi_endproc
+  47               	.LFE2:
+  49               		.section	.progmem.data.__c.1423,"a",@progbits
+  52               	__c.1423:
+  53 0000 5374 7269 		.string	"String from flash"
+  53      6E67 2066 
+  53      726F 6D20 
+  53      666C 6173 
+  53      6800 
+  54               		.text
+  55               	.Letext0:
+  56               		.file 2 "/home/joaoantoniocardoso/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-ardui
+  57               		.file 3 "i2c.h"
+  58               		.file 4 "lcd.h"
+  59               		.file 5 "/home/joaoantoniocardoso/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-ardui
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccYLZNU0.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccYLZNU0.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccYLZNU0.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccYLZNU0.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccYLZNU0.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccYLZNU0.s:16     .text.startup.main:0000000000000000 main
+     /tmp/ccYLZNU0.s:52     .progmem.data.__c.1423:0000000000000000 __c.1423
+
+UNDEFINED SYMBOLS
+lcd_init
+lcd_puts
+lcd_gotoxy
+lcd_puts_p
+__do_copy_data
