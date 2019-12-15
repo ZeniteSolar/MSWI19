@@ -150,13 +150,14 @@ inline void task_initializing(void)
     set_state_idle();
 
     // CONFIGURE BUTTONS 
-    chronometer_callback_test(chronometers.uptime);
-    input_assign_callback(sw1, chronometer_callback_test, chronometers.uptime);
-
     input_assign_callback(sw5, chronometer_start, chronometers.uptime);
     //input_assign_callback(sw0, chronometer_reset_delta, chronometers.uptime);
 
     input_assign_callback(sw9, ui_screen_change, NULL);
+
+    input_assign_callback(sw1, controller_power_channel_increase, NULL);
+    input_assign_callback(sw8, controller_power_channel_decrease, NULL);
+    input_assign_callback(sw4, controller_power_channel_change, NULL);
 
 }
 

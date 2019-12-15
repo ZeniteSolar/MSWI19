@@ -90,6 +90,10 @@ void init(void)
         chronometer_init();
     #endif
 
+    #ifdef CONTROLLER_ON
+        controller_init();
+    #endif
+
  	#ifdef MACHINE_ON
         VERBOSE_MSG_INIT(usart_send_string("MACHINE..."));
 		machine_init();

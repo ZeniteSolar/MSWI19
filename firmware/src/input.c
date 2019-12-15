@@ -4,8 +4,8 @@
 static void (*callback_functions[10])(void *);
 static void (*callback_arguments[10]);
 static void callback_caller(input_names_t input);
-static const uint8_t input_cooldown_time = 25;
-static const uint8_t input_cooldown_time_first = 50;
+static const uint8_t input_cooldown_time = 2;
+static const uint8_t input_cooldown_time_first = 12;
 static inline void input_update_sw0(void);
 static inline void input_update_sw1(void);
 static inline void input_update_sw2(void);

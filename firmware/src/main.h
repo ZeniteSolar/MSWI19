@@ -79,6 +79,13 @@
 #pragma message "CHRONOMETER: OFF!"
 #endif /*ifdef CHRONOMETER_ON*/
 
+#ifdef CONTROLLER_ON
+#include "controller.h"
+#pragma message "CONTROLLER: ON!"
+#else
+#pragma message "CONTROLLER: OFF!"
+#endif  /*ifdef CONTROLLER_ON*/
+
 #ifdef LED_ON
 #pragma message "LED: ON!"
 #else

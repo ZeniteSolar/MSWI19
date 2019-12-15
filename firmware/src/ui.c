@@ -35,25 +35,27 @@ void ui_screen_change(screen_t * screen)
 void ui_screen_main(void)
 {
     char time_str[TIME_STRING_LEN];
-    static uint8_t a = 0;
-    if(a++ == 101) a = 0;
-    
-    // LAP
-    display_send_string("LAP)", 2, 0, font_small);
-    display_send_uint8(2, 7, 0, font_small);
 
-    // total
-    display_send_string("TOTAL)", 0, 1, font_small);
+    // total time
     chronometer_millis_to_time_string(chronometers.uptime->delta, time_str);
-    display_send_string(time_str, 7, 1, font_small);
+    display_send_string(time_str, 0, 0, font_big);
 
-    // max velocity setting
-    display_send_string(" MAX :", 0, 3, font_big);
-    display_send_uint8(a, 12, 3, font_big);
+    // power settings
+    controller_power_channel_t active_power_channel = controller_power_channel_active_channel_name();
+    if(active_power_channel == controller_power_channel_normal_name){
+        display_send_string("NORMAL:", 0, 3, font_big);
+        display_send_uint8(controller_power_channel_normal_value(), 13, 3, font_big);
+        
+        display_send_string("TURBO: ", 0, 5, font_small);
+        display_send_uint8(controller_power_channel_turbo_value(), 13, 5, font_small);
+    }else{
+        display_send_string("TURBO: ", 0, 3, font_big);
+        display_send_uint8(controller_power_channel_turbo_value(), 13, 3, font_big);
+        
+        display_send_string("NORMAL:", 0, 5, font_small);
+        display_send_uint8(controller_power_channel_normal_value(), 13, 5, font_small);
+    }
 
-    // current velocity setting
-    display_send_string(" VEL :", 0, 5, font_big);
-    display_send_uint8(a, 12, 5, font_big);
 }
 
 void ui_screen_laps(void)

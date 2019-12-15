@@ -34,6 +34,7 @@
 //#define ADC_ON
 #define MACHINE_ON
 #define CHRONOMETER_ON
+#define CONTROLLER_ON
 //#define LED_ON
 #define WATCHDOG_ON
 //#define SLEEP_ON

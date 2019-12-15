@@ -11,11 +11,13 @@
 #define _UI_H_
 
 #include <util/delay.h>
+#include <stddef.h>
 #include "conf.h"
 #include "dbg_vrb.h"
 #include "usart.h"
 #include "display.h"
 #include "chronometer.h"
+#include "controller.h"
 
 // NORMALSIZE -> 21x8
 // DOUBLESIZE -> 10x4

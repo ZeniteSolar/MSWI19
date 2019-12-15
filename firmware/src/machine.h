@@ -45,6 +45,9 @@ extern const uint8_t can_filter[];
 #ifdef INPUT_ON
 #include "input.h"
 #endif
+#ifdef CONTROLLER_ON
+#include "controller.h"
+#endif
 
 typedef enum state_machine{
     STATE_INITIALIZING,
