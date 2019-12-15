@@ -40,6 +40,7 @@
 //#define SLEEP_ON
 #define UI_ON
 #define IO_ON
+#define BUZZER_ON
 #define INPUT_ON
 
 #ifdef ADC_ON

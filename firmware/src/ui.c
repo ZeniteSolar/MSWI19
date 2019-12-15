@@ -30,6 +30,9 @@ void ui_screen_change(screen_t * screen)
     }else{
         if(*screen < screen_last) ui_screen = *screen;
     }
+#ifdef BUZZER_ON
+    buzzer_beep(buzzer_beep2);
+#endif
 }
 
 void ui_screen_main(void)
@@ -41,19 +44,21 @@ void ui_screen_main(void)
     display_send_string(time_str, 0, 0, font_big);
 
     // power settings
+    static char channel_name_normal[] = "BASIC";
+    static char channel_name_turbo[] = "TURBO";
     controller_power_channel_t active_power_channel = controller_power_channel_active_channel_name();
     if(active_power_channel == controller_power_channel_normal_name){
-        display_send_string("NORMAL:", 0, 3, font_big);
-        display_send_uint8(controller_power_channel_normal_value(), 13, 3, font_big);
+        display_send_string(channel_name_normal, 0, 3, font_big);
+        display_send_uint8(controller_power_channel_normal_value(), 14, 3, font_big);
         
-        display_send_string("TURBO: ", 0, 5, font_small);
-        display_send_uint8(controller_power_channel_turbo_value(), 13, 5, font_small);
+        display_send_string(channel_name_turbo, 0, 6, font_small);
+        display_send_uint8(controller_power_channel_turbo_value(), 14, 6, font_small);
     }else{
-        display_send_string("TURBO: ", 0, 3, font_big);
-        display_send_uint8(controller_power_channel_turbo_value(), 13, 3, font_big);
+        display_send_string(channel_name_turbo, 0, 3, font_big);
+        display_send_uint8(controller_power_channel_turbo_value(), 14, 3, font_big);
         
-        display_send_string("NORMAL:", 0, 5, font_small);
-        display_send_uint8(controller_power_channel_normal_value(), 13, 5, font_small);
+        display_send_string(channel_name_normal, 0, 6, font_small);
+        display_send_uint8(controller_power_channel_normal_value(), 14, 6, font_small);
     }
 
 }
@@ -77,8 +82,8 @@ void ui_screen_laps(void)
     display_send_string(time_str, 7, 3, font_small);
 
     // last lap
-    display_send_string("L.09)", 0, 3, font_small);
+    display_send_string("L.09)", 0, 5, font_small);
     chronometer_millis_to_time_string(chronometers.uptime->delta, time_str);
-    display_send_string(time_str, 7, 3, font_small);
+    display_send_string(time_str, 7, 5, font_small);
 
 }

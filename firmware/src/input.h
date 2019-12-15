@@ -10,6 +10,7 @@
 #define INPUT_H
 
 #include "io.h"
+#include "conf.h"
 
 typedef enum {
     sw0, sw1, sw2, sw3, sw4, sw5, sw6, sw7, sw8, sw9, input_length,

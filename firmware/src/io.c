@@ -116,17 +116,17 @@ void buzzer_init(void)
     };
     BUZZER_DDR = config.all;
 
-    buzzer_beep(buzzer_beep1);
-    _delay_ms(buzzer_beep4);
+    buzzer_beep(buzzer_beep2);
+    _delay_ms(buzzer_beep5);
 
-    buzzer_beep(buzzer_beep1);
-    _delay_ms(buzzer_beep4);
+    buzzer_beep(buzzer_beep2);
+    _delay_ms(buzzer_beep5);
 
-    buzzer_beep(buzzer_beep1);
-    _delay_ms(buzzer_beep4);
+    buzzer_beep(buzzer_beep2);
+    _delay_ms(buzzer_beep5);
     
-    buzzer_beep(buzzer_beep1);
-    _delay_ms(buzzer_beep4);
+    buzzer_beep(buzzer_beep2);
+    _delay_ms(buzzer_beep5);
 #endif 
 }
 

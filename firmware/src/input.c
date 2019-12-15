@@ -31,6 +31,9 @@ static void callback_caller(input_names_t input)
     if(input < input_length){
         if(callback_functions[input]){
             callback_functions[input](callback_arguments[input]);
+            #ifdef BUZZER_ON
+            buzzer_beep(buzzer_beep0);
+            #endif
         }
     }
 }

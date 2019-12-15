@@ -15,6 +15,7 @@
 #include "conf.h"
 #include "usart.h"
 #include "dbg_vrb.h"
+#include "io.h"
 
 volatile uint32_t chronometer_counter;
 #define TIME_STRING_LEN 13

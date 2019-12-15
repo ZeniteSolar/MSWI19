@@ -21,23 +21,46 @@ void controller_power_channel_change(controller_power_channel_t *channel)
     }else{
         active_power_channel = channel;
     }
+#ifdef BUZZER_ON
+    buzzer_beep(buzzer_beep1);
+#endif
 }
 
 void controller_power_channel_increase(controller_power_channel_t *channel)
 {
     if(channel == NULL){
-        if((*active_power_channel) != 100) (*active_power_channel)++;
+        if((*active_power_channel) != 100){
+            (*active_power_channel)++;
+#ifdef BUZZER_ON
+            buzzer_beep(buzzer_beep1);
+#endif
+        }
     }else{
-        if((*channel) != 100) (*channel)++;
+        if((*channel) != 100){
+            (*channel)++;
+#ifdef BUZZER_ON
+            buzzer_beep(buzzer_beep1);
+#endif
+        }
     }
 }
 
 void controller_power_channel_decrease(controller_power_channel_t *channel)
 {
     if(channel == NULL){
-        if((*active_power_channel) != 0) (*active_power_channel)--;
+        if((*active_power_channel) != 0){
+            (*active_power_channel)--;
+#ifdef BUZZER_ON
+            buzzer_beep(buzzer_beep1);
+#endif
+        }
     }else{
-        if((*channel) != 0) (*channel)--;
+        if((*channel) != 0){
+            (*channel)--;
+#ifdef BUZZER_ON
+            buzzer_beep(buzzer_beep1);
+#endif
+        }
     }
 }
 

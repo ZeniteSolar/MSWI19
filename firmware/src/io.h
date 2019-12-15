@@ -80,13 +80,13 @@ typedef union{
 
 typedef enum { buzzer_on, buzzer_off } buzzer_state_t;
 typedef enum { 
-    buzzer_beep0 = 5,
-    buzzer_beep1 = 10,
-    buzzer_beep2 = 25,
-    buzzer_beep3 = 50,
-    buzzer_beep4 = 100,
-    buzzer_beep5 = 200,
-    buzzer_beep6 = 500,
+    buzzer_beep0 = 0,
+    buzzer_beep1 = 1,
+    buzzer_beep2 = 10,
+    buzzer_beep3 = 25,
+    buzzer_beep4 = 50,
+    buzzer_beep5 = 100,
+    buzzer_beep6 = 200,
 } buzzer_beep_t;
 
 #define buzzer    	(*(volatile buzzer_t *)&PORTB)

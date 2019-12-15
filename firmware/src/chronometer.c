@@ -84,12 +84,24 @@ void chronometer_reset_all(chronometer_t *chronometer)
 {
     VERBOSE_MSG_CHRONOMETER(usart_send_string("chronometer reset all!\n\r"));
     chronometer->start = chronometer->delta = chronometer->finish = 0;
+
+    #ifdef BUZZER_ON
+    buzzer_beep(buzzer_beep2);
+    _delay_ms(buzzer_beep2);
+    buzzer_beep(buzzer_beep2);
+    #endif
 }
 
 void chronometer_reset_delta(chronometer_t *chronometer)
 {
     VERBOSE_MSG_CHRONOMETER(usart_send_string("chronometer reset delta!\n\r"));
     chronometer->delta = 0;
+
+    #ifdef BUZZER_ON
+    buzzer_beep(buzzer_beep2);
+    _delay_ms(buzzer_beep2);
+    buzzer_beep(buzzer_beep2);
+    #endif
 }
 
 void chronometer_start(chronometer_t *chronometer)
@@ -102,12 +114,26 @@ void chronometer_start(chronometer_t *chronometer)
     }else{
         chronometer->delta = chronometer->finish;
     }
+
+    #ifdef BUZZER_ON
+    buzzer_beep(buzzer_beep3);
+    _delay_ms(buzzer_beep4);
+    buzzer_beep(buzzer_beep3);
+    _delay_ms(buzzer_beep5);
+    buzzer_beep(buzzer_beep3);
+    #endif
 }
 
 void chronometer_pause(chronometer_t *chronometer)
 {
     VERBOSE_MSG_CHRONOMETER(usart_send_string("chronometer start!\n\r"));
     chronometer->config.status = chronometer_status_paused;
+
+    #ifdef BUZZER_ON
+    buzzer_beep(buzzer_beep2);
+    _delay_ms(buzzer_beep3);
+    buzzer_beep(buzzer_beep3);
+    #endif
 }
 
 void chronometer_finish(chronometer_t *chronometer)
@@ -115,6 +141,13 @@ void chronometer_finish(chronometer_t *chronometer)
     VERBOSE_MSG_CHRONOMETER(usart_send_string("chronometer finish!\n\r"));
     chronometer->finish = chronometer_counter;
     chronometer->config.status = chronometer_status_finished;
+
+    #ifdef BUZZER_ON
+    buzzer_beep(buzzer_beep5);
+    buzzer_beep(buzzer_beep5);
+    buzzer_beep(buzzer_beep5);
+    buzzer_beep(buzzer_beep5);
+    #endif
 }
 
 // TODO: implement and test all configs

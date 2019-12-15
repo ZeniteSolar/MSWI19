@@ -10,6 +10,8 @@
 
 #include <stddef.h>
 #include <inttypes.h>
+#include "conf.h"
+#include "io.h"
 
 #define INITIAL_TURBO_VALUE 100
 typedef uint8_t controller_power_channel_t;
