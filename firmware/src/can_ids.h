@@ -40,7 +40,7 @@
 #define CAN_SIGNATURE_MT19              255
 
 
-#define CAN_SIGNATURE_SELF              CAN_SIGNATURE_MAD17
+#define CAN_SIGNATURE_SELF              CAN_SIGNATURE_MIC17
 
 //------------------------------------------------------------------------------
 
