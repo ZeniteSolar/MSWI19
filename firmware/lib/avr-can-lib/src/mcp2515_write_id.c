@@ -47,15 +47,15 @@ static uint8_t spi_wait(void) {
 #else
 
 static void spi_start(uint8_t data) {
-	SPDR = data;
+	SPDR0 = data;
 }
 
 static uint8_t spi_wait(void) {
 	// warten bis der vorherige Werte geschrieben wurde
-	while(!(SPSR & (1<<SPIF)))
+	while(!(SPSR0 & (1<<SPIF)))
 		;
 	
-	return SPDR;
+	return SPDR0;
 }
 
 #endif

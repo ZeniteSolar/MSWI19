@@ -72,15 +72,15 @@ extern __attribute__ ((gnu_inline)) inline uint8_t spi_wait(void) {
 #else
 
 extern __attribute__ ((gnu_inline)) inline void spi_start(uint8_t data) {
-	SPDR = data;
+	SPDR0 = data;
 }
 
 extern __attribute__ ((gnu_inline)) inline uint8_t spi_wait(void) {
 	// warten bis der vorherige Werte geschrieben wurde
-	while(!(SPSR & (1<<SPIF)))
+	while(!(SPSR0 & (1<<SPIF)))
 		;
 	
-	return SPDR;
+	return SPDR0;
 }
 
 #endif
