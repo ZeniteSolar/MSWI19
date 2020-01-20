@@ -79,8 +79,8 @@ inline void can_app_send_motor(void)
 {
     
     can_t msg;
-    msg.id                                      = CAN_MSG_MIC19_MOTOR;
-    msg.length                                  = CAN_LENGTH_MSG_MIC19_MOTOR;
+    msg.id                                      = CAN_MSG_MIC19_MOTOR_ID;
+    msg.length                                  = CAN_MSG_MIC19_MOTOR_LENGTH;
     msg.flags.rtr = 0;
 
     msg.data[CAN_SIGNATURE_BYTE]                = CAN_SIGNATURE_SELF;
@@ -94,12 +94,12 @@ inline void can_app_send_motor(void)
         motor_d_raw = controller_power_channel_turbo_value();
     }
 
-    msg.data[CAN_MSG_MIC19_MOTOR_D_RAW_BYTE]    = motor_d_raw;
+    msg.data[CAN_MSG_MIC19_MOTOR_D_BYTE]    = motor_d_raw;
 
     /********* TESTE COM O MAM ACIONADO CONSTANTEMENTE **********/
-    msg.data[CAN_MSG_MIC19_MOTOR_I_RAW_BYTE]    = 10;
-    msg.data[CAN_MSG_MIC19_MOTOR_MOTOR_ON_BYTE] |= (1 << CAN_MSG_MIC19_MOTOR_MOTOR_ON_BIT);
-    msg.data[CAN_MSG_MIC19_MOTOR_DMS_BYTE]      |= (1 << CAN_MSG_MIC19_MOTOR_DMS_BIT);
+    msg.data[CAN_MSG_MIC19_MOTOR_I_BYTE]    = 10;
+    msg.data[CAN_MSG_MIC19_MOTOR_MOTOR_BYTE] |= (1 << CAN_MSG_MIC19_MOTOR_MOTOR_MOTOR_ON_BIT);
+    msg.data[CAN_MSG_MIC19_MOTOR_MOTOR_BYTE]      |= (1 << CAN_MSG_MIC19_MOTOR_MOTOR_DMS_ON_BIT);
     /************************************************************/
 
     can_send_message(&msg);
@@ -111,8 +111,8 @@ inline void can_app_send_mcs(void)
 {
     can_t msg;
 
-    msg.id                                  = CAN_MSG_MIC19_MCS;
-    msg.length                              = CAN_LENGHT_MSG_MIC19_MCS;
+    msg.id                                  = CAN_MSG_MIC19_MCS_ID;
+    msg.length                              = CAN_MSG_MIC19_MCS_LENGTH;
 
     for(uint8_t i = msg.length; i; i--)     msg.data[i-1] = 0;
 
