@@ -64,12 +64,12 @@ inline void can_app_send_state(void)
 {
     can_t msg;
     msg.id                                  = CAN_MSG_MIC19_STATE_ID;
-    msg.length                              = CAN_LENGTH_MSG_STATE;
+    msg.length                              = CAN_MSG_GENERIC_STATE_LENGTH;
     msg.flags.rtr = 0;
 
-    msg.data[CAN_SIGNATURE_BYTE]            = CAN_SIGNATURE_SELF;
-    msg.data[CAN_STATE_MSG_STATE_BYTE]      = (uint8_t) state_machine;
-    msg.data[CAN_STATE_MSG_ERROR_BYTE]      = error_flags.all;
+    msg.data[CAN_MSG_GENERIC_STATE_SIGNATURE_BYTE]            = CAN_SIGNATURE_SELF;
+    msg.data[CAN_MSG_GENERIC_STATE_STATE_BYTE]      = (uint8_t) state_machine;
+    msg.data[CAN_MSG_GENERIC_STATE_ERROR_BYTE]      = error_flags.all;
 
     can_send_message(&msg);
     VERBOSE_MSG_CAN_APP(can_app_print_msg(&msg));
@@ -83,7 +83,7 @@ inline void can_app_send_motor(void)
     msg.length                                  = CAN_MSG_MIC19_MOTOR_LENGTH;
     msg.flags.rtr = 0;
 
-    msg.data[CAN_SIGNATURE_BYTE]                = CAN_SIGNATURE_SELF;
+    msg.data[CAN_MSG_GENERIC_STATE_SIGNATURE_BYTE]                = CAN_SIGNATURE_SELF;
 
     controller_power_channel_t active_power_channel = controller_power_channel_active_channel_name();
     uint8_t motor_d_raw;
@@ -116,7 +116,7 @@ inline void can_app_send_mcs(void)
 
     for(uint8_t i = msg.length; i; i--)     msg.data[i-1] = 0;
 
-    msg.data[CAN_SIGNATURE_BYTE]            = CAN_SIGNATURE_SELF;
+    msg.data[CAN_MSG_GENERIC_STATE_SIGNATURE_BYTE]            = CAN_SIGNATURE_SELF;
     msg.data[CAN_MSG_MIC19_MCS_BOAT_ON_BYTE] = 0xFF; 
 
     can_send_message(&msg); 
@@ -131,7 +131,7 @@ inline void can_app_msg_extractors_switch(can_t *msg)
 {
 
     #ifdef CAN_DEPENDENT
-    if(msg->data[CAN_SIGNATURE_BYTE] == CAN_SIGNATURE_MIC19)
+    if(msg->data[CAN_MSG_GENERIC_STATE_SIGNATURE_BYTE] == CAN_SIGNATURE_MIC19)
     {
         can_app_checks_without_mic17_msg = 0;
     }
