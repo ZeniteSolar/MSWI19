@@ -68,17 +68,17 @@
 const uint8_t can_filter[] PROGMEM =
 {
     // Group 0
-    MCP2515_FILTER(CAN_MSG_MSC19_STATE_ID), // Filter 0
-    MCP2515_FILTER(CAN_MSG_MSC19_ADC),   // Filter 1
+    MCP2515_FILTER(CAN_MSG_MSC19_1_STATE_ID), // Filter 0
+    MCP2515_FILTER(CAN_MSG_MSC19_1_ADC_ID),   // Filter 1
 
     // Group 1
-    MCP2515_FILTER(CAN_MSG_MSC19_ADC), // Filter 0
-    MCP2515_FILTER(CAN_MSG_MSC19_STATE_ID), // Filter 0
-    MCP2515_FILTER(CAN_MSG_MSC19_ADC),  // Filter 1
-    MCP2515_FILTER(CAN_MSG_MSC19_STATE_ID),    // Filter 1
+    MCP2515_FILTER(CAN_MSG_MSC19_1_ADC_ID), // Filter 0
+    MCP2515_FILTER(CAN_MSG_MSC19_1_STATE_ID), // Filter 0
+    MCP2515_FILTER(CAN_MSG_MSC19_1_ADC_ID),  // Filter 1
+    MCP2515_FILTER(CAN_MSG_MSC19_1_STATE_ID),    // Filter 1
 
-    MCP2515_FILTER(CAN_MASK_MSC19),             // Mask 0 (for group 0)
-    MCP2515_FILTER(CAN_MASK_MSC19),             // Mask 1 (for group 1)
+    MCP2515_FILTER(0b11111111111),             // Mask 0 (for group 0)
+    MCP2515_FILTER(0b11111111111),             // Mask 1 (for group 1)
 };
 // You can receive 11 bit identifiers with either group 0 or 1.
 

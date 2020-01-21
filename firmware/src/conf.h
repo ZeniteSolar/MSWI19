@@ -43,6 +43,8 @@
 #define BUZZER_ON
 #define INPUT_ON
 
+#define CAN_SIGNATURE_SELF          CAN_SIGNATURE_MSWI19
+
 #ifdef ADC_ON
 // ADC CONFIGURATION
 // note that changing ADC_FREQUENCY may cause problems with avg_sum_samples
