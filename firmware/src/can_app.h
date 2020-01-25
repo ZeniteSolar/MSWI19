@@ -42,7 +42,7 @@ void check_can(void);
 #define CAN_APP_CHECKS_WITHOUT_MIC19_MSG  200
 
 // can_app_checks
-uint8_t can_app_checks_without_mic17_msg;
+uint8_t can_app_checks_without_mswi19_msg;
 uint8_t can_app_send_state_clk_div;
 uint8_t can_app_send_motor_clk_div;
 

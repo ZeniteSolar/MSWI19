@@ -63,7 +63,7 @@ inline void can_app_task(void)
 inline void can_app_send_state(void)
 {
     can_t msg;
-    msg.id                                  = CAN_MSG_MIC19_STATE_ID;
+    msg.id                                  = CAN_MSG_MSWI19_STATE_ID;
     msg.length                              = CAN_MSG_GENERIC_STATE_LENGTH;
     msg.flags.rtr = 0;
 
@@ -79,8 +79,8 @@ inline void can_app_send_motor(void)
 {
     
     can_t msg;
-    msg.id                                      = CAN_MSG_MIC19_MOTOR_ID;
-    msg.length                                  = CAN_MSG_MIC19_MOTOR_LENGTH;
+    msg.id                                      = CAN_MSG_MSWI19_MOTOR_ID;
+    msg.length                                  = CAN_MSG_MSWI19_MOTOR_LENGTH;
     msg.flags.rtr = 0;
 
     msg.data[CAN_MSG_GENERIC_STATE_SIGNATURE_BYTE]                = CAN_SIGNATURE_SELF;
@@ -94,12 +94,12 @@ inline void can_app_send_motor(void)
         motor_d_raw = controller_power_channel_turbo_value();
     }
 
-    msg.data[CAN_MSG_MIC19_MOTOR_D_BYTE]    = motor_d_raw;
+    msg.data[CAN_MSG_MSWI19_MOTOR_D_BYTE]    = motor_d_raw;
 
     /********* TESTE COM O MAM ACIONADO CONSTANTEMENTE **********/
-    msg.data[CAN_MSG_MIC19_MOTOR_I_BYTE]    = 10;
-    msg.data[CAN_MSG_MIC19_MOTOR_MOTOR_BYTE] |= (1 << CAN_MSG_MIC19_MOTOR_MOTOR_MOTOR_ON_BIT);
-    msg.data[CAN_MSG_MIC19_MOTOR_MOTOR_BYTE]      |= (1 << CAN_MSG_MIC19_MOTOR_MOTOR_DMS_ON_BIT);
+    msg.data[CAN_MSG_MSWI19_MOTOR_I_BYTE]    = 10;
+    msg.data[CAN_MSG_MSWI19_MOTOR_MOTOR_BYTE] |= (1 << CAN_MSG_MSWI19_MOTOR_MOTOR_MOTOR_ON_BIT);
+    msg.data[CAN_MSG_MSWI19_MOTOR_MOTOR_BYTE]      |= (1 << CAN_MSG_MSWI19_MOTOR_MOTOR_DMS_ON_BIT);
     /************************************************************/
 
     can_send_message(&msg);
@@ -111,13 +111,13 @@ inline void can_app_send_mcs(void)
 {
     can_t msg;
 
-    msg.id                                  = CAN_MSG_MIC19_MCS_ID;
-    msg.length                              = CAN_MSG_MIC19_MCS_LENGTH;
+    msg.id                                  = CAN_MSG_MSWI19_MCS_ID;
+    msg.length                              = CAN_MSG_MSWI19_MCS_LENGTH;
 
     for(uint8_t i = msg.length; i; i--)     msg.data[i-1] = 0;
 
     msg.data[CAN_MSG_GENERIC_STATE_SIGNATURE_BYTE]            = CAN_SIGNATURE_SELF;
-    msg.data[CAN_MSG_MIC19_MCS_BOAT_ON_BYTE] = 0xFF; 
+    msg.data[CAN_MSG_MSWI19_MCS_BOAT_ON_BYTE] = 0xFF; 
 
     can_send_message(&msg); 
     VERBOSE_MSG_CAN_APP(can_app_print_msg(&msg));
@@ -131,9 +131,9 @@ inline void can_app_msg_extractors_switch(can_t *msg)
 {
 
     #ifdef CAN_DEPENDENT
-    if(msg->data[CAN_MSG_GENERIC_STATE_SIGNATURE_BYTE] == CAN_SIGNATURE_MIC19)
+    if(msg->data[CAN_MSG_GENERIC_STATE_SIGNATURE_BYTE] == CAN_SIGNATURE_MSWI19)
     {
-        can_app_checks_without_mic17_msg = 0;
+        can_app_checks_without_mswi19_msg = 0;
     }
     #endif
 }
@@ -145,11 +145,11 @@ inline void check_can(void)
 {
     
 #ifdef CAN_DEPENDENT
-      if(can_app_checks_without_mic17_msg++ >= CAN_APP_CHECKS_WITHOUT_MIC19_MSG){
+      if(can_app_checks_without_mswi19_msg++ >= CAN_APP_CHECKS_WITHOUT_MSWI19_MSG){
 #ifdef USART_ON
         VERBOSE_MSG_CAN_APP(usart_send_string("Error: too many cycles without message.\n"));
 #endif
-        can_app_checks_without_mic17_msg = 0;
+        can_app_checks_without_mswi19_msg = 0;
         error_flags.no_canbus = 1;
         set_state_error();
       }
