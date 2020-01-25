@@ -32,6 +32,7 @@
 #ifndef	SPI_H
 #define	SPI_H
 
+#define USE_SOFTWARE_SPI
 #include "can_private.h"
 
 // ----------------------------------------------------------------------------

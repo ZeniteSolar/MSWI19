@@ -4,11 +4,12 @@
 
 void init(void)
 {
-    _delay_ms(200);
-    
     #ifdef SPI_ON
         //spi slave-select as output to atmega work as the spi master
-        set_bit(DDRB, PB1);     
+       // set_bit(DDRB, PB1);
+        set_bit(DDRB, PB2);     
+        set_bit(DDRE, PE2);
+
     #endif
 
     #ifdef USART_ON
