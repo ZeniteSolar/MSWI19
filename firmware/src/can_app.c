@@ -94,7 +94,7 @@ inline void can_app_send_motor(void)
         motor_d_raw = controller_power_channel_turbo_value();
     }
 
-    msg.data[CAN_MSG_MSWI19_MOTOR_D_BYTE]    = motor_d_raw;
+    msg.data[CAN_MSG_MSWI19_MOTOR_D_BYTE]    = motor_d_raw * 255 / 100;
 
     /********* TESTE COM O MAM ACIONADO CONSTANTEMENTE **********/
     msg.data[CAN_MSG_MSWI19_MOTOR_I_BYTE]    = 10;
