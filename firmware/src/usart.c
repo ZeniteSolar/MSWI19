@@ -265,5 +265,8 @@ void usart_send_float(float num)
     dtostrf(num, LEN, PREC, str);
 
     usart_send_string(str);
+    
+    #undef LEN
+    #undef PREC
 }
 
