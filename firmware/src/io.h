@@ -52,7 +52,7 @@ typedef union{
 #define SW_PORT	(((PORTD) << 8) | (PORTC))
 #define SW_DDR 	(((DDRD) << 8) | (DDRC))
 
-switches_t switches;
+extern switches_t switches;
 
 typedef union{
     struct{

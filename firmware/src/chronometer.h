@@ -17,7 +17,7 @@
 #include "dbg_vrb.h"
 #include "io.h"
 
-volatile uint32_t chronometer_counter;
+extern volatile uint32_t chronometer_counter;
 #define TIME_STRING_LEN 13
 
 typedef enum{
@@ -72,7 +72,7 @@ typedef struct{
     chronometer_t *current_lap;
     chronometer_t *last_lap;
 } chronometers_t;
-chronometers_t chronometers;
+extern chronometers_t chronometers;
 
 typedef struct{
     uint8_t laps_counter;

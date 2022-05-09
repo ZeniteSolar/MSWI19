@@ -1,5 +1,8 @@
 #include "chronometer.h"
 
+volatile uint32_t chronometer_counter;
+chronometers_t chronometers;
+
 #define NUMBER_OF_CHRONOMETERS  3
 static chronometer_t __chronometers[NUMBER_OF_CHRONOMETERS];
 

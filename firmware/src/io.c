@@ -1,6 +1,8 @@
 #include "io.h"
 #include "conf.h"
 
+switches_t switches;
+
 void leds_init(void)
 {
 #ifdef IO_ON

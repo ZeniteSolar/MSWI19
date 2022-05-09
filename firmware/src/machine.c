@@ -1,5 +1,21 @@
 #include "machine.h"
 
+// machine variables
+volatile state_machine_t state_machine;
+volatile system_flags_t system_flags;
+volatile error_flags_t error_flags;
+
+volatile uint8_t machine_clk;
+volatile uint8_t machine_clk_divider;
+volatile uint8_t total_errors;           // Contagem de ERROS
+
+// other variables
+volatile uint8_t led_clk_div;
+volatile uint8_t ui_clk_div;
+volatile uint8_t ui_clk_div_2;
+volatile uint16_t ui_timeout_clk_div;
+
+
 /**
  * @brief
  */
